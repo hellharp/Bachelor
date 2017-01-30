@@ -1,4 +1,0 @@
-Databar_skanner.Droid.MainActivity, Databar_skanner.Droid;md50899fc22936893cc74461fa63570acde.MainActivity
-Databar_skanner.Droid.MainActivity, Databar_skanner.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md50899fc22936893cc74461fa63570acde.MainActivity
-Databar_skanner.Droid.MainActivity;md50899fc22936893cc74461fa63570acde.MainActivity
-databar_skanner.droid.MainActivity;md50899fc22936893cc74461fa63570acde.MainActivity
