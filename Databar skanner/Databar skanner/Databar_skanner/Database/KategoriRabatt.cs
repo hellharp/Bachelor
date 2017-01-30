@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLiteNetExtensions.Attributes;
 
 namespace Databar_skanner.Database
 {
-    class Rabatt
+    [Table("KategoriRabatt")]
+    class KategoriRabatt
     {
         [PrimaryKey]
-        public int Kategori { get; set; }
+        public string Kategori { get; set; }
+
         public double ToDagerRabatt { get; set; }
+
         public double EnDagRabatt { get; set; }
     }
 }
