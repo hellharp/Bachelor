@@ -1,0 +1,2 @@
+android.app.Application
+Databar_skanner.Droid
