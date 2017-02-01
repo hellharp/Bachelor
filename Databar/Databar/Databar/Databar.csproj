@@ -41,6 +41,8 @@
     <Compile Include="Data\AI_db.cs" />
     <Compile Include="Data\Kategori_db.cs" />
     <Compile Include="Data\Produkt_db.cs" />
+    <Compile Include="dbTestOpprett.cs" />
+    <Compile Include="IFileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
