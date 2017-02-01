@@ -22,6 +22,6 @@ namespace Databar_skanner.Models
         [PrimaryKey]
         public int AInumber { get; set; }
 
-        public int AIdescription { get; set; }
+        public string AIdescription { get; set; }
     }
 }

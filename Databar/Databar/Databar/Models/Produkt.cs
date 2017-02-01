@@ -15,7 +15,7 @@ namespace Databar_skanner.Models
         public int ID { get; set; }
 
         [MaxLength(14)]
-        public int GTIN { get; set; }
+        public long GTIN { get; set; }
 
         [ForeignKey(typeof(KategoriRabatt))]
         public string Kategori { get; set; }
