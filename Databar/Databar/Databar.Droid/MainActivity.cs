@@ -14,6 +14,8 @@ namespace Databar.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            //ZXing.Net.Mobile.Forms.Android.Platform.Init();
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
