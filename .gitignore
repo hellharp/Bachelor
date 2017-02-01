@@ -35,6 +35,7 @@ bld/
 
 # NUNIT
 *.VisualState.xml
+*.cache
 TestResult.xml
 
 # Build Results of an ATL Project
