@@ -3,17 +3,17 @@
   <AndroidApiLevel>23</AndroidApiLevel>
   <AndroidApiLevelName>23</AndroidApiLevelName>
   <AndroidNdkPath>C:\Program Files\Android\ndk\android-ndk-r13b</AndroidNdkPath>
-  <AndroidSdkBuildToolsPath>G:\Programs\AndroidSDK\build-tools\25.0.1</AndroidSdkBuildToolsPath>
-  <AndroidSdkBuildToolsBinPath>G:\Programs\AndroidSDK\build-tools\25.0.1</AndroidSdkBuildToolsBinPath>
-  <AndroidSdkPath>G:\Programs\AndroidSDK</AndroidSdkPath>
-  <JavaSdkPath>C:\Program Files (x86)\Java\jdk1.8.0_101</JavaSdkPath>
+  <AndroidSdkBuildToolsPath>C:\Users\OddMagnus\AppData\Local\Xamarin\MonoForAndroid\AndroidSDK\build-tools\25.0.1</AndroidSdkBuildToolsPath>
+  <AndroidSdkBuildToolsBinPath>C:\Users\OddMagnus\AppData\Local\Xamarin\MonoForAndroid\AndroidSDK\build-tools\25.0.1</AndroidSdkBuildToolsBinPath>
+  <AndroidSdkPath>C:\Users\OddMagnus\AppData\Local\Xamarin\MonoForAndroid\AndroidSDK</AndroidSdkPath>
+  <JavaSdkPath>C:\PROGRA~1\Java\JDK18~1.0_6</JavaSdkPath>
   <MonoAndroidBinPath>C:\Program Files (x86)\MSBuild\Xamarin\Android</MonoAndroidBinPath>
   <MonoAndroidToolsPath>C:\Program Files (x86)\MSBuild\Xamarin\Android</MonoAndroidToolsPath>
   <ReferenceAssemblyPaths>
     <ReferenceAssemblyPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\MonoAndroid\v1.0\</ReferenceAssemblyPath>
   </ReferenceAssemblyPaths>
   <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
-  <ZipAlignPath>G:\Programs\AndroidSDK\build-tools\25.0.1</ZipAlignPath>
+  <ZipAlignPath>C:\Users\OddMagnus\AppData\Local\Xamarin\MonoForAndroid\AndroidSDK\build-tools\25.0.1</ZipAlignPath>
   <MonoAndroidIncludePath />
   <SupportedApiLevel>23</SupportedApiLevel>
   <AndroidSequencePointsMode>None</AndroidSequencePointsMode>
