@@ -35,7 +35,7 @@ bld/
 
 # NUNIT
 *.VisualState.xml
-*.cache
+
 TestResult.xml
 
 # Build Results of an ATL Project
@@ -93,6 +93,7 @@ ipch/
 *.vsp
 *.vspx
 *.sap
+*.suo
 
 # TFS 2012 Local Workspace
 $tf/
