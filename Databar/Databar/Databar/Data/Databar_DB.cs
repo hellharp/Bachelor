@@ -14,12 +14,12 @@ namespace Databar.Data
 
         public Databar_DB(string dbPath)
         {
-            // DB connection
+            // DB connection. SQLiteConnection oppretter DB dersom den ikke finnes.
             database = new SQLiteAsyncConnection(dbPath);
-            // Tabeller
+            // Tabeller. CreateTable oppretter tabeller dersom de ikke finnes.
             database.CreateTableAsync<AI>().Wait();
-            database.CreateTableAsync<KategoriRabatt>().Wait();
-            database.CreateTableAsync<Produkt>().Wait();
+            database.CreateTableAsync<CategoryRebate>().Wait();
+            database.CreateTableAsync<Product>().Wait();
 
             // Opprett testtabeller
             AI gtin = new AI();
@@ -27,41 +27,41 @@ namespace Databar.Data
             gtin.AIdescription = "Global Trade Identification Number";
             database.InsertAsync(gtin);
 
-            KategoriRabatt melk = new KategoriRabatt();
-            melk.Kategori = "Melk";
-            melk.ToDagerRabatt = 0.10;
-            melk.EnDagRabatt = 0.20;
-            melk.SisteDagRabatt = 0.50;
+            CategoryRebate melk = new CategoryRebate();
+            melk.Category = "Melk";
+            melk.TwoDaysRebate = 0.10;
+            melk.OneDayRebate = 0.20;
+            melk.LastDayRebate = 0.50;
             database.InsertAsync(melk);
 
-            Produkt prod = new Produkt();
+            Product prod = new Product();
             prod.GTIN = 12345678901234;
-            prod.Produktnavn = "Tine Ekstra Lett 1 liter";
-            prod.Kategori = GetCategoriesAsync("Melk").ToString();
-            prod.UtlopsDato = new DateTime(170612); // yymmdd
+            prod.ProductName = "Tine Ekstra Lett 1 liter";
+            prod.Category = GetCategoriesAsync("Melk").ToString();
+            prod.BestBeforeDate = new DateTime(170612); // yymmdd
         }
 
-        // Alle produkter
-        public Task<List<Produkt>> GetProductsAsync()
+        // Alle Producter
+        public Task<List<Product>> GetProductsAsync()
         {
-            return database.Table<Produkt>().ToListAsync();
+            return database.Table<Product>().ToListAsync();
         }
 
-        // Spesifikt produkt med id
-        public Task<Produkt> GetProductsAsync(int id)
+        // Spesifikt Product med id
+        public Task<Product> GetProductsAsync(int id)
         {
-            return database.Table<Produkt>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return database.Table<Product>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
 
-        // Kategorier
-        public Task<List<KategoriRabatt>> GetCategoriesAsync()
+        // Categoryer
+        public Task<List<CategoryRebate>> GetCategoriesAsync()
         {
-            return database.Table<KategoriRabatt>().ToListAsync();
+            return database.Table<CategoryRebate>().ToListAsync();
         }
-        // Spesifikt kategori med kategorinavn
-        public Task<KategoriRabatt> GetCategoriesAsync(string kat)
+        // Spesifikt Category med Categorynavn
+        public Task<CategoryRebate> GetCategoriesAsync(string kat)
         {
-            return database.Table<KategoriRabatt>().Where(i => i.Kategori == kat).FirstOrDefaultAsync();
+            return database.Table<CategoryRebate>().Where(i => i.Category == kat).FirstOrDefaultAsync();
         }
 
         //Lagre
@@ -77,7 +77,7 @@ namespace Databar.Data
             }
         }
 
-        public Task<int> SaveItemAsync(Produkt gtin)
+        public Task<int> SaveItemAsync(Product gtin)
         {
             if (gtin.GTIN != 0)
             {
@@ -89,9 +89,9 @@ namespace Databar.Data
             }
         }
 
-        public Task<int> SaveItemAsync(KategoriRabatt kr)
+        public Task<int> SaveItemAsync(CategoryRebate kr)
         {
-            if (kr.Kategori != "")
+            if (kr.Category != "")
             {
                 return database.UpdateAsync(kr);
             }
@@ -106,11 +106,11 @@ namespace Databar.Data
         {
             return database.DeleteAsync(identifikator);
         }
-        public Task<int> DeleteItemAsync(Produkt prod)
+        public Task<int> DeleteItemAsync(Product prod)
         {
             return database.DeleteAsync(prod);
         }
-        public Task<int> DeleteItemAsync(KategoriRabatt kr)
+        public Task<int> DeleteItemAsync(CategoryRebate kr)
         {
             return database.DeleteAsync(kr);
         }

@@ -8,8 +8,8 @@ using SQLiteNetExtensions.Attributes;
 
 namespace Databar_skanner.Models
 {
-    [Table("Produkt")]
-    public class Produkt
+    [Table("Product")]
+    public class Product
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
@@ -17,12 +17,12 @@ namespace Databar_skanner.Models
         [MaxLength(14)]
         public long GTIN { get; set; }
 
-        [ForeignKey(typeof(KategoriRabatt))]
-        public string Kategori { get; set; }
+        [ForeignKey(typeof(CategoryRebate))]
+        public string Category { get; set; }
 
-        public string Produktnavn { get; set; }
+        public string ProductName { get; set; }
 
         // Utløpsdato dekker best før/siste forbruksdato
-        public DateTime UtlopsDato { get; set; }
+        public DateTime BestBeforeDate { get; set; }
     }
 }

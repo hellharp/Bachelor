@@ -8,22 +8,22 @@ using SQLiteNetExtensions.Attributes;
 
 namespace Databar_skanner.Models
 {
-    [Table("KategoriRabatt")]
-    public class KategoriRabatt
+    [Table("CategoryRebate")]
+    public class CategoryRebate
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
 
         [PrimaryKey]
-        public string Kategori { get; set; }
+        public string Category { get; set; }
 
         // To dager før utløpsdato
-        public double ToDagerRabatt { get; set; }
+        public double TwoDaysRebate { get; set; }
 
         // En dag før utløpsdato
-        public double EnDagRabatt { get; set; }
+        public double OneDayRebate { get; set; }
 
         // På utløpsdatoen
-        public double SisteDagRabatt { get; set; }
+        public double LastDayRebate { get; set; }
     }
 }
