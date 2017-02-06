@@ -40,8 +40,8 @@
     </Compile>
     <Compile Include="Data\AI_db.cs" />
     <Compile Include="Data\Databar_DB.cs" />
-    <Compile Include="Data\Kategori_db.cs" />
-    <Compile Include="Data\Produkt_db.cs" />
+    <Compile Include="Data\Category_db.cs" />
+    <Compile Include="Data\Product_db.cs" />
     <Compile Include="dbTestOpprett.cs" />
     <Compile Include="IFileHelper.cs" />
     <Compile Include="MainPage.xaml.cs">
