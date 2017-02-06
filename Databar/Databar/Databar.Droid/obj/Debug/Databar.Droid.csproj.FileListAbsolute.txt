@@ -151,4 +151,3 @@ C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\and
 C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
 C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\Databar.Droid.dll.mdb
-C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\bin\Debug\Databar.Droid.dll.mdb
