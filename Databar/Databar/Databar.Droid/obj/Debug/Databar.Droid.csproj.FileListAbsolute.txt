@@ -236,5 +236,7 @@ C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Forms.Core.dll.mdb
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Forms.Platform.Android.dll.mdb
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Forms.Xaml.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\bin\Debug\SQLite.Net.dll
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\bin\Debug\SQLite.Net.Platform.XamarinAndroid.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\Databar.Droid.dll.mdb
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\bin\Debug\Databar.Droid.dll.mdb

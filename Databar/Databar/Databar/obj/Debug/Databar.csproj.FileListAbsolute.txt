@@ -89,3 +89,5 @@ C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Datab
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.mdb
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll.mdb
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.mdb

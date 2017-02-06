@@ -1,6 +1,8 @@
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Databar.Droid.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Databar.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\FormsViewGroup.dll
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\SQLite.Net.dll
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\SQLite.Net.Platform.XamarinAndroid.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Animated.Vector.Drawable.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Android.Support.Design.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Xamarin.Android.Support.v4.dll
@@ -37,8 +39,6 @@ C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Globalization.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Threading.Tasks.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\SQLiteNetExtensions.dll
-C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\SQLite.Net.dll
-C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Text.Encoding.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.ObjectModel.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Newtonsoft.Json.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.IO.dll
@@ -49,6 +49,7 @@ C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Dynamic.Runtime.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Text.RegularExpressions.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Xml.ReaderWriter.dll
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Text.Encoding.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\System.Text.Encoding.Extensions.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Microsoft.CSharp.dll
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar.Droid\obj\Debug\android\assets\Mono.CSharp.dll
