@@ -6,27 +6,27 @@ using SQLiteNetExtensions;
 
 namespace Databar.Data
 {
-    public class Kategori_db
+    public class Category_db
     {
         readonly SQLiteAsyncConnection database;
 
-        public Kategori_db(string dbPath)
+        public Category_db(string dbPath)
         {
             database = new SQLiteAsyncConnection(dbPath);
-            database.CreateTableAsync<KategoriRabatt>().Wait();
+            database.CreateTableAsync<CategoryRebate>().Wait();
         }
 
-        public Task<List<KategoriRabatt>> GetItemsAsync()
+        public Task<List<CategoryRebate>> GetItemsAsync()
         {
-            return database.Table<KategoriRabatt>().ToListAsync();
+            return database.Table<CategoryRebate>().ToListAsync();
         }
 
-        public Task<KategoriRabatt> GetItemAsync(int id)
+        public Task<CategoryRebate> GetItemAsync(int id)
         {
-            return database.Table<KategoriRabatt>().Where(i => i.ID == id).FirstOrDefaultAsync();
+            return database.Table<CategoryRebate>().Where(i => i.ID == id).FirstOrDefaultAsync();
         }
 
-        public Task<int> SaveItemAsync(KategoriRabatt id)
+        public Task<int> SaveItemAsync(CategoryRebate id)
         {
             if (id.ID != 0)
             {
@@ -38,7 +38,7 @@ namespace Databar.Data
             }
         }
 
-        public Task<int> DeleteItemAsync(KategoriRabatt id)
+        public Task<int> DeleteItemAsync(CategoryRebate id)
         {
             return database.DeleteAsync(id);
         }
