@@ -15,7 +15,6 @@ C:\Users\easte\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.d
 C:\Users\easte\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.pdb
 C:\Users\easte\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll.mdb
 C:\Users\easte\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.mdb
-C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.csprojResolveAssemblyReference.cache
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.MainPage.xaml.g.cs
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.App.xaml.g.cs
 C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll
@@ -75,3 +74,10 @@ C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.M
 C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.App.xaml.g.cs
 C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll
 C:\Users\Vidar\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.pdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.config
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\obj\Debug\Databar.dll.mdb
+C:\Users\OddMagnus\Source\Repos\Bachelor\Databar\Databar\Databar\bin\Debug\Databar.dll.mdb
