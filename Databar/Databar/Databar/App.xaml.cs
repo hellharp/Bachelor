@@ -13,7 +13,8 @@ namespace Databar
         {
             InitializeComponent();
 
-            MainPage = new Databar.MainPage();
+            //Velger hvilken xaml som først starter. I dette tilfellet BasisUI.xaml
+            MainPage = new Databar.BasisUI();
         }
 
         protected override void OnStart()

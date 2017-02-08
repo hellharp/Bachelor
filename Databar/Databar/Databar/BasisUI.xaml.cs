@@ -1,17 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ZXing.Mobile;
+
+using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace Databar
 {
-    public class ZXingTest
+    public partial class BasisUI : ContentPage
     {
-        public async void test()
+        public BasisUI()
         {
-            var scanner = new ZXing.Mobile.MobileBarcodeScanner();
+            InitializeComponent();
+        }
+
+        async void StartZXing(object sender, EventArgs e)
+        {
+            var scanner = new MobileBarcodeScanner();
 
             var result = await scanner.Scan();
 
@@ -19,6 +27,7 @@ namespace Databar
             {
                 Debug.WriteLine("Scanned Barcode: " + result.Text);
             }
+
         }
-    };
+    }
 }
