@@ -17,14 +17,18 @@ namespace Databar.Droid
         {
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-            base.OnCreate(bundle);
+       
           
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+          
 
             //Initialiserer ZXing
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             ZXing.Mobile.MobileBarcodeScanner.Initialize(Application);
+
+
+            base.OnCreate(bundle);
+            LoadApplication(new App());
         }
 
         //ZXing
