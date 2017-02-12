@@ -15,9 +15,12 @@
                HorizontalOptions="FillAndExpand"
                Orientation="Vertical"
                Spacing="20">
-    
-    <Label Text="Her skal strekkoden komme!"/>
 
+    <!--   <Label Text="Her skal strekkoden komme!" x:Name:"resultat"/>-->
+
+    <Label x:Name="resultat"
+           Text="Her skal strekkoden komme!" />
+ 
     <Button Text="Start ZXing" Clicked="StartZXing"/>
     
 </StackLayout>

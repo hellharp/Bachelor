@@ -12,9 +12,12 @@ namespace Databar
 {
     public partial class BasisUI : ContentPage
     {
+
+        private Label label;
         public BasisUI()
         {
             InitializeComponent();
+       
         }
 
         async void StartZXing(object sender, EventArgs e)
@@ -26,6 +29,7 @@ namespace Databar
             if (result != null)
             {
                 Debug.WriteLine("Scanned Barcode: " + result.Text);
+
             }
 
         }
