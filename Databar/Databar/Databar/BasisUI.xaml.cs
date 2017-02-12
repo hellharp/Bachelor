@@ -10,28 +10,33 @@ using System.Diagnostics;
 
 namespace Databar
 {
-    public partial class BasisUI : ContentPage
-    {
+	public partial class BasisUI : ContentPage
+	{
 
-        private Label label;
-        public BasisUI()
-        {
-            InitializeComponent();
-       
-        }
 
-        async void StartZXing(object sender, EventArgs e)
-        {
-            var scanner = new MobileBarcodeScanner();
+		public BasisUI()
+		{
+			InitializeComponent();
 
-            var result = await scanner.Scan();
+			imageView.Source = Device.OnPlatform(
+				iOS: ImageSource.FromFile("Icon-76.png"), //Ligger i Databar.iOS/Resources
+				Android: ImageSource.FromFile("icon.png"), //Ligger i Databar.Droid/Resources/drawable
+				WinPhone: null);
+			   
+		}   
 
-            if (result != null)
-            {
-                Debug.WriteLine("Scanned Barcode: " + result.Text);
+		async void StartZXing(object sender, EventArgs e)
+		{
+			var scanner = new MobileBarcodeScanner();
 
-            }
+			var result = await scanner.Scan();
 
-        }
-    }
+
+			if (result != null)
+				resultLabel.Text = result.Text;
+			else
+				resultLabel.Text = "Scan canceled";
+
+		}
+	}
 }

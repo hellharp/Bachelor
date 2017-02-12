@@ -13,6 +13,7 @@
     <AssemblyName>Databar.iOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <ReleaseVersion>0.2</ReleaseVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -169,7 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Databar\Databar.csproj">
-      <Project>{4072dbc3-3c62-4daa-9e5c-c73bbaa180b4}</Project>
+      <Project>{CE5C8248-40D7-4350-A0AF-4DF75484580F}</Project>
       <Name>Databar</Name>
     </ProjectReference>
   </ItemGroup>
