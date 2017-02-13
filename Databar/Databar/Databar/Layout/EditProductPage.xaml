@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Databar.Layout.EditProductPage"
+             Title="Edit Product">
+  
+  <ContentPage.Padding>
+
+    <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="0, 20, 0, 0"/>
+
+  </ContentPage.Padding>
+
+  <ListView x:Name="listView">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout Orientation="Horizontal"
+                       Padding="5, 0">
+            <Label Text="GTIN"
+                   HorizontalOption="StartAndExpand"
+                   VerticalOption="Center"/>
+            <TextBox Name="GTIN_Input"/>
+            
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+  
+  
+  
+</ContentPage>
