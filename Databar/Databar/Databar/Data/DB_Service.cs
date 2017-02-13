@@ -11,6 +11,7 @@ using Xamarin.Forms;
 
 namespace Databar.Data
 {
+    //https://xamarindevelopervietnam.wordpress.com/2016/01/08/how-to-use-sqliteasync-pcl-in-xamarin-forms/
     public class DB_Service : IDB_Service
     {
         private static readonly Lazy<DB_Service> Lazy =

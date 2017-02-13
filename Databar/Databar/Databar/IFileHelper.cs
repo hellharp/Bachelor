@@ -12,7 +12,7 @@ namespace Databar
     {
         //string GetLocalFilePath(string filename);
 
-        ////https://xamarindevelopervietnam.wordpress.com/2016/01/08/how-to-use-sqliteasync-pcl-in-xamarin-forms/
+        //https://xamarindevelopervietnam.wordpress.com/2016/01/08/how-to-use-sqliteasync-pcl-in-xamarin-forms/
         SQLiteAsyncConnection GetAsyncConnection();
     }
 }

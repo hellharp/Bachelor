@@ -24,6 +24,7 @@ namespace Databar.iOS
         //    return Path.Combine(libFolder, filename);
         //}
 
+        //https://xamarindevelopervietnam.wordpress.com/2016/01/08/how-to-use-sqliteasync-pcl-in-xamarin-forms/
         public SQLiteAsyncConnection GetAsyncConnection()
         {
             const string sqliteFilename = "XamarinTemplate.db3";

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Databar.Data
 {
+    //https://xamarindevelopervietnam.wordpress.com/2016/01/08/how-to-use-sqliteasync-pcl-in-xamarin-forms/
     public interface IDB_Service
     {
         void CreateDbIfNotExist();
