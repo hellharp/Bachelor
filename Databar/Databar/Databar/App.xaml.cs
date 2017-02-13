@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Databar.Data;
+using SQLite.Net.Async;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +22,7 @@ namespace Databar
         protected override void OnStart()
         {
             // Handle when your app starts
+            DB_Service.Instance.CreateDbIfNotExist();
         }
 
         protected override void OnSleep()
