@@ -190,6 +190,33 @@
       <Name>Databar</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Barcode_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Calendar_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Credit_Card_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Menu_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_OK_Circle_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Remove_Circle_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Shopping_Cart_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Trashcan_RGB_2015-04-16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Norway_61px_Tall_RGB_2014-12-17.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.180\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
