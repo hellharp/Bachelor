@@ -40,10 +40,18 @@ namespace Databar.Data
 
         public async void CreateDbIfNotExist()
         {
-            await DbConnection.CreateTableAsync<AI>();
-            await DbConnection.CreateTableAsync<Product>();
-            await DbConnection.CreateTableAsync<BatchBlock>();
-            Debug.WriteLine("Create db success!");
+            try
+            {
+                await DbConnection.CreateTableAsync<AI>();
+                await DbConnection.CreateTableAsync<Product>();
+                await DbConnection.CreateTableAsync<BatchBlock>();
+                Debug.WriteLine("Create db success!");
+            }
+            catch (Exception e)
+            {
+                // Katastrofe!
+                Debug.WriteLine("Create db fail: " + e.Message);
+            }
         }
 
         // DATABASEOPERASJONER
