@@ -50,7 +50,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\AI.cs" />
-    <Compile Include="Models\CategoryRebate.cs" />
+    <Compile Include="Models\BatchBlock.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
