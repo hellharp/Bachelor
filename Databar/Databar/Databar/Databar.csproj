@@ -42,7 +42,6 @@
     <Compile Include="Layout\BasisUI.xaml.cs">
       <DependentUpon>BasisUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\Databar_DB.cs" />
     <Compile Include="Data\DB_Service.cs" />
     <Compile Include="Data\IDB_Service.cs" />
     <Compile Include="IFileHelper.cs" />
@@ -50,7 +49,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\AI.cs" />
-    <Compile Include="Models\CategoryRebate.cs" />
+    <Compile Include="Models\BatchBlock.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

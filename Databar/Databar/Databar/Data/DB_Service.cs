@@ -42,5 +42,84 @@ namespace Databar.Data
             await DbConnection.CreateTableAsync<AI>();
             Debug.WriteLine("Create db success!");
         }
+
+        // DATABASEOPERASJONER
+
+        //    // Alle Producter
+        //    public Task<List<Product>> GetProductsAsync()
+        //    {
+        //        return database.Table<Product>().ToListAsync();
+        //    }
+
+        //    // Spesifikt Product med id
+        //    public Task<Product> GetProductsAsync(int id)
+        //    {
+        //        return database.Table<Product>().Where(i => i.ID == id).FirstOrDefaultAsync();
+        //    }
+
+        //    // Categoryer
+        //    public Task<List<CategoryRebate>> GetCategoriesAsync()
+        //    {
+        //        return database.Table<CategoryRebate>().ToListAsync();
+        //    }
+        //    // Spesifikt Category med Categorynavn
+        //    public Task<CategoryRebate> GetCategoriesAsync(string kat)
+        //    {
+        //        return database.Table<CategoryRebate>().Where(i => i.Category == kat).FirstOrDefaultAsync();
+        //    }
+
+        //    //Lagre
+        //    public Task<int> SaveItemAsync(AI identifikator)
+        //    {
+        //        if (identifikator.AInumber != 0)
+        //        {
+        //            return database.UpdateAsync(identifikator);
+        //        }
+        //        else
+        //        {
+        //            return database.InsertAsync(identifikator);
+        //        }
+        //    }
+
+        //    public Task<int> SaveItemAsync(Product gtin)
+        //    {
+        //        if (gtin.GTIN != 0)
+        //        {
+        //            return database.UpdateAsync(gtin);
+        //        }
+        //        else
+        //        {
+        //            return database.InsertAsync(gtin);
+        //        }
+        //    }
+
+        //    public Task<int> SaveItemAsync(CategoryRebate kr)
+        //    {
+        //        if (kr.Category != "")
+        //        {
+        //            return database.UpdateAsync(kr);
+        //        }
+        //        else
+        //        {
+        //            return database.InsertAsync(kr);
+        //        }
+        //    }
+
+        //    // Slett
+        //    public Task<int> DeleteItemAsync(AI identifikator)
+        //    {
+        //        return database.DeleteAsync(identifikator);
+        //    }
+        //    public Task<int> DeleteItemAsync(Product prod)
+        //    {
+        //        return database.DeleteAsync(prod);
+        //    }
+        //    public Task<int> DeleteItemAsync(CategoryRebate kr)
+        //    {
+        //        return database.DeleteAsync(kr);
+        //    }
+
+
+
     }
 }
