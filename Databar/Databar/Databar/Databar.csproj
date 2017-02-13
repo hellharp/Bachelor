@@ -42,7 +42,6 @@
     <Compile Include="Layout\BasisUI.xaml.cs">
       <DependentUpon>BasisUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\Databar_DB.cs" />
     <Compile Include="Data\DB_Service.cs" />
     <Compile Include="Data\IDB_Service.cs" />
     <Compile Include="IFileHelper.cs" />
