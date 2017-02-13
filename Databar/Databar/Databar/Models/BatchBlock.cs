@@ -9,6 +9,8 @@ namespace Databar.Models
 {
     // Model for å lagre blokkerte batch/lotnumre
     // Blokkert for salg hvis Blocked == true, ikke blokkert hvis false eller hvis BatchNr ikke fins i tabellen.
+
+    [Table("BatchBlock")]
     public class BatchBlock
     {
         // String for å håndtere bindestreker o.l.

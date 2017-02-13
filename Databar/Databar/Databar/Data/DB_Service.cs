@@ -1,4 +1,5 @@
-﻿using Databar_skanner.Models;
+﻿using Databar.Models;
+using Databar_skanner.Models;
 using SQLite.Net.Async;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,8 @@ namespace Databar.Data
         public async void CreateDbIfNotExist()
         {
             await DbConnection.CreateTableAsync<AI>();
+            await DbConnection.CreateTableAsync<Product>();
+            await DbConnection.CreateTableAsync<BatchBlock>();
             Debug.WriteLine("Create db success!");
         }
 

@@ -14,9 +14,8 @@ namespace Databar_skanner.Models
         //    01 = Global Trade Item Number
         //    10 = Batch or lot number
         //    11 = Production date(YYMMDD)
-        //    13 = Packaging date(YYMMDD)
-        //    15 = Best before date(YYMMDD)
         //    17 = Expiration date(YYMMDD)
+        //    21 = Serial nr.
 
         [PrimaryKey]
         public int AInumber { get; set; }
