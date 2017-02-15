@@ -17,6 +17,8 @@ namespace Databar.Models
         [PrimaryKey]
         public string BatchNr { get; set; }
 
+        // SQLite does not have a separate Boolean storage class.
+        // Instead, Boolean values are stored as integers 0 (false) and 1 (true).
         public Boolean Blocked { get; set; }
     }
 }
