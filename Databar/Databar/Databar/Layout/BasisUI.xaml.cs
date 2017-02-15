@@ -10,6 +10,7 @@ using System.Diagnostics;
 
 namespace Databar.Layout
 {
+	//Test fra mac commit
 	public partial class BasisUI : ContentPage
 	{
 
