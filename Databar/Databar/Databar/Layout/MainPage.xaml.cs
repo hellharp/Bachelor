@@ -16,13 +16,17 @@ namespace Databar.Layout
 
 		async void ToZXing(object sender, EventArgs e)
 		{
-			//await Navigation.PushAsync(new BasisUI());
-			await Navigation.PushAsync(new NavigationPage(new BasisUI()));
+			await Navigation.PushAsync(new BasisUI());
 		}
 
 		async void ToEditProductPage(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new NavigationPage(new EditProductPage()));
+			await Navigation.PushAsync(new EditProductPage());
+		}
+
+		async void ToAdminLogin(object sender, EventArgs e)
+		{
+			await Navigation.PushModalAsync(new LoginModal());
 		}
 	}
 }

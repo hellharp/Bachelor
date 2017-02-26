@@ -39,6 +39,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Layout\Admin\AdminMenu.xaml.cs">
+      <DependentUpon>AdminMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Layout\BasisUI.xaml.cs">
       <DependentUpon>BasisUI.xaml</DependentUpon>
     </Compile>
@@ -47,6 +50,9 @@
     <Compile Include="IFileHelper.cs" />
     <Compile Include="Layout\EditProductPage.xaml.cs">
       <DependentUpon>EditProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\LoginModal.xaml.cs">
+      <DependentUpon>LoginModal.xaml</DependentUpon>
     </Compile>
     <Compile Include="Layout\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -137,6 +143,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Layout\PayPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\Admin\AdminMenu.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\LoginModal.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
