@@ -17,26 +17,21 @@ namespace Databar.Layout
 
 		async void ToZXing(object sender, EventArgs e)
 		{
-<<<<<<< HEAD
 			await Navigation.PushAsync(new BasisUI());
-=======
-			//await Navigation.PushAsync(new BasisUI());
-			await Navigation.PushAsync(new BasisUI()));
->>>>>>> 361923d... Commit av div endringer + paypage og PayConfirmationPage
+
+		//361923d... Commit av div endringer + paypage og PayConfirmationPage
 		}
 
 		async void ToEditProductPage(object sender, EventArgs e)
 		{
-<<<<<<< HEAD
+
 			await Navigation.PushAsync(new EditProductPage());
 		}
 
 		async void ToAdminLogin(object sender, EventArgs e)
 		{
 			await Navigation.PushModalAsync(new LoginModal());
-=======
-			await Navigation.PushAsync(new EditProductPage()));
->>>>>>> 361923d... Commit av div endringer + paypage og PayConfirmationPage
+		//361923d... Commit av div endringer + paypage og PayConfirmationPage
 		}
 
 		async void ToPayPage(object sender, EventArgs e)
@@ -46,7 +41,7 @@ namespace Databar.Layout
 
 		async void ToPayConfirmationPage(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new PayConfirmationPage()));
+			await Navigation.PushAsync(new PayConfirmationPage());
 		}
 
 	}
