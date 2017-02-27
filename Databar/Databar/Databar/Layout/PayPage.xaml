@@ -1,6 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Databar.Layout.PayPage">
-  <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+             x:Class="Databar.Layout.PayPage"
+             Title="Betal med">
+
+  	<ContentPage.Padding>
+    	<!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
+    	<OnPlatform x:TypeArguments="Thickness"
+        	        iOS="0, 20, 0, 0"/>
+  	</ContentPage.Padding>
+
+	<ContentPage.Content>
+	<StackLayout
+				VerticalOptions="End"
+				Spacing="40"
+				Orientation="Vertical"
+				HorizontalOptions="Center">
+
+			<Button x:Name="VippsButton"
+					BackgroundColor="Transparent"
+					BorderColor="Transparent">
+
+				 	 <Button.Image>
+   							<OnPlatform x:TypeArguments="FileImageSource"
+                				Android="Pay_Vippslogo.png"
+                				iOS="Pay_Vippslogo.png"/>
+                   	 </Button.Image>
+		
+
+			</Button>
+
+			<Button x:Name="mCash"
+					BackgroundColor="Transparent"
+					BorderColor="Transparent">
+
+				  	<Button.Image>
+   						<OnPlatform x:TypeArguments="FileImageSource"
+                			Android="Pay_mCashlogo.png"
+                			iOS="Pay_mCashlogo.png"/>
+                  	</Button.Image>
+
+			</Button>
+
+			<Button x:Name="mobilePay"
+					BackgroundColor="Transparent"
+					BorderColor="Transparent">
+
+					<Button.Image>
+   						<OnPlatform x:TypeArguments="FileImageSource"
+                			Android="Pay_MobilePaylogo.png"
+                			iOS="Pay_MobilePaylogo.png"/>
+                  	</Button.Image>
+
+			</Button>
+
+			<Button x:Name="ApplePay"
+					BackgroundColor="Transparent"
+					BorderColor="Transparent">
+
+					<Button.Image>
+   						<OnPlatform x:TypeArguments="FileImageSource"
+                			Android="Pay_ApplePaylogo.png"
+                			iOS="Pay_ApplePaylogo.png"/>
+                  	</Button.Image>
+
+			</Button>
+			
+		</StackLayout>
+	</ContentPage.Content>
+	
+
 </ContentPage>

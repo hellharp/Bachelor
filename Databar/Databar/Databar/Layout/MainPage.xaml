@@ -13,6 +13,7 @@
 
 	<!--Bruke tabbar / tab page?-->
 
+<<<<<<< HEAD
 	<StackLayout>
 		<StackLayout
 			VerticalOptions="CenterAndExpand"
@@ -32,6 +33,13 @@
 					VerticalOptions="Center"
 					HorizontalOptions="Center"/>
 		</StackLayout>
+=======
+		<Button Text="To Pay Page" Clicked="ToPayPage"
+				VerticalOptions="Center"
+				HorizontalOptions="Center"/>
+
+	</StackLayout>
+>>>>>>> 4ab854c... * Databar.Droid.csproj: Lagt inn div logoer for betalingstjenestene.   Endret layout på MainPage og PayPage.
 
 		<StackLayout
 				VerticalOptions="End"
