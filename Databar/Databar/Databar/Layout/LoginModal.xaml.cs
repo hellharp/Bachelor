@@ -23,6 +23,21 @@ namespace Databar.Layout
 			{
 				App.Current.Properties["IsLoggedIn"] = true;
 				App.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
+			}
+			else
+			{
+				await DisplayAlert("Feil passord", "Feil adminpassord (passord: test)", "OK");
+			}
+		}
+
+		// Handle Enter-button-press event on login-page
+		async void Enter_Button_Pressed(object sender, EventArgs e)
+		{
+			var pw = pwEntry.Text; // Access entry text
+			if (pw == "test")
+			{
+				App.Current.Properties["IsLoggedIn"] = true;
+				App.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
 				//await Navigation.PushAsync(new Admin.AdminMenu());
 				//await Navigation.PopToRootAsync();
 				//await Navigation.PopModalAsync();
