@@ -38,6 +38,10 @@
 				VerticalOptions="Center"
 				HorizontalOptions="Center"/>
 
+		<Button Text="To Pay Confirmation Page" Clicked="ToPayConfirmationPage"
+				VerticalOptions="Center"
+				HorizontalOptions="Center"/>
+
 	</StackLayout>
 >>>>>>> 4ab854c... * Databar.Droid.csproj: Lagt inn div logoer for betalingstjenestene.   Endret layout på MainPage og PayPage.
 

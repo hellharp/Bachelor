@@ -121,6 +121,7 @@
     <BundleResource Include="Resources\Pay_mCashlogo.png" />
     <BundleResource Include="Resources\Pay_MobilePaylogo.png" />
     <BundleResource Include="Resources\Pay_Vippslogo.png" />
+    <BundleResource Include="Resources\GS1_Norway_logo_61px.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
