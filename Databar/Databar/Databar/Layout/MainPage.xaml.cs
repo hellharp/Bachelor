@@ -30,7 +30,8 @@ namespace Databar.Layout
 
 		async void ToAdminLogin(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new LoginModal());
+			// Endret til PushAsync for å gi IOS back-button
+			await Navigation.PushAsync(new LoginModal());
 		//361923d... Commit av div endringer + paypage og PayConfirmationPage
 		}
 
