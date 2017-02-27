@@ -4,91 +4,89 @@
              xmlns:local="clr-namespace:Databar.Layout"
              x:Class="Databar.Layout.MainPage">
 
-    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
-    <ContentPage.Padding>
-        <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
-        <OnPlatform x:TypeArguments="Thickness"
+	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+	<ContentPage.Padding>
+		<!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
+		<OnPlatform x:TypeArguments="Thickness"
 					iOS="0,20,0,0"/>
-    </ContentPage.Padding>
+	</ContentPage.Padding>
 
-    <!--Bruke tabbar / tab page?-->
+	<!--Bruke tabbar / tab page?-->
 
-    <StackLayout>
-        <StackLayout
+	<StackLayout>
+		<StackLayout
 			VerticalOptions="CenterAndExpand"
 			HorizontalOptions="FillAndExpand"
 			Orientation="Vertical"
 			Spacing="20">
 
-            <Label Text="Mobil DataBar-Skanner Hovedside"
+			<Label Text="Mobil DataBar-Skanner Hovedside"
 					VerticalOptions="Center"
 					HorizontalOptions="Center" />
 
-            <Button Text="To ZXing" Clicked="ToZXing"
+			<Button Text="To ZXing" Clicked="ToZXing"
 					VerticalOptions="Center"
 					HorizontalOptions="Center"/>
 
-            <Button Text="Edit Product Page" Clicked="ToEditProductPage"
+			<Button Text="Edit Product Page" Clicked="ToEditProductPage"
 					VerticalOptions="Center"
 					HorizontalOptions="Center"/>
 
-            <Button Text="To Pay Page" Clicked="ToPayPage"
-				VerticalOptions="Center"
-				HorizontalOptions="Center"
-                BackgroundColor="#F26334"
-                 />
-
-            <Button Text="To Pay Confirmation Page" Clicked="ToPayConfirmationPage"
+		<Button Text="To Pay Page" Clicked="ToPayPage"
 				VerticalOptions="Center"
 				HorizontalOptions="Center"/>
 
-        </StackLayout>
-        <!-- 4ab854c... * Databar.Droid.csproj: Lagt inn div logoer for betalingstjenestene.   Endret layout på MainPage og PayPage. -->
+		<Button Text="To Pay Confirmation Page" Clicked="ToPayConfirmationPage"
+				VerticalOptions="Center"
+				HorizontalOptions="Center"/>
 
-        <StackLayout
+	</StackLayout>
+<!-- 4ab854c... * Databar.Droid.csproj: Lagt inn div logoer for betalingstjenestene.   Endret layout på MainPage og PayPage. -->
+
+		<StackLayout
 				VerticalOptions="End"
 				Spacing="40"
 				Orientation="Horizontal"
 				HorizontalOptions="Center">
 
-            <Button x:Name="cartButton"
+			<Button x:Name="cartButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent">
 
-                <Button.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource"
+				<Button.Image>
+					<OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_shopping_cart.png"
 						iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"/>
-                </Button.Image>
+				</Button.Image>
 
 
-            </Button>
+			</Button>
 
-            <Button x:Name="loginButton"
+			<Button x:Name="loginButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
 					Clicked="ToAdminLogin">
 
-                <Button.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource"
+				<Button.Image>
+					<OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_menu.png"
 						iOS="GS1_Symbol_Menu_RGB_20150416.png"/>
-                </Button.Image>
+				</Button.Image>
 
-            </Button>
+			</Button>
 
-            <Button x:Name="trashButton"
+			<Button x:Name="trashButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent">
 
-                <Button.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource"
+				<Button.Image>
+					<OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_trash.png"
 						iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
-                </Button.Image>
+				</Button.Image>
 
-            </Button>
-        </StackLayout>
-    </StackLayout>
+			</Button>
+		</StackLayout>
+	</StackLayout>
 
 </ContentPage>
