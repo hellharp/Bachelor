@@ -3,29 +3,74 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Databar.Layout.EditProductPage"  
              Title="Rediger Produkt">
-  <ContentPage.Padding>
-    <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
-    <OnPlatform x:TypeArguments="Thickness"
-                iOS="0, 20, 0, 0"/>
-  </ContentPage.Padding>
-  <ContentPage.Content>
-    <ScrollView>
-      <StackLayout Padding="5,0,0,0">
-        <Label FontSize="14" Text="GTIN:"/>
-        <Entry Keyboard="Numeric"/>
-        <Label FontSize="14" Text="Varetekst:"/>
-        <Entry Keyboard="Default"/>
-        <Label FontSize="14" Text="Batch/Lot nr.:"/>
-        <Entry Keyboard="Default"/>
-        <Label FontSize="14" Text="Best før dato:"/>
-        <Entry Keyboard="Numeric" Placeholder="YY/MM/DD"/>
-        <Label FontSize="14" Text="Siste forbruksdato:"/>
-        <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" />
-        <Label FontSize="14" Text="Serienummer:" />
-        <Entry Keyboard="Numeric" />
-        <Label FontSize="14" Text="Bruttopris (kr):"/>
-        <Entry Keyboard="Numeric" />
-      </StackLayout>
-    </ScrollView>
-  </ContentPage.Content>
+
+    <ContentPage.Padding>
+        <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0"/>
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid x:Name="ProductInformationGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="75"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumDefinition Width="50"/>
+                    <ColumDefinition Width="50"/>
+                    <ColumDefinition Width="50"/>
+                    <ColumDefinition Width="50"/>
+                </Grid.ColumnDefinitions>
+                <Label FontSize="14" Text="GTIN:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="Varetekst:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Entry Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="Batch/Lot nr.:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Entry Keyboard="Default" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="Best før dato:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="Siste forbruksdato:" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="Serienummer:" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Entry Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="Bruttopris (kr):" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="Sperret" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Switch Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" />
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+    
 </ContentPage>
+
+
+<!-- <StackLayout Padding="5,0,0,0" Grid.Row="0" Grid.Column="0">
+          <Label FontSize="14" Text="GTIN:"/>
+          <Entry Keyboard="Numeric"/>
+          <Label FontSize="14" Text="Varetekst:"/>
+          <Entry Keyboard="Default"/>
+          <Label FontSize="14" Text="Batch/Lot nr.:"/>
+          <Entry Keyboard="Default"/>
+          <Label FontSize="14" Text="Best før dato:"/>
+          <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" />
+          <Label FontSize="14" Text="Siste forbruksdato:"/>
+          <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" />
+          <Label FontSize="14" Text="Serienummer:" />
+          <Entry Keyboard="Numeric" />
+          <Label FontSize="14" Text="Bruttopris (kr):" />
+          <Entry Keyboard="Numeric"/>
+          <CheckBox Content="Sperret" HorizontalAlignment="Right" Checked="Sperret_Checked" Unchecked="Sperret_Unchecked"/> 
+        </StackLayout> -->
