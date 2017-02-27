@@ -5,7 +5,12 @@
 	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
 
-	<!--Entry field for admin-password-->
-	<Entry IsPassword="True" Completed="Password_Completed" Placeholder="Passord" />
-	
+	<StackLayout>
+		<!--Entry field for admin-password-->
+		<Entry x:Name="pwEntry" IsPassword="True" Completed="Password_Completed" Placeholder="Passord" 
+		   VerticalOptions="Center" HorizontalOptions="Center"/>
+		
+		<Button Text="Enter" Clicked="Enter_Button_Pressed" 
+			VerticalOptions="Center" HorizontalOptions="Center" />
+	</StackLayout>
 </ContentPage>
