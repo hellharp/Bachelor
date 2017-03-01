@@ -1,8 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Databar.Layout.EditProductPage"  
-             Title="Rediger Produkt">
+             x:Class="Databar.Layout.EditProductPage" >
 
     <ContentPage.Padding>
         <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
@@ -50,27 +49,13 @@
                 <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
                 <Label FontSize="14" Text="Sperret" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
                 <Switch Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" />
+                <Label FontSize="14" Text="Rabatter:" Grid.Row="8" Grid.Column="0"/>
+                <Label FontSize="14" Text="Verdi" Grid.Row="8" Grid.Column="1"/>
+                <Label FontSize="14" Text="Kr / %" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"/>
+                <Label FontSize="14" Text="5 Dager:" Grid.Row="9" Grid.Column="0"/>
+                <Entry Keyboard="Numeric" Grid.Row="9" Grid.Column="1"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
     
 </ContentPage>
-
-
-<!-- <StackLayout Padding="5,0,0,0" Grid.Row="0" Grid.Column="0">
-          <Label FontSize="14" Text="GTIN:"/>
-          <Entry Keyboard="Numeric"/>
-          <Label FontSize="14" Text="Varetekst:"/>
-          <Entry Keyboard="Default"/>
-          <Label FontSize="14" Text="Batch/Lot nr.:"/>
-          <Entry Keyboard="Default"/>
-          <Label FontSize="14" Text="Best før dato:"/>
-          <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" />
-          <Label FontSize="14" Text="Siste forbruksdato:"/>
-          <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" />
-          <Label FontSize="14" Text="Serienummer:" />
-          <Entry Keyboard="Numeric" />
-          <Label FontSize="14" Text="Bruttopris (kr):" />
-          <Entry Keyboard="Numeric"/>
-          <CheckBox Content="Sperret" HorizontalAlignment="Right" Checked="Sperret_Checked" Unchecked="Sperret_Unchecked"/> 
-        </StackLayout> -->
