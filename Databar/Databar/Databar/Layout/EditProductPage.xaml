@@ -12,48 +12,60 @@
         <ScrollView>
             <Grid x:Name="ProductInformationGrid">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
-                    <RowDefinition Height="75"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumDefinition Width="50"/>
-                    <ColumDefinition Width="50"/>
-                    <ColumDefinition Width="50"/>
-                    <ColumDefinition Width="50"/>
-                </Grid.ColumnDefinitions>
-                <Label FontSize="14" Text="GTIN:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="Varetekst:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Entry Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="Batch/Lot nr.:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Entry Keyboard="Default" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="Best før dato:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="Siste forbruksdato:" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="Serienummer:" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Entry Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="Bruttopris (kr):" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="Sperret" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
-                <Switch Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" />
-                <Label FontSize="14" Text="Rabatter:" Grid.Row="8" Grid.Column="0"/>
-                <Label FontSize="14" Text="Verdi" Grid.Row="8" Grid.Column="1"/>
-                <Label FontSize="14" Text="Kr / %" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2"/>
-                <Label FontSize="14" Text="5 Dager:" Grid.Row="9" Grid.Column="0"/>
+                <Label FontSize="Small" Text="GTIN:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" Font="Gotham"/>
+                <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="Varetekst:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="Batch/Lot nr.:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Default" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="Best før dato:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
+                <Label FontSize="Small" Text="Siste forbruksdato:" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
+                <Label FontSize="Small" Text="Serienummer:" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="Bruttopris (kr):" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="Sperret" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Switch Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="Rabatter:" Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Label FontSize="Small" Text="Verdi" Grid.Row="8" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label FontSize="Small" Text="Kr / %" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Label FontSize="Small" Text="5 Dager:" Grid.Row="9" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
                 <Entry Keyboard="Numeric" Grid.Row="9" Grid.Column="1"/>
+                <Label FontSize="Small" Text="Placeholder" Grid.Row="9" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Switch Grid.Row="9" Grid.Column="3" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="4 Dager:" Grid.Row="10" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Grid.Row="10" Grid.Column="1"/>
+                <Label FontSize="Small" Text="Placeholder" Grid.Row="10" Grid.Column="2" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"/>
+                <Switch Grid.Row="10" Grid.Column="3" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="3 Dager:" Grid.Row="11" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Grid.Row="11" Grid.Column="1"/>
+                <Label FontSize="Small" Text="Placeholder" Grid.Row="11" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Switch Grid.Row="11" Grid.Column="3" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="2 Dager:" Grid.Row="12" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Grid.Row="12" Grid.Column="1"/>
+                <Label FontSize="Small" Text="Placeholder" Grid.Row="12" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Switch Grid.Row="12" Grid.Column="3" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="1 Dag:" Grid.Row="13" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry Keyboard="Numeric" Grid.Row="13" Grid.Column="1"/>
+                <Label FontSize="Small" Text="Placeholder" Grid.Row="13" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                <Switch Grid.Row="13" Grid.Column="3" Margin="0,0,20,0"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
