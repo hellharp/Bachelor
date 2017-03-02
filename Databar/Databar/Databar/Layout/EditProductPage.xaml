@@ -27,45 +27,45 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Label FontSize="Small" Text="GTIN:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" Font="Gotham"/>
-                <Entry Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Label FontSize="Small" Text="GTIN:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
+                <Entry x:Name="GTIN_entry" Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="Varetekst:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Entry x:Name="ProductText_entry" Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="Batch/Lot nr.:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Default" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Entry x:Name="BatchLot_entry" Keyboard="Default" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="Best før dato:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
+                <Entry x:Name="BBD_entry" Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
                 <Label FontSize="Small" Text="Siste forbruksdato:" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
+                <Entry x:Name="ExpD_entry" Keyboard="Numeric" Placeholder="YY/MM/DD" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
                 <Label FontSize="Small" Text="Serienummer:" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Entry x:Name="Serial_entry" Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="Bruttopris (kr):" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Entry x:Name="Gross_entry" Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="Sperret" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Switch Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                <Switch x:Name="Blocked_sw" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="Rabatter:" Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
                 <Label FontSize="Small" Text="Verdi" Grid.Row="8" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 <Label FontSize="Small" Text="Kr / %" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 <Label FontSize="Small" Text="5 Dager:" Grid.Row="9" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Grid.Row="9" Grid.Column="1"/>
+                <Entry x:Name="FiveDayRebate_entry" Keyboard="Numeric" Grid.Row="9" Grid.Column="1"/>
                 <Label FontSize="Small" Text="Placeholder" Grid.Row="9" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                <Switch Grid.Row="9" Grid.Column="3" Margin="0,0,20,0"/>
+                <Switch x:Name="FiveDayRebate_sw" Grid.Row="9" Grid.Column="3" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="4 Dager:" Grid.Row="10" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Grid.Row="10" Grid.Column="1"/>
+                <Entry x:Name="FourDayRebate_entry" Keyboard="Numeric" Grid.Row="10" Grid.Column="1"/>
                 <Label FontSize="Small" Text="Placeholder" Grid.Row="10" Grid.Column="2" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center"/>
-                <Switch Grid.Row="10" Grid.Column="3" Margin="0,0,20,0"/>
+                <Switch x:Name="FourDayRebate_sw" Grid.Row="10" Grid.Column="3" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="3 Dager:" Grid.Row="11" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Grid.Row="11" Grid.Column="1"/>
+                <Entry x:Name="ThreeDayRebate_entry" Keyboard="Numeric" Grid.Row="11" Grid.Column="1"/>
                 <Label FontSize="Small" Text="Placeholder" Grid.Row="11" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                <Switch Grid.Row="11" Grid.Column="3" Margin="0,0,20,0"/>
+                <Switch x:Name="ThreeDayRebate_sw" Grid.Row="11" Grid.Column="3" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="2 Dager:" Grid.Row="12" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Grid.Row="12" Grid.Column="1"/>
+                <Entry x:Name="TwoDayRebate_entry" Keyboard="Numeric" Grid.Row="12" Grid.Column="1"/>
                 <Label FontSize="Small" Text="Placeholder" Grid.Row="12" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                <Switch Grid.Row="12" Grid.Column="3" Margin="0,0,20,0"/>
+                <Switch x:Name="TwoDayRebate_sw" Grid.Row="12" Grid.Column="3" Margin="0,0,20,0"/>
                 <Label FontSize="Small" Text="1 Dag:" Grid.Row="13" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center"/>
-                <Entry Keyboard="Numeric" Grid.Row="13" Grid.Column="1"/>
+                <Entry x:Name="OneDayRebate_entry" Keyboard="Numeric" Grid.Row="13" Grid.Column="1"/>
                 <Label FontSize="Small" Text="Placeholder" Grid.Row="13" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
-                <Switch Grid.Row="13" Grid.Column="3" Margin="0,0,20,0"/>
+                <Switch x:Name="OneDayRebate_sw"Grid.Row="13" Grid.Column="3" Margin="0,0,20,0"/>
             </Grid>
         </ScrollView>
     </ContentPage.Content>
