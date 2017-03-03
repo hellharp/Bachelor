@@ -14,5 +14,10 @@ namespace Databar.Layout
         {
             InitializeComponent();
         }
+
+		async void ToPayConfirmationPage(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new PayConfirmationPage());
+		}
     }
 }

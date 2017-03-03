@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Databar.Layout.PayPage">
@@ -22,12 +22,35 @@
 				<Label  Text="Velg betalingsmetode:"
 						TextColor="#002C6C"
 						FontSize="Medium"
-						VerticalOptions="CenterAndExpand"
-						HorizontalOptions="CenterAndExpand"/>
+						VerticalOptions="Center"
+
+						HorizontalOptions="Center"/>
+
+				<Button x:Name="mCash"
+						HeightRequest="50"
+						HorizontalOptions="Center"
+						VerticalOptions="Center"
+						BackgroundColor="White"
+						BorderColor="#002C6C"
+						BorderWidth="2"
+						Clicked="ToPayConfirmationPage">
+
+					  	<Button.Image>
+	   						<OnPlatform x:TypeArguments="FileImageSource"
+	                			Android="Pay_mCashlogo.png"
+	                			iOS="Pay_mCashlogo.png"/>
+	                  	</Button.Image>
+
+				</Button>
 
 				<Button x:Name="VippsButton"
-						BackgroundColor="Transparent"
-						BorderColor="#002C6C">
+						HeightRequest="50"
+						HorizontalOptions="Center"
+						VerticalOptions="Center"
+						BackgroundColor="White"
+						BorderColor="#002C6C"
+						BorderWidth="2"
+						Clicked="ToPayConfirmationPage">
 
 					 	 <Button.Image>
 	   							<OnPlatform x:TypeArguments="FileImageSource"
@@ -38,33 +61,16 @@
 
 				</Button>
 
-				<Button x:Name="mCash"
-						BackgroundColor="Transparent"
-						BorderColor="#002C6C">
 
-					  	<Button.Image>
-	   						<OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="Pay_mCashlogo.png"
-	                			iOS="Pay_mCashlogo.png"/>
-	                  	</Button.Image>
-
-				</Button>
-
-				<Button x:Name="mobilePay"
-						BackgroundColor="#002C6C"
-						BorderColor="Transparent">
-
-						<Button.Image>
-	   						<OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="Pay_MobilePaylogo.png"
-	                			iOS="Pay_MobilePaylogo.png"/>
-	                  	</Button.Image>
-
-				</Button>
 
 				<Button x:Name="ApplePay"
+						HeightRequest="50"
+						HorizontalOptions="Center"
+						VerticalOptions="Center"
 						BackgroundColor="Transparent"
-						BorderColor="#002C6C">
+						BorderColor="#002C6C"
+						BorderWidth="2"
+						Clicked="ToPayConfirmationPage">
 
 						<Button.Image>
 	   						<OnPlatform x:TypeArguments="FileImageSource"

@@ -15,5 +15,10 @@ namespace Databar.Layout
 		{
 			InitializeComponent();
 		}
+
+		async void CloseWindow(object sender, EventArgs e)
+		{
+			App.Current.MainPage = new NavigationPage(new Layout.MainPage());
+		}
 	}
 }

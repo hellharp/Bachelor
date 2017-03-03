@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="Databar.Layout.PayConfirmationPage">
@@ -32,34 +32,43 @@
 					</Image>
 				
 				</StackLayout>
-					
+
 				<StackLayout
-					VerticalOptions="CenterAndExpand"
-					HorizontalOptions="Center"
-					Spacing="20"
-					Orientation="Vertical">
+					HorizontalOptions="FillAndExpand"
+					VerticalOptions="FillAndExpand"
+					Spacing="0">
 
-					<Label Style="{DynamicResource SubtitleStyle}"
-							HorizontalTextAlignment="Center"
-							VerticalTextAlignment="Center">
-
-					</Label>
-				
 					<Label Text=
-						"GRATULERER &#10;&#10; 
-						Du sparte kr.... på	å &#10;handle ¨Smart¨.&#10;
-						Samtidig bidro du til at&#10;
-						mindre mat blir kastet. &#10;
-						Velkommen igjen!"
+					"Gratulerer"
+					FontSize="Large"
+					TextColor="#002C6C"
+					FontAttributes="Bold"
+					VerticalTextAlignment="Center"
+					HorizontalTextAlignment="Center"/>
+
+					<Label
+						Text=
+						"&#x0a;Du sparte kr.... på&#x0a; å handle ¨Smart¨.&#x0a;&#x0a;
+						Samtidig bidro du til at&#x0a;
+						mindre mat blir kastet.&#x0a;"
+						FontSize="Medium"
 						TextColor="#002C6C"
-						FontSize="Large"
-						VerticalOptions="Center"
-						HorizontalOptions="Center"
-						VerticalTextAlignment="Center"
+						LineBreakMode="CharacterWrap"
+						VerticalTextAlignment="Start"
+						HorizontalTextAlignment="Center"/>
+
+					<Label
+						Text=
+						"Velkommen igjen!&#x0a;"
+						FontSize="Medium"
+						TextColor="#002C6C"
+						LineBreakMode="CharacterWrap"
+						VerticalTextAlignment="Start"
 						HorizontalTextAlignment="Center"/>
 
 				</StackLayout>
-
+						
+			
 				<!-- Makes a horizontal line between the text and the buttons at the bottom -->
 				<BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
 					
@@ -82,14 +91,16 @@
 
 					</Button>
 
-					<Button x:Name="removeButton"
+					<Button x:Name="closeButton"
 						BackgroundColor="Transparent"
-						BorderColor="Transparent">
+						BorderColor="Transparent"
+						IsVisible="true"
+						Clicked="CloseWindow">
 
 					  	<Button.Image>
 	   						<OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="gs1_remove_circle.png"
-	                			iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"/>
+							Android="gs1_remove_circle.png"
+							iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"/>
 	                  	</Button.Image>
 
 					</Button>

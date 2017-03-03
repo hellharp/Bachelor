@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Databar.Layout.Admin.AdminMenu">
@@ -52,7 +52,7 @@
 				<Button.Image>
 					<OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_remove_circle.png"
-						iOS="GS1_Symbol_Remove_Cirlce_RGB_20150416.png"/>
+						iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"/>
 				</Button.Image>
 
 			</Button>

@@ -18,7 +18,7 @@
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
     <AndroidSupportedAbis>armeabi,armeabi-v7a,x86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions />
     <MandroidI18n />
@@ -40,6 +40,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidSupportedAbis>armeabi;armeabi-v7a;x86</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -173,11 +174,10 @@
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
-    <AndroidResource Include="Resources\drawable\Pay_ApplePaylogo.png" />
-    <AndroidResource Include="Resources\drawable\Pay_mCashlogo.png" />
-    <AndroidResource Include="Resources\drawable\Pay_MobilePaylogo.png" />
-    <AndroidResource Include="Resources\drawable\Pay_Vippslogo.png" />
     <AndroidResource Include="Resources\drawable\GS1_Norway_logo_61px.png" />
+    <AndroidResource Include="Resources\drawable\Pay_mCashlogo.png" />
+    <AndroidResource Include="Resources\drawable\Pay_Vippslogo.png" />
+    <AndroidResource Include="Resources\drawable\Pay_ApplePaylogo.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
