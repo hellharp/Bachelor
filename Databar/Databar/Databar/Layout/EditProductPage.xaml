@@ -50,24 +50,24 @@
                         <Label FontSize="Small" Text="Kr / %" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                         <Label FontSize="Small" Text="5 Dager:" Grid.Row="9" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                         <Entry x:Name="FiveDayRebate_entry" Keyboard="Numeric" Grid.Row="9" Grid.Column="1"/>
-                        <Label FontSize="Small" Text="Placeholder" Grid.Row="9" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
-                        <Switch x:Name="FiveDayRebate_sw" Grid.Row="9" Grid.Column="3" Margin="0,0,20,0"/>
+                        <Label x:Name="FiveDayRebateType_label" Text="Kr" FontSize="Small" Grid.Row="9" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
+                        <Switch x:Name="FiveDayRebate_sw" Grid.Row="9" Grid.Column="3" Margin="0,0,20,0" Toggled="FiveDayToggle" />
                         <Label FontSize="Small" Text="4 Dager:" Grid.Row="10" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                         <Entry x:Name="FourDayRebate_entry" Keyboard="Numeric" Grid.Row="10" Grid.Column="1"/>
-                        <Label FontSize="Small" Text="Placeholder" Grid.Row="10" Grid.Column="2" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" TextColor="#002C6C"/>
-                        <Switch x:Name="FourDayRebate_sw" Grid.Row="10" Grid.Column="3" Margin="0,0,20,0"/>
+                        <Label x:Name="FourDayRebateType_label" Text="Kr" FontSize="Small" Grid.Row="10" Grid.Column="2" VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" TextColor="#002C6C"/>
+                        <Switch x:Name="FourDayRebate_sw" Grid.Row="10" Grid.Column="3" Margin="0,0,20,0" Toggled="FourDayToggle"/>
                         <Label FontSize="Small" Text="3 Dager:" Grid.Row="11" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                         <Entry x:Name="ThreeDayRebate_entry" Keyboard="Numeric" Grid.Row="11" Grid.Column="1"/>
-                        <Label FontSize="Small" Text="Placeholder" Grid.Row="11" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
-                        <Switch x:Name="ThreeDayRebate_sw" Grid.Row="11" Grid.Column="3" Margin="0,0,20,0"/>
+                        <Label x:Name="ThreeDayRebateType_label" Text="Kr" FontSize="Small" Grid.Row="11" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
+                        <Switch x:Name="ThreeDayRebate_sw" Grid.Row="11" Grid.Column="3" Margin="0,0,20,0" Toggled="ThreeDayToggle"/>
                         <Label FontSize="Small" Text="2 Dager:" Grid.Row="12" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                         <Entry x:Name="TwoDayRebate_entry" Keyboard="Numeric" Grid.Row="12" Grid.Column="1"/>
-                        <Label FontSize="Small" Text="Placeholder" Grid.Row="12" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
-                        <Switch x:Name="TwoDayRebate_sw" Grid.Row="12" Grid.Column="3" Margin="0,0,20,0"/>
+                        <Label x:Name="TwoDayRebateType_label" Text="Kr" FontSize="Small" Grid.Row="12" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
+                        <Switch x:Name="TwoDayRebate_sw" Grid.Row="12" Grid.Column="3" Margin="0,0,20,0" Toggled="TwoDayToggle"/>
                         <Label FontSize="Small" Text="1 Dag:" Grid.Row="13" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                         <Entry x:Name="OneDayRebate_entry" Keyboard="Numeric" Grid.Row="13" Grid.Column="1"/>
-                        <Label FontSize="Small" Text="Placeholder" Grid.Row="13" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
-                        <Switch x:Name="OneDayRebate_sw" Grid.Row="13" Grid.Column="3" Margin="0,0,20,0"/>
+                        <Label x:Name="OneDayRebateType_label" Text="Kr" FontSize="Small" Grid.Row="13" Grid.Column="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" TextColor="#002C6C"/>
+                        <Switch x:Name="OneDayRebate_sw" Grid.Row="13" Grid.Column="3" Margin="0,0,20,0" Toggled="OneDayToggle"/>
                     </Grid>
                 </StackLayout>
                 <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
