@@ -39,6 +39,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\CartData.cs" />
     <Compile Include="Layout\Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
@@ -59,6 +60,9 @@
     </Compile>
     <Compile Include="Layout\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Layout\ShoppingCart.xaml.cs">
+      <DependentUpon>ShoppingCart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\AI.cs" />
     <Compile Include="Models\BatchBlock.cs" />
@@ -161,6 +165,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Layout\LoginModal.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Layout\ShoppingCart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

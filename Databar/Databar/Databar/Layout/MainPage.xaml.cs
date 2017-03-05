@@ -44,10 +44,14 @@ namespace Databar.Layout
 		{
 			await Navigation.PushAsync(new PayConfirmationPage());
 		}
+        async void ToCart(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ShoppingCart());
+        }
 
 
-		//Handle device hardware back button to prevent accidental closing of app
-		private bool _canClose = true;
+        //Handle device hardware back button to prevent accidental closing of app
+        private bool _canClose = true;
 		protected override bool OnBackButtonPressed()
 		{
 			if (_canClose)

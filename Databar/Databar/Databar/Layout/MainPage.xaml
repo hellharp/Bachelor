@@ -51,7 +51,8 @@
 
 			<Button x:Name="cartButton"
 					BackgroundColor="Transparent"
-					BorderColor="Transparent">
+					BorderColor="Transparent"
+                    Clicked="ToCart">
 
 				<Button.Image>
 					<OnPlatform x:TypeArguments="FileImageSource"
