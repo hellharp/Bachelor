@@ -43,8 +43,15 @@ namespace Databar.Data
 
             for(int i = 0; i < ProductList.Count; i++)
             {
-                sum += ProductList[i].Discount;
-            }
+				if (ProductList[i].Discount == 0)
+				{
+					sum += ProductList[i].UnitCost;
+				}
+				else
+				{
+					sum += (ProductList[i].UnitCost * (ProductList[i].Discount / 100));
+				}
+			}
 
             return sum;
         }

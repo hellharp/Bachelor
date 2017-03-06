@@ -1,6 +1,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,15 @@ namespace Databar.Layout
 		public MainPage()
 		{
 			InitializeComponent();
+			DateTime currDate = (DateTime)App.Current.Properties["CurrentDate"];
+			currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
 		}
 
-		protected override void OnAppearing()
-		{
-			DateTime currDate = (DateTime)App.Current.Properties["CurrentDate"];
-			currentDate.Text = currDate.ToString("d");
-		}
+		//protected override void OnAppearing()
+		//{
+		//	DateTime currDate = (DateTime)App.Current.Properties["CurrentDate"];
+		//	currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
+		//}
 
 		async void ToZXing(object sender, EventArgs e)
 		{

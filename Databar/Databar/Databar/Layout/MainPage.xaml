@@ -23,7 +23,7 @@
 			<Label Text="Mobil DataBar-Skanner Hovedside"
 					VerticalOptions="Center"
 					HorizontalOptions="Center" />
-			
+
 			<Label Text="Dagens dato: "	HorizontalOptions="Center"/>
 			<Label x:Name="currentDate"
 			   Text="Curr_Date here"
@@ -38,17 +38,21 @@
 					VerticalOptions="Center"
 					HorizontalOptions="Center"/>
 
-		<Button Text="To Pay Page" Clicked="ToPayPage"
+			<Button Text="To Pay Page" Clicked="ToPayPage"
 				VerticalOptions="Center"
 				HorizontalOptions="Center"/>
 
-		<Button Text="To Pay Confirmation Page" Clicked="ToPayConfirmationPage"
+			<Button Text="To Pay Confirmation Page" Clicked="ToPayConfirmationPage"
 				VerticalOptions="Center"
 				HorizontalOptions="Center"/>
 
-	</StackLayout>
-<!-- 4ab854c... * Databar.Droid.csproj: Lagt inn div logoer for betalingstjenestene.   Endret layout på MainPage og PayPage. -->
+			<Button Text="To Shopping Cart" Clicked="ToCart"
+				VerticalOptions="Center"
+				HorizontalOptions="Center"/>
 
+		</StackLayout>
+		<!--Bottom button navigation row-->
+		<BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
 		<StackLayout
 				VerticalOptions="End"
 				Spacing="40"
@@ -65,8 +69,6 @@
 						Android="gs1_shopping_cart.png"
 						iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"/>
 				</Button.Image>
-
-
 			</Button>
 
 			<Button x:Name="loginButton"
@@ -79,7 +81,6 @@
 						Android="gs1_menu.png"
 						iOS="GS1_Symbol_Menu_RGB_20150416.png"/>
 				</Button.Image>
-
 			</Button>
 
 			<Button x:Name="trashButton"
@@ -91,7 +92,6 @@
 						Android="gs1_trash.png"
 						iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
 				</Button.Image>
-
 			</Button>
 		</StackLayout>
 	</StackLayout>

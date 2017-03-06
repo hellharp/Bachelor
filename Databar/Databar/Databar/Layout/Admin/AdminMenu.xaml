@@ -25,6 +25,7 @@
 
 		</StackLayout>
 
+		<BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
 		<StackLayout
 				VerticalOptions="End"
 				Spacing="40"
