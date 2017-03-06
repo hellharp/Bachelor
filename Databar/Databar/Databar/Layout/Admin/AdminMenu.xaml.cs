@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using ZXing.Mobile;
 
 namespace Databar.Layout.Admin
 {
@@ -43,6 +44,28 @@ namespace Databar.Layout.Admin
 				_canClose = false;
 				OnBackButtonPressed();
 			}
+		}
+
+		async void StartZXing(object sender, EventArgs e)
+		{
+			var scanner = new MobileBarcodeScanner();
+
+			var result = await scanner.Scan();
+
+
+			if (result != null)
+			{
+				App.Current.Properties["ScannedCode"] = result;
+				// Code scanned and saved in Properties["ScannedCode"], send to EditProductPage.
+				await Navigation.PushAsync(new EditProductPage());
+			}
+			else
+			{
+				App.Current.Properties["ScannedCode"] = null;
+				// Scanning aborted
+				await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
+			}
+
 		}
 	}
 }

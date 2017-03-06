@@ -33,7 +33,8 @@
 
 			<Button x:Name="barcodeButton"
 					BackgroundColor="Transparent"
-					BorderColor="Transparent">
+					BorderColor="Transparent"
+					Clicked="StartZXing">
 
 				<Button.Image>
 					<OnPlatform x:TypeArguments="FileImageSource"
