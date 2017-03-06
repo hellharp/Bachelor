@@ -18,8 +18,10 @@ namespace Databar
 			// "Global" variable to keep track of admin-login status
 			var isLoggedIn = Properties.ContainsKey("IsLoggedIn") ? (bool)Properties["IsLoggedIn"] : false;
 
+			// Global variable for current (possibly overridden) date. Initialize as today.
+			App.Current.Properties["CurrentDate"] = DateTime.Today;
+
 			//Velger hvilken xaml som først starter. I dette tilfellet MainPage.xaml
-			
 			MainPage = new NavigationPage(new Layout.MainPage());
 		}
 
