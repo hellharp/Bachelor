@@ -65,7 +65,19 @@ namespace Databar.Layout.Admin
 				// Scanning aborted
 				await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
 			}
+		}
 
+		// Focus on / display the hidden DatePicker when "calendar"-button is pressed
+		async void FocusDatePicker(object sender, EventArgs ea)
+		{
+			Curr_Date_Picker.Focus();
+		}
+
+		// Save the chosen date as the "current" date
+		async void SetCurrentDate(object sender, EventArgs ea)
+		{
+			DateTime setCurrentDate = Curr_Date_Picker.Date;
+			App.Current.Properties["CurrentDate"] = setCurrentDate;
 		}
 	}
 }

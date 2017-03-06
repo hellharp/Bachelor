@@ -26,8 +26,15 @@ namespace Databar
 		protected override void OnStart()
 		{
 			// Handle when your app starts
+
+			// Initialize database
 			DB_Service.Instance.CreateDbIfNotExist();
+			
+			// Global variable for Admin-status
 			App.Current.Properties["IsLoggedIn"] = false;
+
+			// Global variable for current (possibly overridden) date. Initialize as today.
+			App.Current.Properties["CurrentDate"] = DateTime.Today;
 		}
 
 		protected override void OnSleep()

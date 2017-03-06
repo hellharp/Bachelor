@@ -58,17 +58,25 @@
 
 			</Button>
 
+			<DatePicker x:Name="Curr_Date_Picker" 
+						TextColor="#002C6C" 
+						Format="yy-MM-dd" 
+						IsVisible="False" 
+						DateSelected="SetCurrentDate"/>
+			
 			<Button x:Name="calendarButton"
 					BackgroundColor="Transparent"
-					BorderColor="Transparent">
+					BorderColor="Transparent"
+					Clicked="FocusDatePicker">
 
 				<Button.Image>
 					<OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_calendar.png"
 						iOS="GS1_Symbol_Calendar_RGB_20150416.png"/>
 				</Button.Image>
-
 			</Button>
+
+			
 		</StackLayout>
 	</StackLayout>
 

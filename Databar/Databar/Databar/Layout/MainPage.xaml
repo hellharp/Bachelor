@@ -23,6 +23,12 @@
 			<Label Text="Mobil DataBar-Skanner Hovedside"
 					VerticalOptions="Center"
 					HorizontalOptions="Center" />
+			
+			<Label Text="Dagens dato: "	HorizontalOptions="Center"/>
+			<Label x:Name="currentDate"
+			   Text="Curr_Date here"
+				VerticalOptions="Center"
+				HorizontalOptions="Center"/>
 
 			<Button Text="To ZXing" Clicked="ToZXing"
 					VerticalOptions="Center"
