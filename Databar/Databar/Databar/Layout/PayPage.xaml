@@ -27,7 +27,8 @@
 						HorizontalOptions="Center"/>
 
 				<Button x:Name="mCash"
-						HeightRequest="50"
+						HeightRequest="100"
+						WidthRequest="130"
 						HorizontalOptions="Center"
 						VerticalOptions="Center"
 						BackgroundColor="White"
@@ -44,7 +45,8 @@
 				</Button>
 
 				<Button x:Name="VippsButton"
-						HeightRequest="50"
+						HeightRequest="100"
+						WidthRequest="130"
 						HorizontalOptions="Center"
 						VerticalOptions="Center"
 						BackgroundColor="White"
@@ -64,7 +66,8 @@
 
 
 				<Button x:Name="ApplePay"
-						HeightRequest="50"
+						HeightRequest="100"
+						WidthRequest="130"
 						HorizontalOptions="Center"
 						VerticalOptions="Center"
 						BackgroundColor="Transparent"

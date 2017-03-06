@@ -23,11 +23,12 @@
 						  VerticalOptions="Center"
 						  x:Name="imageView"
 						  Source="GS1_Norway_logo_61px.png"
+						  BackgroundColor="Transparent"
 						  IsVisible="true">
 
 						<OnPlatform x:TypeArguments="ImageSource"
-									iOS="Resources/GS1_Norway_logo_61px.png"
-									Android="@drawable/GS1_Norway_logo_61px.png" />
+									iOS="GS1_Norway_logo_61px.png"
+									Android="GS1_Norway_logo_61px.png" />
 
 					</Image>
 				
