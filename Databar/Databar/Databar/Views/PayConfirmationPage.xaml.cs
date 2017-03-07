@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 
 
-namespace Databar.Layout
+namespace Databar.Views
 {
 	public partial class PayConfirmationPage : ContentPage
 	{
@@ -18,7 +18,7 @@ namespace Databar.Layout
 
 		async void CloseWindow(object sender, EventArgs e)
 		{
-			App.Current.MainPage = new NavigationPage(new Layout.MainPage());
+			App.Current.MainPage = new NavigationPage(new Views.MainPage());
 		}
 	}
 }

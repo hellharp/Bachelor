@@ -1,19 +1,37 @@
-﻿using Databar.Data;
+﻿
 using System;
 using Xamarin.Forms;
+using Databar.Models;
+using Databar.ViewModels;
 
-namespace Databar.Layout
+namespace Databar.Views
 {
     public partial class ShoppingCart : ContentPage
     {
+        private CartViewModel cartViewModel;
+
+
         public ShoppingCart()
         {
             InitializeComponent();
-            listView.ItemsSource = CartData.ProductList;
-            decimal number = CartData.Sum();
 
+            //Henter CartViewModel
+            cartViewModel = new CartViewModel();
+
+            //Setter XAML til å bruke CartViewModel. Denne gjør bruken av {Binding variabel} i XAML mulig.
+            BindingContext = cartViewModel;
+
+            CalculatePrice();           
+        }
+
+
+
+        private void CalculatePrice()
+        {
+            decimal number = cartViewModel.Sum();
             SumLabel.Text = number.ToString() + "kr";
         }
+
 
         private void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {

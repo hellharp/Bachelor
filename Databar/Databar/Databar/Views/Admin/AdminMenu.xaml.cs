@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZXing.Mobile;
 
-namespace Databar.Layout.Admin
+namespace Databar.Views.Admin
 {
 	public partial class AdminMenu : ContentPage
 	{
@@ -22,7 +22,7 @@ namespace Databar.Layout.Admin
 		async void Logout(object sender, EventArgs e)
 		{
 			App.Current.Properties["IsLoggedIn"] = false;
-			App.Current.MainPage = new NavigationPage(new Layout.MainPage());
+			App.Current.MainPage = new NavigationPage(new Views.MainPage());
 			//await Navigation.PopAsync();
 		}
 

@@ -8,7 +8,7 @@ using ZXing.Mobile;
 using Xamarin.Forms;
 using System.Diagnostics;
 
-namespace Databar.Layout
+namespace Databar.Views
 {
 	//Test fra mac commit, nr 2
 	public partial class BasisUI : ContentPage

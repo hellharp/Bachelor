@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
-namespace Databar.Layout
+namespace Databar.Views
 {
     public partial class PayPage : ContentPage
     {

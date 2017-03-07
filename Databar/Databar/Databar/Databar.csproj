@@ -39,41 +39,43 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\CartData.cs" />
-    <Compile Include="Layout\Admin\AdminMenu.xaml.cs">
+    <Compile Include="Models\TempProd.cs" />
+    <Compile Include="Services\CartServices.cs" />
+    <Compile Include="ViewModels\CartViewModel.cs" />
+    <Compile Include="Views\Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layout\BasisUI.xaml.cs">
+    <Compile Include="Views\BasisUI.xaml.cs">
       <DependentUpon>BasisUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\DB_Service.cs" />
-    <Compile Include="Data\IDB_Service.cs" />
+    <Compile Include="Services\DB_Service.cs" />
+    <Compile Include="Services\IDB_Service.cs" />
     <Compile Include="IFileHelper.cs" />
-    <Compile Include="Layout\EditProductPage.xaml.cs">
+    <Compile Include="Views\EditProductPage.xaml.cs">
       <DependentUpon>EditProductPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layout\LoginModal.xaml.cs">
+    <Compile Include="Views\LoginModal.xaml.cs">
       <DependentUpon>LoginModal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layout\MainPage.xaml.cs">
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layout\PayPage.xaml.cs">
+    <Compile Include="Views\PayPage.xaml.cs">
       <DependentUpon>PayPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Layout\ShoppingCart.xaml.cs">
+    <Compile Include="Views\ShoppingCart.xaml.cs">
       <DependentUpon>ShoppingCart.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\AI.cs" />
     <Compile Include="Models\BatchBlock.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Layout\PayConfirmationPage.xaml.cs">
+    <Compile Include="Views\PayConfirmationPage.xaml.cs">
       <DependentUpon>PayConfirmationPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layout\MainPage.xaml">
+    <EmbeddedResource Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -81,7 +83,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Include="Layout\PayConfirmationPage.xaml">
+    <EmbeddedResource Include="Views\PayConfirmationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>
@@ -140,37 +142,37 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layout\BasisUI.xaml">
+    <EmbeddedResource Include="Views\BasisUI.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layout\EditProductPage.xaml">
+    <EmbeddedResource Include="Views\EditProductPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layout\PayPage.xaml">
+    <EmbeddedResource Include="Views\PayPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layout\Admin\AdminMenu.xaml">
+    <EmbeddedResource Include="Views\Admin\AdminMenu.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layout\LoginModal.xaml">
+    <EmbeddedResource Include="Views\LoginModal.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Layout\ShoppingCart.xaml">
+    <EmbeddedResource Include="Views\ShoppingCart.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
