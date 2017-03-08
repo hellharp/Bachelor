@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Databar.Views.PayConfirmationPage">
+             x:Class="Databar.Views.PayConfirmationPage"
+              xmlns:ViewModels="clr-namespace:Databar.ViewModels">
 
 	<ContentPage.Padding>
 		<!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
@@ -40,18 +41,35 @@
 					Spacing="0">
 
 					<Label Text=
-					"Gratulerer"
-					FontSize="Large"
-					TextColor="#002C6C"
-					FontAttributes="Bold"
-					VerticalTextAlignment="Center"
-					HorizontalTextAlignment="Center"/>
+						"Gratulerer"
+						FontSize="Large"
+						TextColor="#002C6C"
+						FontAttributes="Bold"
+						VerticalTextAlignment="Center"
+						HorizontalTextAlignment="Center"/>
 
 					<Label
 						Text=
-						"&#x0a;Du sparte kr.... på&#x0a; å handle ¨Smart¨.&#x0a;&#x0a;
-						Samtidig bidro du til at&#x0a;
-						mindre mat blir kastet.&#x0a;"
+						"&#x0a;Du sparte kr."
+						FontSize="Medium"
+						TextColor="#002C6C"
+						LineBreakMode="CharacterWrap"
+						VerticalTextAlignment="Start"
+						HorizontalTextAlignment="Center"/>
+
+			  <!--Shows the discountsum of all the items-->     
+                	<Label 
+						VerticalTextAlignment="Start"
+						HorizontalTextAlignment="Center"
+						x:Name="DiscountSumLabel" 
+						FontSize="Medium" 
+						FontAttributes="Bold"
+						TextColor="#002C6C"/>
+ 
+
+					<Label
+						Text=
+						" på å handle ¨Smart¨.&#x0a;&#x0a; Samtidig bidro du til at&#x0a; mindre mat blir kastet.&#x0a;"
 						FontSize="Medium"
 						TextColor="#002C6C"
 						LineBreakMode="CharacterWrap"
@@ -78,9 +96,10 @@
 						Spacing="40"
 						Orientation="Horizontal"
 						HorizontalOptions="Center">
-
+				
+			<!-- Made button gray because of no use on this page -->						
 					<Button x:Name="cartButton"
-						BackgroundColor="Transparent"
+						BackgroundColor="Gray"
 						BorderColor="Transparent">
 
 					 	 <Button.Image>
@@ -106,8 +125,9 @@
 
 					</Button>
 
+			<!-- Made button gray because of no use on this page -->				
 				<Button x:Name="trashButton"
-						BackgroundColor="Transparent"
+						BackgroundColor="Gray"
 						BorderColor="Transparent">
 
 						<Button.Image>

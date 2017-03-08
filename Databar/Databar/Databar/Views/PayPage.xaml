@@ -96,7 +96,8 @@
 
 				<Button x:Name="cartButton"
 						BackgroundColor="Transparent"
-						BorderColor="Transparent">
+						BorderColor="Transparent"
+						Clicked="ToShoppingCart">
 
 					 	 <Button.Image>
 	   							<OnPlatform x:TypeArguments="FileImageSource"
@@ -107,8 +108,9 @@
 
 				</Button>
 
+			<!-- Made button gray because of no use on this page -->		
 				<Button x:Name="creditButton"
-						BackgroundColor="Transparent"
+						BackgroundColor="Gray"
 						BorderColor="Transparent">
 
 					  	<Button.Image>
@@ -119,8 +121,9 @@
 
 				</Button>
 
+			<!-- Made button gray because of no use on this page -->		
 				<Button x:Name="trashButton"
-						BackgroundColor="Transparent"
+						BackgroundColor="Gray"
 						BorderColor="Transparent">
 
 						<Button.Image>

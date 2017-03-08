@@ -19,5 +19,10 @@ namespace Databar.Views
 		{
 			await Navigation.PushAsync(new PayConfirmationPage());
 		}
+
+		async void ToShoppingCart(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new ShoppingCart());
+		}
     }
 }
