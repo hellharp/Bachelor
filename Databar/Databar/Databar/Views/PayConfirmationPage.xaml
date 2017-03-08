@@ -6,6 +6,8 @@
 
 	<ContentPage.Padding>
 		<!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
+		<!-- Legger inn en kommentar -->
+
 		<OnPlatform x:TypeArguments="Thickness"
 					iOS="0,20,0,0"/>
 	</ContentPage.Padding>

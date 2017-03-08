@@ -178,6 +178,7 @@
     <AndroidResource Include="Resources\drawable\Pay_mCashlogo.png" />
     <AndroidResource Include="Resources\drawable\Pay_Vippslogo.png" />
     <AndroidResource Include="Resources\drawable\Pay_ApplePaylogo.png" />
+    <AndroidResource Include="Resources\drawable\GS1_test.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />

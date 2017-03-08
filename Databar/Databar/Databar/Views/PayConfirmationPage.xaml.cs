@@ -24,7 +24,7 @@ namespace Databar.Views
 		//Calculate total discount
 		private void CalculateDiscountPrice()
 		{
-			decimal discountnumber = payConfirmationViewModel.DiscountSum();
+			decimal discountnumber = payConfirmationViewModel.TotalDiscount();
 			DiscountSumLabel.Text = discountnumber.ToString() + ",-";
 		}
 
