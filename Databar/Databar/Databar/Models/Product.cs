@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLiteNetExtensions.Attributes;
 
-namespace Databar_skanner.Models
+namespace Databar.Models
 {
     [Table("Product")]
     public class Product
