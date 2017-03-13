@@ -38,6 +38,9 @@ namespace Databar
 
             // Global variable for current (possibly overridden) date. Initialize as today.
             App.Current.Properties["CurrentDate"] = DateTime.Today;
+
+            // Global variable for scanned barcode
+            App.Current.Properties["ScannedCode"] = "";
         }
 
         protected override void OnSleep()

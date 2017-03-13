@@ -41,6 +41,8 @@
     </Compile>
     <Compile Include="Models\TempProd.cs" />
     <Compile Include="Services\CartServices.cs" />
+    <Compile Include="Services\IRestService.cs" />
+    <Compile Include="Services\RestService.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\EditProductPageViewModel.cs" />
     <Compile Include="Views\Admin\AdminMenu.xaml.cs">
