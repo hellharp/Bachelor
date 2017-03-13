@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Databar.Models
 {
+	/// <summary>
+	/// 
+	/// </summary>
     public class TempProd
     {
         public int ID { get; set; }

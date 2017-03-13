@@ -7,19 +7,28 @@ using System.Threading.Tasks;
 
 namespace Databar_skanner.Models
 {
-    [Table("AI")]
-    public class AI
-    {
-        //    AI vi skal støtte:
-        //    01 = Global Trade Item Number
-        //    10 = Batch or lot number
-        //    11 = Production date(YYMMDD)
-        //    17 = Expiration date(YYMMDD)
-        //    21 = Serial nr.
+	/// <summary>
+	/// Model for Application Identifier consisting of an AI number and an AI description.
+	/// </summary>
+	[Table("AI")]
+	public class AI
+	{
+		/// <summary>
+		/// Application Identifier.
+		/// </summary>
+		/// <remarks>
+		/// Our application currently supports the following AIs:
+		/// 01: Global Trade Item Number
+		/// 10: Batch or Lot number
+		/// 17: Expiration date (YYMMDD)
+		/// 21: Serial number
+		/// </remarks>
+		[PrimaryKey]
+		public int AInumber { get; set; }
 
-        [PrimaryKey]
-        public int AInumber { get; set; }
-
-        public string AIdescription { get; set; }
-    }
+		/// <summary>
+		/// Description of AI.
+		/// </summary>
+		public string AIdescription { get; set; }
+	}
 }
