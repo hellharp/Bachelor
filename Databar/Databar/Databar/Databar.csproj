@@ -42,6 +42,7 @@
     <Compile Include="Models\TempProd.cs" />
     <Compile Include="Services\CartServices.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
+    <Compile Include="ViewModels\EditProductPageViewModel.cs" />
     <Compile Include="Views\Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
