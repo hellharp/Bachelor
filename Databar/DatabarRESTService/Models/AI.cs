@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Databar.Models
+namespace DatabarRESTService.Models
 {
 	/// <summary>
 	/// Model for Application Identifier consisting of an AI number and an AI description.

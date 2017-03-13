@@ -1,5 +1,4 @@
 ﻿using Databar.Models;
-using Databar_skanner.Models;
 using SQLite.Net.Async;
 using System;
 using System.Collections.Generic;
