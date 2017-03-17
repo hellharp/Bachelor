@@ -14,6 +14,8 @@ namespace Databar.Services
     //https://xamarindevelopervietnam.wordpress.com/2016/01/08/how-to-use-sqliteasync-pcl-in-xamarin-forms/
     public class DB_Service : IDB_Service
     {
+        //IRestService restService;
+
         private static readonly Lazy<DB_Service> Lazy =
         new Lazy<DB_Service>(() => new DB_Service());
 
