@@ -2,83 +2,118 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Databar.Views.Admin.AdminMenu">
-	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
-	<ContentPage.Padding>
-		<!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
-		<OnPlatform x:TypeArguments="Thickness"
+    <ContentPage.Padding>
+        <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
+        <OnPlatform x:TypeArguments="Thickness"
 					iOS="0,20,0,0"/>
-	</ContentPage.Padding>
+    </ContentPage.Padding>
 
-	<!--Bruke tabbar / tab page?-->
+    <!--Bruke tabbar / tab page?-->
 
-	<StackLayout>
-		<StackLayout
-			VerticalOptions="CenterAndExpand"
-			HorizontalOptions="FillAndExpand"
-			Orientation="Vertical"
-			Spacing="20">
+    <StackLayout>
+        <ScrollView VerticalOptions="StartAndExpand">
+            <StackLayout
+					Orientation="Vertical">
 
-			<Label Text="Mobil DataBar-Skanner Adminside"
+                <Image
+						  HorizontalOptions="Center"
+						  VerticalOptions="Center"
+						  x:Name="imageView"
+						  Source="GS1_Norway_logo_61px.png"
+						  BackgroundColor="Transparent"
+						  IsVisible="true">
+
+                    <OnPlatform x:TypeArguments="ImageSource"
+									iOS="GS1_Norway_logo_61px.png"
+									Android="GS1_Norway_logo_61px.png" />
+
+                </Image>
+
+                <Label Text="Administrasjonsmeny"
 					VerticalOptions="Center"
-					HorizontalOptions="Center" />
+					HorizontalOptions="Start" />
+                <Label Text="Via denne menyen kan du: "
+					VerticalOptions="Center"
+					HorizontalOptions="Start" />
+                <Label Text="1) Opprette nye varer"
+					VerticalOptions="Center"
+					HorizontalOptions="Start" />
+                <Label Text="2) Endre eksisterende varer"
+					VerticalOptions="Center"
+					HorizontalOptions="Start" />
+                <Label Text="3) Slette eksisterende varer"
+					VerticalOptions="Center"
+					HorizontalOptions="Start" />
+                <Label Text="4) Sperre varer for salg"
+					VerticalOptions="Center"
+					HorizontalOptions="Start" />
+                <Label Text="5) Sette dagens dato for sjekk mot best før dato/siste forbruksdato"
+					VerticalOptions="Center"
+					HorizontalOptions="Start" />
 
-		</StackLayout>
+                <!--This DatePicker is hidden until calendarButton is pressed-->
+                <DatePicker x:Name="Curr_Date_Picker" 
+						TextColor="#002C6C" 
+						Format="yy-MM-dd" 
+						IsVisible="False" 
+						DateSelected="SetCurrentDate"/>
 
-		<BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
-		<StackLayout
+            </StackLayout>
+
+
+        </ScrollView>
+
+        <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
+        <StackLayout
 				VerticalOptions="End"
 				Spacing="40"
 				Orientation="Horizontal"
 				HorizontalOptions="Center">
 
-			<Button x:Name="barcodeButton"
+            <Button x:Name="barcodeButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
 					Clicked="StartZXing">
 
-				<Button.Image>
-					<OnPlatform x:TypeArguments="FileImageSource"
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_barcode.png"
 						iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
-				</Button.Image>
+                </Button.Image>
 
 
-			</Button>
+            </Button>
 
-			<Button x:Name="logoutButton"
+            <Button x:Name="logoutButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
 					Clicked="Logout">
 
-				<Button.Image>
-					<OnPlatform x:TypeArguments="FileImageSource"
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_remove_circle.png"
 						iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"/>
-				</Button.Image>
+                </Button.Image>
 
-			</Button>
+            </Button>
 
-			<DatePicker x:Name="Curr_Date_Picker" 
-						TextColor="#002C6C" 
-						Format="yy-MM-dd" 
-						IsVisible="False" 
-						DateSelected="SetCurrentDate"/>
-			
-			<Button x:Name="calendarButton"
+
+            <Button x:Name="calendarButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
 					Clicked="FocusDatePicker">
 
-				<Button.Image>
-					<OnPlatform x:TypeArguments="FileImageSource"
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
 						Android="gs1_calendar.png"
 						iOS="GS1_Symbol_Calendar_RGB_20150416.png"/>
-				</Button.Image>
-			</Button>
+                </Button.Image>
+            </Button>
 
-			
-		</StackLayout>
-	</StackLayout>
+
+        </StackLayout>
+    </StackLayout>
 
 </ContentPage>
