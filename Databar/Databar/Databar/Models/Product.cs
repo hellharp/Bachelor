@@ -20,8 +20,8 @@ namespace Databar.Models
         // Produktbeskrivelse
         public string ProductName { get; set; }
 
-        // Utløpsdato dekker best før/siste forbruksdato
-        public DateTime BestBeforeDate { get; set; }
+        //// Utløpsdato dekker best før/siste forbruksdato
+        //public DateTime BestBeforeDate { get; set; }
 
         // Serienummer
         public string SerialNumber { get; set; }
