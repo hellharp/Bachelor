@@ -227,8 +227,7 @@ namespace Databar.Services
 
         public async Task SaveProductAsync(Product prod, bool isNewItem = false)
         {
-            // ID eller GTIN? ID->samme gtin, forskjellig dato etc.
-            var uri = new Uri(string.Format(Constants.RestUrl, prod.ID.ToString()));
+            var uri = new Uri(string.Format(Constants.RestUrl, prod.GTIN.ToString()));
 
             try
             {

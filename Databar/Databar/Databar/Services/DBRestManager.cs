@@ -52,7 +52,7 @@ namespace Databar.Services
 
         public Task DeleteProductAsync(Product prod)
         {
-            return restService.DeleteProductAsync(prod.ID.ToString());
+            return restService.DeleteProductAsync(prod.GTIN.ToString());
         }
 
         public Task DeleteAIAsync(AI ai)
@@ -64,5 +64,7 @@ namespace Databar.Services
         {
             return restService.DeleteBatchBlockAsync(batch.BatchNr.ToString());
         }
+
+        // UPDATE operations needed
     }
 }

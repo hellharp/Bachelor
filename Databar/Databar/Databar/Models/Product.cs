@@ -11,10 +11,10 @@ namespace Databar.Models
     [Table("Product")]
     public class Product
     {
-        [PrimaryKey, AutoIncrement]
-        public int ID { get; set; }
+        //[PrimaryKey, AutoIncrement]
+        //public int ID { get; set; }
 
-        [MaxLength(14)]
+        [PrimaryKey, MaxLength(14)]
         public long GTIN { get; set; }
 
         // Produktbeskrivelse
@@ -40,5 +40,15 @@ namespace Databar.Models
 
         // På utløpsdatoen
         public double LastDayRebate { get; set; }
+
+        // Variabler for å holde rede på om rabatt er i % eller kr.
+        // Foreslått konvensjon: "percent" for %-rabatt og "fixed" for fastrabatt.
+
+        public string Four_RebateType { get; set; }
+        public string Three_RebateType { get; set; }
+        public string Two_RebateType { get; set; }
+        public string One_RebateType { get; set; }
+        public string Last_RebateType { get; set; }
+
     }
 }

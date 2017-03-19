@@ -31,7 +31,7 @@ namespace Databar
             // Handle when your app starts
 
             // Initialize database
-            DB_Service.Instance.CreateDbIfNotExist();
+            //DB_Service.Instance.CreateDbIfNotExist();
 
             // Global variable for Admin-status
             App.Current.Properties["IsLoggedIn"] = false;
