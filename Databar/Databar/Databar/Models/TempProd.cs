@@ -14,6 +14,7 @@ namespace Databar.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public int Discount { get; set; }
+        public string DiscountType { get; set; }
         public decimal UnitCost { get; set; }
     }
 }

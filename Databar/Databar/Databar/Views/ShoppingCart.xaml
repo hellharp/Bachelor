@@ -22,17 +22,26 @@
             
             <!--List that shows the Shopping Cart. ItemSource is set to CartViewModel.CartList -->
             <ListView x:Name="listView" ItemSelected="OnItemSelected" ItemsSource="{Binding CartList}">
+                <ListView.Header>
+                    <Grid Padding="0,5,0,0">
+                        <Label Text="Produkt" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Large" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,0,0"/>
+                        <Label Text="Rabatt" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Large" Grid.Column="2" Grid.ColumnSpan="2"/>
+                        <Label Text="Pris" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Large" Grid.Column="4"/>
+                    </Grid>
+                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
                                 <MenuItem Text="Fjern" CommandParameter="{Binding .}" Clicked="OnRemoved"/>
                             </ViewCell.ContextActions>
-                            <StackLayout Padding="5"
-                                 Orientation="Horizontal" Spacing="40">
-                                <Label Text="{Binding Name}" HorizontalOptions="Start" FontSize="Medium"/>
-                                <Label Text="{Binding Discount}" HorizontalOptions="CenterAndExpand" TextColor="Green" FontSize="Medium"/>
-                                <Label Text="{Binding UnitCost, StringFormat='{0:0.00}kr'}" HorizontalOptions="End" TextColor="Green" FontSize="Medium"/>
+                            <StackLayout Padding="5">
+                                <Grid>
+                                    <Label Text="{Binding Name}" HorizontalOptions="Start" FontSize="Medium" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding Discount}" HorizontalOptions="End" TextColor="Green" FontSize="Medium" Grid.Column="2"/>
+                                    <Label Text="{Binding DiscountType}" HorizontalOptions="Start" TextColor="Green" FontSize="Medium" Grid.Column="3"/>
+                                    <Label Text="{Binding UnitCost, StringFormat='{0:0.00}kr'}" HorizontalOptions="End" TextColor="Green" FontSize="Medium" Grid.Column="4"/>
+                                </Grid>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

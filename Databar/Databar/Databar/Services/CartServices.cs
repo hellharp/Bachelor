@@ -18,17 +18,17 @@ namespace Databar.Services
             {
                 new TempProd
             {
-                ID=1, Name="H-Melk Tine 1,5L", Discount=20, UnitCost=10.00m
+                ID=1, Name="H-Melk Tine 1,5L", Discount=20, DiscountType="%", UnitCost=10.00m
             },
              new TempProd
             {
-                ID=2, Name="H-Melk Tine 1,5L",Discount=0, UnitCost=12.50m
+                ID=2, Name="H-Melk Tine 1,5L",Discount=0, DiscountType="", UnitCost=12.50m
             }, new TempProd
             {
-                ID=3, Name="Brød Kneip", Discount=50, UnitCost=16.00m
+                ID=3, Name="Brød Kneip", Discount=50, DiscountType="%", UnitCost=16.00m
             }, new TempProd
             {
-                ID=4, Name="Kaviar Mills", Discount=0, UnitCost=29.70m
+                ID=4, Name="Kaviar Mills", Discount=0, DiscountType="", UnitCost=29.70m
             },
             };
             return list;
