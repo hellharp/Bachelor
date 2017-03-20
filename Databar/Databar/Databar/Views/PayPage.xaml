@@ -92,7 +92,8 @@
 					VerticalOptions="End"
 					Spacing="40"
 					Orientation="Horizontal"
-					HorizontalOptions="Center">
+					HorizontalOptions="Center"
+                    Padding="0, 10, 0, 10">
 
 				<Button x:Name="cartButton"
 						BackgroundColor="Transparent"

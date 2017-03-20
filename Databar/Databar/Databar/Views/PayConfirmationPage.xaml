@@ -97,7 +97,8 @@
 						VerticalOptions="End"
 						Spacing="40"
 						Orientation="Horizontal"
-						HorizontalOptions="Center">
+						HorizontalOptions="Center"
+                        Padding="0, 10, 0, 10">
 				
 			<!-- Made button gray because of no use on this page -->						
 					<Button x:Name="cartButton"

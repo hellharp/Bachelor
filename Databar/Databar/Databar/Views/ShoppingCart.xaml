@@ -37,9 +37,9 @@
                             </ViewCell.ContextActions>
                             <StackLayout Padding="5">
                                 <Grid>
-                                    <Label Text="{Binding Name}" HorizontalOptions="Start" FontSize="Medium" Grid.Column="0" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding Name}" HorizontalOptions="Start" FontSize="Small" Grid.Column="0" Grid.ColumnSpan="2"/>
                                     <Label Text="{Binding Discount}" HorizontalOptions="End" TextColor="Green" FontSize="Medium" Grid.Column="2"/>
-                                    <Label Text="{Binding DiscountType}" HorizontalOptions="Start" TextColor="Green" FontSize="Medium" Grid.Column="3"/>
+                                    <Label Text="{Binding DiscountType}" HorizontalOptions="Start" TextColor="Green" FontSize="Small" Grid.Column="3"/>
                                     <Label Text="{Binding UnitCost, StringFormat='{0:0.00}kr'}" HorizontalOptions="End" TextColor="Green" FontSize="Medium" Grid.Column="4"/>
                                 </Grid>
                             </StackLayout>
@@ -57,15 +57,15 @@
 
         </StackLayout>
         <BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
-        <StackLayout
-					VerticalOptions="End"
-					Spacing="40"
-					Orientation="Horizontal"
-					HorizontalOptions="Center">
+        <StackLayout VerticalOptions="End" 
+                     Spacing="40"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Padding="0, 10, 0, 10">
 
             <Button x:Name="cartButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent">
+                    BackgroundColor="Transparent"
+					BorderColor="Transparent">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"

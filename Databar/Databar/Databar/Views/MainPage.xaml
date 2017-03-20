@@ -53,11 +53,11 @@
 		</StackLayout>
 		<!--Bottom button navigation row-->
 		<BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
-		<StackLayout
-				VerticalOptions="End"
-				Spacing="40"
-				Orientation="Horizontal"
-				HorizontalOptions="Center">
+		<StackLayout VerticalOptions="End"
+                     Spacing="40"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     Padding="0, 10, 0, 10">
 
 			<Button x:Name="cartButton"
 					BackgroundColor="Transparent"
