@@ -17,18 +17,20 @@ namespace Databar.Models
 		/// Application Identifier.
 		/// </summary>
 		/// <remarks>
-		/// Our application currently supports the following AIs:
-		/// 01: Global Trade Item Number
-		/// 10: Batch or Lot number
-		/// 17: Expiration date (YYMMDD)
-		/// 21: Serial number
+		/// The Databar application is currently meant to support the following AIs:
+		/// 01: Global Trade Item Number (GTIN)
+		/// 10: Batch or Lot number (BATCH/LOT)
+        /// 15: Best before date (BEST BEFORE or SELL BY)
+		/// 17: Expiration date (USE BY or EXPIRY)
+		/// 21: Serial number (SERIAL)
 		/// </remarks>
-		[PrimaryKey]
+		[PrimaryKey, MaxLength(4)]
 		public int AInumber { get; set; }
 
-		/// <summary>
-		/// Description of AI.
-		/// </summary>
-		public string AIdescription { get; set; }
+        /// <summary>
+        /// Description of AI.
+        /// </summary>
+        [MaxLength(100)]
+        public string AIdescription { get; set; }
 	}
 }

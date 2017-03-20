@@ -17,7 +17,7 @@ namespace Databar.Models
     public class BatchBlock
     {
         // String for å håndtere bindestreker o.l.
-        [PrimaryKey]
+        [PrimaryKey, MaxLength(20)]
         public string BatchNr { get; set; }
 
         // SQLite does not have a separate Boolean storage class.
