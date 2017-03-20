@@ -28,6 +28,8 @@ namespace Databar.Droid
 
 
             base.OnCreate(bundle);
+            Window.AddFlags(WindowManagerFlags.Fullscreen);
+            Window.ClearFlags(WindowManagerFlags.ForceNotFullscreen);
             LoadApplication(new App());
         }
 
