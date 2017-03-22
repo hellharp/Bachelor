@@ -1,12 +1,10 @@
 ﻿using System;
-using Databar.Models;
 using Databar.ViewModels;
 using Xamarin.Forms;
 
-
 namespace Databar.Views
 {
-	public partial class PayConfirmationPage : ContentPage
+    public partial class PayConfirmationPage : ContentPage
 	{
 		private PayConfirmationViewModel payConfirmationViewModel;
 
@@ -30,7 +28,8 @@ namespace Databar.Views
 
 		async void CloseWindow(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new Views.MainPage());
-		}
+			//await Navigation.PushAsync(new Views.MainPage());
+            Application.Current.MainPage = new NavigationPage(new MainPage());
+        }
 	}
 }

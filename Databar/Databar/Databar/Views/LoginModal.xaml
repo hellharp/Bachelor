@@ -2,15 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Databar.Views.LoginModal">
-	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
 
-	<StackLayout>
-		<!--Entry field for admin-password-->
-		<Entry x:Name="pwEntry" IsPassword="True" Completed="Password_Completed" Placeholder="Passord" 
+    <StackLayout
+            VerticalOptions="CenterAndExpand"
+			HorizontalOptions="FillAndExpand"
+			Orientation="Vertical"
+			Spacing="20">
+        <Image
+						  HorizontalOptions="Center"
+						  VerticalOptions="Center"
+						  x:Name="imageView"
+						  Source="GS1_Norway_logo_61px.png"
+						  BackgroundColor="Transparent"
+						  IsVisible="true">
+
+            <OnPlatform x:TypeArguments="ImageSource"
+									iOS="GS1_Norway_logo_61px.png"
+									Android="GS1_Norway_logo_61px.png" />
+
+        </Image>
+        <Label Text="Tast inn administrasjonspassord"
+					VerticalOptions="Center"
+					HorizontalOptions="Center" />
+        <!--Entry field for admin-password-->
+        <Entry x:Name="pwEntry" IsPassword="True" Completed="Password_Completed" Placeholder="Passord" 
 		   VerticalOptions="Center" HorizontalOptions="Center"/>
-		
-		<Button Text="Enter" Clicked="Enter_Button_Pressed" 
+
+        <Button Text="Enter" Clicked="Enter_Button_Pressed" 
 			VerticalOptions="Center" HorizontalOptions="Center" />
-	</StackLayout>
+    </StackLayout>
 </ContentPage>
