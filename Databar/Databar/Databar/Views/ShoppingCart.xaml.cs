@@ -50,5 +50,11 @@ namespace Databar.Views
             var selectedProduct = selectedItem.CommandParameter as TempProd;
             DisplayAlert("Fjernet", $"Du har fjernet {selectedProduct.Name} fra handlekurven", "OK");
         }
+
+		async void ToPayPage(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new PayPage());
+		}
+
     }
 }
