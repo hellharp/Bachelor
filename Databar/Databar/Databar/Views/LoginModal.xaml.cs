@@ -21,8 +21,8 @@ namespace Databar.Views
 			var pw = ((Entry)sender).Text; // cast sender to access properties of the Entry
 			if (pw == "test")
 			{
-				App.Current.Properties["IsLoggedIn"] = true;
-				App.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
+                Application.Current.Properties["IsLoggedIn"] = true;
+                Application.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
 			}
 			else
 			{
@@ -36,8 +36,8 @@ namespace Databar.Views
 			var pw = pwEntry.Text; // Access entry text
 			if (pw == "test")
 			{
-				App.Current.Properties["IsLoggedIn"] = true;
-				App.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
+                Application.Current.Properties["IsLoggedIn"] = true;
+                Application.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
 				//await Navigation.PushAsync(new Admin.AdminMenu());
 				//await Navigation.PopToRootAsync();
 				//await Navigation.PopModalAsync();

@@ -15,7 +15,7 @@ namespace Databar.Views
 		public MainPage()
 		{
 			InitializeComponent();
-			DateTime currDate = (DateTime)App.Current.Properties["CurrentDate"];
+			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
 			currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
 		}
 

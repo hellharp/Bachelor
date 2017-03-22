@@ -21,8 +21,8 @@ namespace Databar.Views.Admin
 
 		async void Logout(object sender, EventArgs e)
 		{
-			App.Current.Properties["IsLoggedIn"] = false;
-			App.Current.MainPage = new NavigationPage(new Views.MainPage());
+            Application.Current.Properties["IsLoggedIn"] = false;
+            Application.Current.MainPage = new NavigationPage(new Views.MainPage());
 			//await Navigation.PopAsync();
 		}
 
@@ -55,13 +55,14 @@ namespace Databar.Views.Admin
 
 			if (result != null)
 			{
-				App.Current.Properties["ScannedCode"] = result;
-				// Code scanned and saved in Properties["ScannedCode"], send to EditProductPage.
-				await Navigation.PushAsync(new EditProductPage());
-			}
+                Application.Current.Properties["ScannedCode"] = result;
+                await DisplayAlert("Databar skannet", result.ToString(), "OK");
+                // Code scanned and saved in Properties["ScannedCode"], send to EditProductPage.
+                //await Navigation.PushAsync(new EditProductPage());
+            }
 			else
 			{
-				App.Current.Properties["ScannedCode"] = null;
+                Application.Current.Properties["ScannedCode"] = "";
 				// Scanning aborted
 				await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
 			}
@@ -77,7 +78,7 @@ namespace Databar.Views.Admin
 		async void SetCurrentDate(object sender, EventArgs ea)
 		{
 			DateTime setCurrentDate = Curr_Date_Picker.Date;
-			App.Current.Properties["CurrentDate"] = setCurrentDate;
+            Application.Current.Properties["CurrentDate"] = setCurrentDate;
 		}
 	}
 }

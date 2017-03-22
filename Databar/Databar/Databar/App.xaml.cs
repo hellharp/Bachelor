@@ -20,7 +20,7 @@ namespace Databar
             var isLoggedIn = Properties.ContainsKey("IsLoggedIn") ? (bool)Properties["IsLoggedIn"] : false;
 
             // Global variable for current (possibly overridden) date. Initialize as today.
-            App.Current.Properties["CurrentDate"] = DateTime.Today;
+            Current.Properties["CurrentDate"] = DateTime.Today;
 
             //Velger hvilken xaml som først starter. I dette tilfellet MainPage.xaml
             MainPage = new NavigationPage(new Views.MainPage());
@@ -34,13 +34,13 @@ namespace Databar
             //DB_Service.Instance.CreateDbIfNotExist();
 
             // Global variable for Admin-status
-            App.Current.Properties["IsLoggedIn"] = false;
+            Current.Properties["IsLoggedIn"] = false;
 
             // Global variable for current (possibly overridden) date. Initialize as today.
-            App.Current.Properties["CurrentDate"] = DateTime.Today;
+            Current.Properties["CurrentDate"] = DateTime.Today;
 
             // Global variable for scanned barcode
-            App.Current.Properties["ScannedCode"] = "";
+            Current.Properties["ScannedCode"] = "";
         }
 
         protected override void OnSleep()
