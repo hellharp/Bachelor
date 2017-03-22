@@ -99,6 +99,7 @@
     <ITunesArtwork Include="iTunesArtwork" />
     <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config" />
+    <BundleResource Include="Resources\GS1_Symbol_Menu_Grey.psd" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -216,6 +217,36 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\gs1_shopping_cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Norway_61px_Tall_RGB_20141217.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\gs1_shopping_cart_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Barcode_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Calendar_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Credit_Card_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Menu_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_OK_Circle_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Remove_Circle_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Shopping_Cart_Grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\GS1_Symbol_Trashcan_Grey.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
