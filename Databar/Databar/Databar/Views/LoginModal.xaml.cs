@@ -38,14 +38,16 @@ namespace Databar.Views
 			{
                 Application.Current.Properties["IsLoggedIn"] = true;
                 Application.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
-				//await Navigation.PushAsync(new Admin.AdminMenu());
-				//await Navigation.PopToRootAsync();
-				//await Navigation.PopModalAsync();
 			}
 			else
 			{
 				await DisplayAlert("Feil passord", "Feil adminpassord (passord: test)", "OK");
 			}
 		}
+
+        async void CloseWindow(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new NavigationPage(new MainPage());
+        }
 	}
 }
