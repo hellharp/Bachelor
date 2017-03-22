@@ -10,23 +10,22 @@
   	</ContentPage.Padding>
 
 	<ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <ScrollView>
+                    <StackLayout HorizontalOptions="Center"
+                                 Spacing="20"
+                                 Orientation="Vertical"
+                                 Padding="0,10,0,75">
 
-		<ScrollView>
-		<StackLayout>
-			<StackLayout
-				VerticalOptions="CenterAndExpand"
-				HorizontalOptions="Center"
-				Spacing="20"
-				Orientation="Vertical">
-
-				<Label  Text="Velg betalingsmetode:"
+                        <Label  Text="Velg betalingsmetode:"
 						TextColor="#002C6C"
 						FontSize="Medium"
 						VerticalOptions="Center"
 
 						HorizontalOptions="Center"/>
 
-				<Button x:Name="mCash"
+                        <Button x:Name="mCash"
 						HeightRequest="100"
 						WidthRequest="130"
 						HorizontalOptions="Center"
@@ -36,15 +35,15 @@
 						BorderWidth="2"
 						Clicked="ToPayConfirmationPage">
 
-					  	<Button.Image>
-	   						<OnPlatform x:TypeArguments="FileImageSource"
+                            <Button.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="Pay_mCashlogo.png"
 	                			iOS="Pay_mCashlogo.png"/>
-	                  	</Button.Image>
+                            </Button.Image>
 
-				</Button>
+                        </Button>
 
-				<Button x:Name="VippsButton"
+                        <Button x:Name="VippsButton"
 						HeightRequest="100"
 						WidthRequest="130"
 						HorizontalOptions="Center"
@@ -54,18 +53,18 @@
 						BorderWidth="2"
 						Clicked="ToPayConfirmationPage">
 
-					 	 <Button.Image>
-	   							<OnPlatform x:TypeArguments="FileImageSource"
+                            <Button.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource"
 	                				Android="Pay_Vippslogo.png"
 	                				iOS="Pay_Vippslogo.png"/>
-	                   	 </Button.Image>
-			
-
-				</Button>
+                            </Button.Image>
 
 
+                        </Button>
 
-				<Button x:Name="ApplePay"
+
+
+                        <Button x:Name="ApplePay"
 						HeightRequest="100"
 						WidthRequest="130"
 						HorizontalOptions="Center"
@@ -75,77 +74,71 @@
 						BorderWidth="2"
 						Clicked="ToPayConfirmationPage">
 
-						<Button.Image>
-	   						<OnPlatform x:TypeArguments="FileImageSource"
+                            <Button.Image>
+                                <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="Pay_ApplePaylogo.png"
 	                			iOS="Pay_ApplePaylogo.png"/>
-	                  	</Button.Image>
+                            </Button.Image>
 
-				</Button>
-					
-			</StackLayout>
+                        </Button>
 
-			<!-- Makes a horizontal line between the paybuttons and the buttons at the bottom -->
-			<BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
-				
-			<StackLayout
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
+            <StackLayout
 					VerticalOptions="End"
 					Spacing="40"
 					Orientation="Horizontal"
 					HorizontalOptions="Center"
                     Padding="0, 10, 0, 10">
 
-				<Button x:Name="cartButton"
+                <Button x:Name="cartButton"
 						BackgroundColor="Transparent"
 						BorderColor="Transparent"
 						Clicked="ToShoppingCart"
                         Margin="30,0,15,0">
 
-					 	 <Button.Image>
-	   							<OnPlatform x:TypeArguments="FileImageSource"
+                    <Button.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource"
 	                				Android="gs1_shopping_cart.png"
 	                				iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"/>
-	                   	 </Button.Image>
-			
+                    </Button.Image>
 
-				</Button>
 
-			<!-- Made button gray because of no use on this page -->		
-				<Button x:Name="creditButton"
+                </Button>
+
+                <!-- Made button gray because of no use on this page -->
+                <Button x:Name="creditButton"
 						BackgroundColor="Gray"
 						BorderColor="Transparent"
-                        Margin="15,0,15,0">
+                        Margin="15,0,15,0"
+                        Opacity="0">
 
-					  	<Button.Image>
-	   						<OnPlatform x:TypeArguments="FileImageSource"
+                    <Button.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="gs1_credit_card.png"
 	                			iOS="GS1_Symbol_Credit_Card_RGB_20150416.png"/>
-	                  	</Button.Image>
+                    </Button.Image>
 
-				</Button>
+                </Button>
 
-			<!-- Made button gray because of no use on this page -->		
-				<Button x:Name="trashButton"
+                <!-- Made button gray because of no use on this page -->
+                <Button x:Name="trashButton"
 						BackgroundColor="Gray"
 						BorderColor="Transparent"
-                        Margin="15,0,30,0">
+                        Margin="15,0,30,0"
+                        Opacity="0">
 
-						<Button.Image>
-	   						<OnPlatform x:TypeArguments="FileImageSource"
+                    <Button.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="gs1_trash.png"
 	                			iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
-	                  	</Button.Image>
-
-				</Button>
-
-
-			</StackLayout>
-			
-		</StackLayout>
-
-		</ScrollView>
-	
-	</ContentPage.Content>
+                    </Button.Image>
+                </Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
 	
 
 </ContentPage>

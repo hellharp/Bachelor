@@ -69,7 +69,7 @@
 				Spacing="40"
 				Orientation="Horizontal"
 				HorizontalOptions="Center"
-                Padding="10,0,10,0">
+                Padding="0,10,0,10">
 
             <Button x:Name="barcodeButton"
 					BackgroundColor="Transparent"

@@ -13,15 +13,18 @@
 	</ContentPage.Padding>
 
 	<ContentPage.Content>
-
-			<StackLayout>
-				<StackLayout
+        <StackLayout>
+            <StackLayout>
+            <ScrollView>
+                <StackLayout >
+                    <StackLayout
 					VerticalOptions="CenterAndExpand"
 					HorizontalOptions="Center"
 					Spacing="10"
-					Orientation="Vertical">
+					Orientation="Vertical"
+                        Padding="0,10,0,0">
 
-					<Image
+                        <Image
 						  HorizontalOptions="Center"
 						  VerticalOptions="Center"
 						  x:Name="imageView"
@@ -29,20 +32,21 @@
 						  BackgroundColor="Transparent"
 						  IsVisible="true">
 
-						<OnPlatform x:TypeArguments="ImageSource"
+                            <OnPlatform x:TypeArguments="ImageSource"
 									iOS="GS1_Norway_logo_61px.png"
 									Android="GS1_Norway_logo_61px.png" />
 
-					</Image>
-				
-				</StackLayout>
+                        </Image>
 
-				<StackLayout
+                    </StackLayout>
+
+                    <StackLayout
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="FillAndExpand"
-					Spacing="0">
+					Spacing="0"
+                    Padding="0,10,0,125">
 
-					<Label Text=
+                        <Label Text=
 						"Gratulerer"
 						FontSize="Large"
 						TextColor="#002C6C"
@@ -50,7 +54,7 @@
 						VerticalTextAlignment="Center"
 						HorizontalTextAlignment="Center"/>
 
-					<Label
+                        <Label
 						Text=
 						"&#x0a;Du sparte kr."
 						FontSize="Medium"
@@ -59,17 +63,17 @@
 						VerticalTextAlignment="Start"
 						HorizontalTextAlignment="Center"/>
 
-			  <!--Shows the discountsum of all the items-->     
-                	<Label 
+                        <!--Shows the discountsum of all the items-->
+                        <Label 
 						VerticalTextAlignment="Start"
 						HorizontalTextAlignment="Center"
 						x:Name="DiscountSumLabel" 
 						FontSize="Medium" 
 						FontAttributes="Bold"
 						TextColor="#002C6C"/>
- 
 
-					<Label
+
+                        <Label
 						Text=
 						" på å handle ¨Smart¨.&#x0a;&#x0a; Samtidig bidro du til at&#x0a; mindre mat blir kastet.&#x0a;"
 						FontSize="Medium"
@@ -78,7 +82,7 @@
 						VerticalTextAlignment="Start"
 						HorizontalTextAlignment="Center"/>
 
-					<Label
+                        <Label
 						Text=
 						"Velkommen igjen!&#x0a;"
 						FontSize="Medium"
@@ -87,10 +91,11 @@
 						VerticalTextAlignment="Start"
 						HorizontalTextAlignment="Center"/>
 
-				</StackLayout>
-						
-			
-				<!-- Makes a horizontal line between the text and the buttons at the bottom -->
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </StackLayout>
+        <!-- Makes a horizontal line between the text and the buttons at the bottom -->
 				<BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
 					
 				<StackLayout
@@ -102,14 +107,14 @@
 				
 			<!-- Made button gray because of no use on this page -->						
 					<Button x:Name="cartButton"
-						BackgroundColor="Gray"
+						BackgroundColor="Transparent"
 						BorderColor="Transparent"
                             Margin="30,0,15,0">
 
 					 	 <Button.Image>
 	   							<OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_shopping_cart.png"
-	                				iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"/>
+	                				Android="gs1_shopping_cart_grey.png"
+	                				iOS="GS1_Symbol_Shopping_Cart_Grey.png"/>
 	                   	 </Button.Image>
 			
 
@@ -132,14 +137,14 @@
 
 			<!-- Made button gray because of no use on this page -->				
 				<Button x:Name="trashButton"
-						BackgroundColor="Gray"
+						BackgroundColor="Transparent"
 						BorderColor="Transparent"
                         Margin="15,0,30,0">
 
 						<Button.Image>
 	   						<OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="gs1_trash.png"
-	                			iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
+	                			Android="gs1_trash_grey.png"
+	                			iOS="GS1_Symbol_Trashcan_Grey.png"/>
 	                  	</Button.Image>
 
 				</Button>
