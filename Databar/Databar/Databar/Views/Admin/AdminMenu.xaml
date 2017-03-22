@@ -68,12 +68,14 @@
 				VerticalOptions="End"
 				Spacing="40"
 				Orientation="Horizontal"
-				HorizontalOptions="Center">
+				HorizontalOptions="Center"
+                Padding="10,0,10,0">
 
             <Button x:Name="barcodeButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
-					Clicked="StartZXing">
+					Clicked="StartZXing"
+                    Margin="30,0,15,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
@@ -87,7 +89,8 @@
             <Button x:Name="logoutButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
-					Clicked="Logout">
+					Clicked="Logout"
+                    Margin="15,0,15,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
@@ -101,7 +104,8 @@
             <Button x:Name="calendarButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
-					Clicked="FocusDatePicker">
+					Clicked="FocusDatePicker"
+                    Margin="15,0,30,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"

@@ -65,7 +65,8 @@
 
             <Button x:Name="cartButton"
                     BackgroundColor="Transparent"
-					BorderColor="Transparent">
+					BorderColor="Transparent"
+                    Margin="30,0,15,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
@@ -78,7 +79,8 @@
 
             <Button x:Name="creditButton"
 						BackgroundColor="Transparent"
-						BorderColor="Transparent">
+						BorderColor="Transparent"
+                    Margin="15,0,15,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
@@ -90,7 +92,8 @@
 
             <Button x:Name="trashButton"
 						BackgroundColor="Transparent"
-						BorderColor="Transparent">
+						BorderColor="Transparent"
+                    Margin="15,0,30,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"

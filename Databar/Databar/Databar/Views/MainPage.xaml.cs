@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Windows.Input;
 
 namespace Databar.Views
 {
@@ -82,3 +83,4 @@ namespace Databar.Views
 
 	}
 }
+
