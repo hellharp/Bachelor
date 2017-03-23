@@ -80,7 +80,6 @@
             <Button x:Name="creditButton"
 						BackgroundColor="Transparent"
 						BorderColor="Transparent"
-						Clicked="ToPayPage"
                     Margin="15,0,15,0">
 
                 <Button.Image>
