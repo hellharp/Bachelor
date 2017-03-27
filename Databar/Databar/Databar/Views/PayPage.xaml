@@ -25,7 +25,7 @@
 
 						HorizontalOptions="Center"/>
 
-                        <Button x:Name="mCash"
+                        <Button x:Name="MobilePayButton"
 						HeightRequest="100"
 						WidthRequest="130"
 						HorizontalOptions="Center"
@@ -37,8 +37,8 @@
 
                             <Button.Image>
                                 <OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="Pay_mCashlogo.png"
-	                			iOS="Pay_mCashlogo.png"/>
+	                			Android="Pay_MobilePaylogo.png"
+	                			iOS="Pay_MobilePaylogo.png"/>
                             </Button.Image>
 
                         </Button>
