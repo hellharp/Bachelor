@@ -37,8 +37,8 @@
 
                             <Button.Image>
                                 <OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="Pay_MobilePaylogo.png"
-	                			iOS="Pay_MobilePaylogo.png"/>
+	                			Android="pay_MobilePaylogo2.png"
+	                			iOS="Pay_MobilePaylogo2.png"/>
                             </Button.Image>
 
                         </Button>
@@ -55,7 +55,7 @@
 
                             <Button.Image>
                                 <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="Pay_Vippslogo.png"
+	                				Android="pay_Vippslogo.png"
 	                				iOS="Pay_Vippslogo.png"/>
                             </Button.Image>
 
@@ -69,14 +69,14 @@
 						WidthRequest="130"
 						HorizontalOptions="Center"
 						VerticalOptions="Center"
-						BackgroundColor="Transparent"
+						BackgroundColor="White"
 						BorderColor="#002C6C"
 						BorderWidth="2"
 						Clicked="ToPayConfirmationPage">
 
                             <Button.Image>
                                 <OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="Pay_ApplePaylogo.png"
+	                			Android="pay_ApplePaylogo.png"
 	                			iOS="Pay_ApplePaylogo.png"/>
                             </Button.Image>
 

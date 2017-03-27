@@ -184,12 +184,12 @@
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable\GS1_Norway_logo_61px.png" />
-    <AndroidResource Include="Resources\drawable\Pay_MobilePay_Logo2.png" />
-    <AndroidResource Include="Resources\drawable\Pay_MobilePaylogo.png" />
-    <AndroidResource Include="Resources\drawable\Pay_ApplePaylogo.png" />
-    <AndroidResource Include="Resources\drawable\Pay_ApplePayLogo2.png" />
-    <AndroidResource Include="Resources\drawable\Pay_Vippslogo.png" />
-    <AndroidResource Include="Resources\drawable\Pay_Vippslogo2.png" />
+    <AndroidResource Include="Resources\drawable\pay_MobilePaylogo2.png" />
+    <AndroidResource Include="Resources\drawable\pay_MobilePaylogo.png" />
+    <AndroidResource Include="Resources\drawable\pay_ApplePaylogo.png" />
+    <AndroidResource Include="Resources\drawable\pay_ApplePayLogo2.png" />
+    <AndroidResource Include="Resources\drawable\pay_Vippslogo.png" />
+    <AndroidResource Include="Resources\drawable\pay_Vippslogo2.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
