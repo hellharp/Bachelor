@@ -8,8 +8,8 @@
 			<!-- Styles -->
 			<Style TargetType="NavigationPage">
 				<Setter Property="BarBackgroundColor" Value="#002c6c"/>
-				<Setter Property="BarTextColor" Value="#f26334"/>
-			</Style>
+                <Setter Property="BarTextColor" Value="#f26334"/>
+            </Style>
 			<!-- Styles -->
 		</ResourceDictionary>
 	</Application.Resources>
