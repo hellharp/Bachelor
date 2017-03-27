@@ -18,7 +18,7 @@ namespace Databar.Services
             {
                 new TempProd
             {
-                ID=1, Name="H-Melk Tine 1,5L", Discount=20, DiscountType="%", UnitCost=10.00m
+                ID=1, Name="H-Melk Tine 1,5L DENNE VAR VELDIG LANG!!!", Discount=20, DiscountType="%", UnitCost=10.00m
             },
              new TempProd
             {
