@@ -102,7 +102,7 @@
     <BundleResource Include="Resources\GS1_Symbol_Menu_Grey.psd" />
     <BundleResource Include="Resources\Pay_ApplePaylogo.png" />
     <BundleResource Include="Resources\Pay_ApplePayLogo2.png" />
-    <BundleResource Include="Resources\Pay_MobilePay_Logo2.png" />
+    <BundleResource Include="Resources\Pay_MobilePaylogo2.png" />
     <BundleResource Include="Resources\Pay_MobilePaylogo.png" />
     <BundleResource Include="Resources\Pay_Vippslogo.png" />
     <BundleResource Include="Resources\Pay_Vippslogo2.png" />
@@ -250,9 +250,6 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\GS1_Symbol_Trashcan_Grey.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\GS1_Symbol_Help_RGB_2015-04-16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
