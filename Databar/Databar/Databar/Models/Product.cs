@@ -21,8 +21,9 @@ namespace Databar.Models
         [MaxLength(100)]
         public string ProductName { get; set; }
 
-        //// Utløpsdato dekker best før/siste forbruksdato
-        //public DateTime BestBeforeDate { get; set; }
+        // Price
+        [MaxLength(100)]
+        public double Price { get; set; }
 
         // Serienummer
         [MaxLength(20)]

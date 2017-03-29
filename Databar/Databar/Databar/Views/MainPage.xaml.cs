@@ -17,6 +17,10 @@ namespace Databar.Views
 			InitializeComponent();
 			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
 			currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
+            //NavigationPage.SetBackButtonTitle(this, "TEST");
+            //NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
+            //this.Icon = "icon.png";
+            //this.Title = "TEST";
 		}
 
 		//protected override void OnAppearing()
@@ -42,7 +46,6 @@ namespace Databar.Views
 		{
 			// Endret til PushAsync for å gi IOS back-button
 			await Navigation.PushAsync(new LoginModal());
-			//361923d... Commit av div endringer + paypage og PayConfirmationPage
 		}
 
 		async void ToPayPage(object sender, EventArgs e)

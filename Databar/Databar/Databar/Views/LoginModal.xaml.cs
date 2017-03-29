@@ -13,6 +13,8 @@ namespace Databar.Views
 		public LoginModal()
 		{
 			InitializeComponent();
+            //NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
+            //this.Icon = "gs1_shopping_cart.png";
 		}
 
 		// Handle password entry for admin access
