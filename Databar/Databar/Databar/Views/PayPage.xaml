@@ -108,32 +108,30 @@
 
                 </Button>
 
-                <!-- Made button gray because of no use on this page -->
-                <Button x:Name="creditButton"
-						BackgroundColor="Gray"
+                <Button x:Name="menuButton"
+						BackgroundColor="Transparent"
 						BorderColor="Transparent"
-                        Margin="15,0,15,0"
-                        Opacity="0">
+						Clicked="ToMainPage"
+                        Margin="15,0,15,0">
 
                     <Button.Image>
                         <OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="gs1_credit_card.png"
-	                			iOS="GS1_Symbol_Credit_Card_RGB_20150416.png"/>
+	                			Android="gs1_menu.png"
+	                			iOS="GS1_Symbol_Menu_RGB_20150416.png"/>
                     </Button.Image>
 
                 </Button>
 
-                <!-- Made button gray because of no use on this page -->
-                <Button x:Name="trashButton"
-						BackgroundColor="Gray"
+                <Button x:Name="helpButton"
+						BackgroundColor="Transparent"
 						BorderColor="Transparent"
-                        Margin="15,0,30,0"
-                        Opacity="0">
+						Clicked="ToPopUp"
+                        Margin="15,0,30,0">
 
                     <Button.Image>
                         <OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="gs1_trash.png"
-	                			iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
+	                			Android="gs1_help.png"
+	                			iOS="GS1_Symbol_Help_RGB_2015-04-16.png"/>
                     </Button.Image>
                 </Button>
             </StackLayout>

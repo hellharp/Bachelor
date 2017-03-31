@@ -24,20 +24,6 @@
 					Orientation="Vertical"
                         Padding="0,10,0,0">
 
-                        <Image
-						  HorizontalOptions="Center"
-						  VerticalOptions="Center"
-						  x:Name="imageView"
-						  Source="GS1_Norway_logo_61px.png"
-						  BackgroundColor="Transparent"
-						  IsVisible="true">
-
-                            <OnPlatform x:TypeArguments="ImageSource"
-									iOS="GS1_Norway_logo_61px.png"
-									Android="GS1_Norway_logo_61px.png" />
-
-                        </Image>
-
                     </StackLayout>
 
                     <StackLayout
@@ -105,11 +91,12 @@
 						HorizontalOptions="Center"
                         Padding="0, 10, 0, 10">
 				
-			<!-- Made button gray because of no use on this page -->						
+			<!-- Made button invisible because of no use on this page -->						
 					<Button x:Name="cartButton"
 						BackgroundColor="Transparent"
 						BorderColor="Transparent"
-                            Margin="30,0,15,0">
+                            Margin="30,0,15,0"
+							Opacity="0">
 
 					 	 <Button.Image>
 	   							<OnPlatform x:TypeArguments="FileImageSource"
@@ -135,11 +122,12 @@
 
 					</Button>
 
-			<!-- Made button gray because of no use on this page -->				
+			<!-- Made button invisible because of no use on this page -->				
 				<Button x:Name="trashButton"
 						BackgroundColor="Transparent"
 						BorderColor="Transparent"
-                        Margin="15,0,30,0">
+                        Margin="15,0,30,0"
+						Opacity="0">
 
 						<Button.Image>
 	   						<OnPlatform x:TypeArguments="FileImageSource"
