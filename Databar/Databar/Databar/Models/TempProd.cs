@@ -16,5 +16,6 @@ namespace Databar.Models
         public int Discount { get; set; }
         public string DiscountType { get; set; }
         public decimal UnitCost { get; set; }
+        public string NameAndUnitCost { get { return Name + "\nVeil.pris: " + UnitCost; } }
     }
 }

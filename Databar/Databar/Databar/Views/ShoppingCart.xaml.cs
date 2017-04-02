@@ -44,6 +44,13 @@ namespace Databar.Views
             }
         }
 
+       
+        //Starts ZXing from the viewmodel
+        async void StartZXing(object sender, EventArgs e)
+        {
+            cartViewModel.StartZXing(sender, e);
+        }
+
         private void OnRemoved(object sender, EventArgs e)
         {
             var selectedItem = (MenuItem)sender;
