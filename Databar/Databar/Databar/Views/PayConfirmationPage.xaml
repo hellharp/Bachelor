@@ -12,24 +12,17 @@
 					iOS="0,20,0,0"/>
 	</ContentPage.Padding>
 
-	<ContentPage.Content>
+<!--	<ContentPage.Content> <- Unecessary? -->
+		
         <StackLayout>
             <StackLayout>
             <ScrollView>
-                <StackLayout >
-                    <StackLayout
-					VerticalOptions="CenterAndExpand"
-					HorizontalOptions="Center"
-					Spacing="10"
-					Orientation="Vertical"
-                        Padding="0,10,0,0">
-
-                    </StackLayout>
+                <StackLayout>
 
                     <StackLayout
 					HorizontalOptions="FillAndExpand"
-					VerticalOptions="FillAndExpand"
-					Spacing="0"
+					VerticalOptions="Start"
+					Spacing="20"
                     Padding="0,10,0,125">
 
                         <Label Text=
@@ -53,7 +46,7 @@
                         <Label 
 						VerticalTextAlignment="Start"
 						HorizontalTextAlignment="Center"
-						x:Name="DiscountSumLabel" 
+						x:Name="DiscountAmountLabel" 
 						FontSize="Medium" 
 						FontAttributes="Bold"
 						TextColor="#002C6C"/>
@@ -142,7 +135,7 @@
 		</StackLayout>
 
 				
-	</ContentPage.Content>
+<!-- </ContentPage.Content> <- Unecessary? -->
 
 		
 </ContentPage>

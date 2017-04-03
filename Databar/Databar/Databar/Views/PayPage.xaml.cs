@@ -32,10 +32,11 @@ namespace Databar.Views
 
 		async void ToPopUp(object sender, EventArgs e)
 		{
-			await DisplayAlert("Informasjon", "Du velger betalingsmetode avhengig av hvilken betalingsapp du ønsker å betale med. " +
+			await DisplayAlert("Informasjon\n", "Du velger betalingsmetode avhengig av hvilken betalingsapp du ønsker å betale med. " +
 			                   "Ved valgt så betales varene i handlekurven.\n\n" +
-			                   "Handlekurvknappen til venstre i bunnen sender deg tilbake handlekurven uten å ha betalt.\n\n" +
-			                   "Menyknappen i midten i bunnen sender deg tilbake til hovedmenyen uten å ha betalt.", "Lukk");
+			                   "Bunnmeny: \n" +
+			                   "Handlekurvknappen til venstre sender deg tilbake handlekurven uten å ha betalt.\n\n" +
+			                   "Menyknappen i midten sender deg tilbake til hovedmenyen uten å ha betalt.", "Lukk");
 		}
 
 	}

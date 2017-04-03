@@ -23,7 +23,7 @@ namespace Databar.Views
 		private void CalculateDiscountPrice()
 		{
 			decimal discountnumber = payConfirmationViewModel.TotalDiscount();
-			DiscountSumLabel.Text = discountnumber.ToString() + ",-";
+			DiscountAmountLabel.Text = discountnumber.ToString() + ",-";
 		}
 
 		async void CloseWindow(object sender, EventArgs e)
