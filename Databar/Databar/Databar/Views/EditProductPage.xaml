@@ -37,16 +37,16 @@
                             <Label FontSize="Small" Text="Batch/Lot nr.:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Entry x:Name="BatchLot_entry" Keyboard="Default" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                             <Label FontSize="Small" Text="Best før dato:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
-                            <DatePicker x:Name="BBD_picker" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C" Format="dd.MM.yy"/>
+                            <DatePicker x:Name="BBD_picker" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C" Format="dd.MM.yy" IsEnabled="False"/>
                             <Label FontSize="Small" Text="Siste forbruksdato:" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
-                            <DatePicker x:Name="ExpD_picker" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C"  Format="dd.MM.yy" />
+                            <DatePicker x:Name="ExpD_picker" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C"  Format="dd.MM.yy" IsEnabled="False"/>
                             <Label FontSize="Small" Text="Serienummer:" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Entry x:Name="Serial_entry" Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                             <Label FontSize="Small" Text="Bruttopris (kr):" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Entry x:Name="Gross_entry" Keyboard="Numeric" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                             <Label FontSize="Small" Text="Sperret" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Switch x:Name="Blocked_sw" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
-                            <Label FontSize="Small" Text="Rabatter:" Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
+                            <Label FontSize="Small" Text="Rabatt" Grid.Row="8" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Label FontSize="Small" Text="Verdi" Grid.Row="8" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Label FontSize="Small" Text="Kr / %" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Label FontSize="Small" Text="5 Dager:" Grid.Row="9" Grid.Column="0" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
@@ -86,7 +86,7 @@
                         <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_ok_circle.png" iOS="GS1_Symbol_OK_Circle_RGB_20150416.png"/>
                     </Button.Image>
                 </Button>
-                <Button x:Name="trashButton" BackgroundColor="Transparent" BorderColor="Transparent" Margin="15,0,30,0">
+                <Button x:Name="trashButton" BackgroundColor="Transparent" BorderColor="Transparent" Margin="15,0,30,0" Clicked="ShowDeleteDialog" >
                     <Button.Image>
                         <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_trash.png" iOS="GS1_Symbol_Help_RGB_2015-04-16.png"/>
                     </Button.Image>

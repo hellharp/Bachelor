@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Databar.CustomElements"
              x:Class="Databar.Views.PayPage">
 
   	<ContentPage.Padding>
@@ -25,62 +26,56 @@
 
 						HorizontalOptions="Center"/>
 
-                        <Button x:Name="MobilePayButton"
-						HeightRequest="100"
-						WidthRequest="130"
-						HorizontalOptions="Center"
-						VerticalOptions="Center"
-						BackgroundColor="White"
-						BorderColor="#002C6C"
-						BorderWidth="2"
-						Clicked="ToPayConfirmationPage">
-
-                            <Button.Image>
+                        <local:BorderButton 
+                            x:Name="MobilePayButton"
+                            HeightRequest="100"
+                            WidthRequest="130"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            BackgroundColor="White"
+                            BorderColor="#002C6C"
+                            BorderWidth="2"
+                            Clicked="ToPayConfirmationPage">
+                            <local:BorderButton.Image>
                                 <OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="pay_MobilePaylogo2.png"
-	                			iOS="Pay_MobilePaylogo2.png"/>
-                            </Button.Image>
+                                            Android="pay_MobilePaylogo2.png"
+                                            iOS="Pay_MobilePaylogo2.png"/>
+                            </local:BorderButton.Image>
+                        </local:BorderButton>
 
-                        </Button>
-
-                        <Button x:Name="VippsButton"
-						HeightRequest="100"
-						WidthRequest="130"
-						HorizontalOptions="Center"
-						VerticalOptions="Center"
-						BackgroundColor="White"
-						BorderColor="#002C6C"
-						BorderWidth="2"
-						Clicked="ToPayConfirmationPage">
-
-                            <Button.Image>
+                        <local:BorderButton 
+                            x:Name="VippsButton"
+                            HeightRequest="100"
+                            WidthRequest="130"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            BackgroundColor="White"
+                            BorderColor="#002C6C"
+                            BorderWidth="2"
+                            Clicked="ToPayConfirmationPage">
+                            <local:BorderButton.Image>
                                 <OnPlatform x:TypeArguments="FileImageSource"
 	                				Android="pay_Vippslogo.png"
 	                				iOS="Pay_Vippslogo.png"/>
-                            </Button.Image>
+                            </local:BorderButton.Image>
+                        </local:BorderButton>
 
-
-                        </Button>
-
-
-
-                        <Button x:Name="ApplePay"
-						HeightRequest="100"
-						WidthRequest="130"
-						HorizontalOptions="Center"
-						VerticalOptions="Center"
-						BackgroundColor="White"
-						BorderColor="#002C6C"
-						BorderWidth="2"
-						Clicked="ToPayConfirmationPage">
-
-                            <Button.Image>
+                        <local:BorderButton 
+                            x:Name="ApplePay"
+                            HeightRequest="100"
+                            WidthRequest="130"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            BackgroundColor="White"
+                            BorderColor="#002C6C"
+                            BorderWidth="2"
+                            Clicked="ToPayConfirmationPage">
+                            <local:BorderButton.Image>
                                 <OnPlatform x:TypeArguments="FileImageSource"
-	                			Android="pay_ApplePaylogo.png"
-	                			iOS="Pay_ApplePaylogo.png"/>
-                            </Button.Image>
-
-                        </Button>
+	                			    Android="pay_ApplePaylogo.png"
+	                			    iOS="Pay_ApplePaylogo.png"/>
+                            </local:BorderButton.Image>
+                        </local:BorderButton>
 
                     </StackLayout>
                 </ScrollView>

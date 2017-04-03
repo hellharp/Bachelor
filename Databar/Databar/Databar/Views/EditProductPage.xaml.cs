@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Databar.Views;
+using Databar.ViewModels;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace Databar.Views
 {
     public partial class EditProductPage : ContentPage
     {
+        private EditProductPageViewModel EditViewModel;
 
         public EditProductPage()
         {
             InitializeComponent();
+            EditViewModel = new EditProductPageViewModel();
 
         }
 
@@ -73,6 +77,12 @@ namespace Databar.Views
                 OneDayRebateType_label.Text = "Kr";
             }
         }
-
+        
+        // Shows a confirmation window if the user clickes the delete button
+        async void ShowDeleteDialog(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Advarsel!", "Vil du slette det valgte produktet?", "Ja", "Nei");
+            Debug.WriteLine("Answer:" + answer);
+        }
     }
 }
