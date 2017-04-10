@@ -89,14 +89,23 @@ namespace Databar.Views.Admin
         {
             List<AI> ais = new List<AI>();
             List<Product> prods = new List<Product>();
+            List<BatchBlock> bs = new List<BatchBlock>();
             try
             {
-                ais = await App.DBManager.GetAIsAsync();
-                prods = await App.DBManager.GetProductsAsync();
-                await DisplayAlert("TestDB airesultat", ais.Count.ToString(), "OK");
-                await DisplayAlert("RestURL:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
-                await DisplayAlert("TestDB productresultat", prods.Count.ToString(), "OK");
-                await DisplayAlert("RestURL:", string.Format(Constants.RestUrl, "product", String.Empty, Constants.JSONoutput), "OK");
+                //ais = await App.DBManager.GetAIsAsync();
+                //prods = await App.DBManager.GetProductsAsync();
+                bs = await App.DBManager.GetBatchBlocksAsync();
+                //await DisplayAlert("TestDB airesultat Count", ais.Count.ToString(), "OK");
+                //await DisplayAlert("RestURL:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
+                string tmp = bs.Count.ToString();
+                await DisplayAlert("Batchcount", tmp, "OK");
+                tmp = "";
+                foreach (var b in bs)
+                {
+                    tmp += b.BatchNr;
+                }
+                if (tmp == "") { tmp = "tom liste"; }
+                await DisplayAlert("TestDB airesultat desc tostring", tmp, "OK");
                 // FEIL: HER BLIR DET 0
             }
             catch (Exception e)

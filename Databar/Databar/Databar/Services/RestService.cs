@@ -111,7 +111,7 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    AIs = JsonConvert.DeserializeObject<List<AI>>(content);
+                    AIs = JsonConvert.DeserializeObject<JsonWrapper>(content).AISet;
                 }
                             }
             catch (Exception ex)
@@ -120,13 +120,15 @@ namespace Databar.Services
             }
 
             // Kode under for å få se feil
-            var response1 = await client.GetAsync(uri);
-            var content1 = await response1.Content.ReadAsStringAsync();
+            //var response1 = await client.GetAsync(uri);
+            //var content1 = await response1.Content.ReadAsStringAsync();
             //AIs = JsonConvert.DeserializeObject<List<AI>>(content1);
             //AI[] arr = JObject.Parse(content1)["AI"].ToObject<AI[]>();
-            AI[] arr = JsonConvert.DeserializeObject<AI[]>(content1);
-            AIs = arr.ToList<AI>();
+            //AI[] arr = JsonConvert.DeserializeObject<AI[]>(content1).;
+            //AIs = arr.ToList<AI>();
             //subjects[] arr = JObject.Parse(result)["subjects"].ToObject<subjects[]>();
+            //AIs = JsonConvert.DeserializeObject<JsonWrapper>(content1).AISet;
+
 
             // For å sjekke:
             //throw new Exception(content1);
@@ -146,7 +148,7 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    BlockedBatches = JsonConvert.DeserializeObject<List<BatchBlock>>(content);
+                    BlockedBatches = JsonConvert.DeserializeObject<JsonWrapper>(content).BatchSet;
                 }
             }
             catch (Exception ex)
@@ -169,7 +171,7 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Products = JsonConvert.DeserializeObject<List<Product>>(content);
+                    Products = JsonConvert.DeserializeObject<JsonWrapper>(content).ProductSet;
                 }
             }
             catch (Exception ex)

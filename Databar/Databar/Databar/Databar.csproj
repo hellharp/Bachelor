@@ -41,6 +41,7 @@
     </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="CustomElements\CustomElements.cs" />
+    <Compile Include="Models\JsonWrapper.cs" />
     <Compile Include="Models\TempProd.cs" />
     <Compile Include="Services\CartServices.cs" />
     <Compile Include="Services\DBRestManager.cs" />
