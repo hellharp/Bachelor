@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Databar.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -59,6 +60,7 @@ namespace Databar.Views.Admin
                 await DisplayAlert("Databar skannet", result.ToString(), "OK");
                 // Code scanned and saved in Properties["ScannedCode"], send to EditProductPage.
                 //await Navigation.PushAsync(new EditProductPage());
+                // testcommit
             }
 			else
 			{
@@ -66,7 +68,9 @@ namespace Databar.Views.Admin
 				// Scanning aborted
 				await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
 			}
-		}
+
+
+        }
 
 		// Focus on / display the hidden DatePicker when "calendar"-button is pressed
 		async void FocusDatePicker(object sender, EventArgs ea)
@@ -80,5 +84,25 @@ namespace Databar.Views.Admin
 			DateTime setCurrentDate = Curr_Date_Picker.Date;
             Application.Current.Properties["CurrentDate"] = setCurrentDate;
 		}
+
+        async void TestDB(object sender, EventArgs ea)
+        {
+            List<AI> ais = new List<AI>();
+            List<Product> prods = new List<Product>();
+            try
+            {
+                ais = await App.DBManager.GetAIsAsync();
+                prods = await App.DBManager.GetProductsAsync();
+                await DisplayAlert("TestDB airesultat", ais.Count.ToString(), "OK");
+                await DisplayAlert("RestURL:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
+                await DisplayAlert("TestDB productresultat", prods.Count.ToString(), "OK");
+                await DisplayAlert("RestURL:", string.Format(Constants.RestUrl, "product", String.Empty, Constants.JSONoutput), "OK");
+                // FEIL: HER BLIR DET 0
+            }
+            catch (Exception e)
+            {
+                await DisplayAlert("TestDB feil!", e.Message, "OK");
+            }
+        }
 	}
 }

@@ -12,6 +12,7 @@ namespace Databar
 {
     public partial class App : Application
     {
+        public static DBRestManager DBManager { get; private set; }
         public App()
         {
             InitializeComponent();
@@ -21,6 +22,10 @@ namespace Databar
 
             // Global variable for current (possibly overridden) date. Initialize as today.
             Current.Properties["CurrentDate"] = DateTime.Today;
+
+            // Initialize DBRestManager
+            DBManager = new DBRestManager(new RestService());
+
 
             //Velger hvilken xaml som først starter. I dette tilfellet MainPage.xaml
             MainPage = new NavigationPage(new Views.MainPage());

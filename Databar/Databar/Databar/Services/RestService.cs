@@ -8,12 +8,18 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Diagnostics;
+using Newtonsoft.Json.Linq;
 
 namespace Databar.Services
 {
     public class RestService : IRestService
     {
         //http://www.example.com/api/resource/tablename/?param1=info1
+
+            // List hele ai tabellen (på json format):
+        // http://138.68.180.198:8080/restsql/res/databar_db.ai
+            // Vis ai med id 1 (på json format):
+        // http://138.68.180.198:8080/restsql/res/databar_db.ai/1?_output=application/json
 
 
         HttpClient client;
@@ -34,9 +40,8 @@ namespace Databar.Services
 
         public async Task DeleteAIAsync(string id)
         {
-            //http://www.example.com/api/resource/tablename/?param1=info1
-
-            var uri = new Uri(string.Format(Constants.RestUrl, id));
+            //"http://138.68.180.198:8080/restsql/res/databar_db.{0}/{1}{2}"
+            var uri = new Uri(string.Format(Constants.RestUrl, "ai", id, String.Empty));
 
             try
             {
@@ -56,7 +61,7 @@ namespace Databar.Services
 
         public async Task DeleteBatchBlockAsync(string id)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, id));
+            var uri = new Uri(string.Format(Constants.RestUrl, "batchblock", id, String.Empty));
 
             try
             {
@@ -76,7 +81,7 @@ namespace Databar.Services
 
         public async Task DeleteProductAsync(string id)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, id));
+            var uri = new Uri(string.Format(Constants.RestUrl, "product", id, String.Empty));
 
             try
             {
@@ -98,7 +103,7 @@ namespace Databar.Services
         {
             AIs = new List<AI>();
 
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput));
 
             try
             {
@@ -106,13 +111,25 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Products = JsonConvert.DeserializeObject<List<Product>>(content);
+                    AIs = JsonConvert.DeserializeObject<List<AI>>(content);
                 }
-            }
+                            }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
+
+            // Kode under for å få se feil
+            var response1 = await client.GetAsync(uri);
+            var content1 = await response1.Content.ReadAsStringAsync();
+            //AIs = JsonConvert.DeserializeObject<List<AI>>(content1);
+            //AI[] arr = JObject.Parse(content1)["AI"].ToObject<AI[]>();
+            AI[] arr = JsonConvert.DeserializeObject<AI[]>(content1);
+            AIs = arr.ToList<AI>();
+            //subjects[] arr = JObject.Parse(result)["subjects"].ToObject<subjects[]>();
+
+            // For å sjekke:
+            //throw new Exception(content1);
 
             return AIs;
         }
@@ -121,7 +138,7 @@ namespace Databar.Services
         {
             BlockedBatches = new List<BatchBlock>();
 
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.RestUrl, "batchblock", String.Empty, Constants.JSONoutput));
 
             try
             {
@@ -129,7 +146,7 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Products = JsonConvert.DeserializeObject<List<Product>>(content);
+                    BlockedBatches = JsonConvert.DeserializeObject<List<BatchBlock>>(content);
                 }
             }
             catch (Exception ex)
@@ -144,7 +161,7 @@ namespace Databar.Services
         {
             Products = new List<Product>();
 
-            var uri = new Uri(string.Format(Constants.RestUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.RestUrl, "products", String.Empty, Constants.JSONoutput));
 
             try
             {
@@ -165,7 +182,7 @@ namespace Databar.Services
 
         public async Task SaveAIAsync(AI ai, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, ai.AInumber.ToString()));
+            var uri = new Uri(string.Format(Constants.RestUrl, "ai", ai.AInumber.ToString(), String.Empty));
 
             try
             {
@@ -196,7 +213,7 @@ namespace Databar.Services
 
         public async Task SaveBatchBlockAsync(BatchBlock batch, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, batch.BatchNr.ToString()));
+            var uri = new Uri(string.Format(Constants.RestUrl, "batchblock", batch.BatchNr.ToString(), String.Empty));
 
             try
             {
@@ -227,7 +244,7 @@ namespace Databar.Services
 
         public async Task SaveProductAsync(Product prod, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, prod.GTIN.ToString()));
+            var uri = new Uri(string.Format(Constants.RestUrl, "product", prod.GTIN.ToString(), String.Empty));
 
             try
             {

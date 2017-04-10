@@ -1,4 +1,5 @@
-﻿using SQLite.Net.Attributes;
+﻿using Newtonsoft.Json;
+using SQLite.Net.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace Databar.Models
 	/// Model for Application Identifier consisting of an AI number and an AI description.
 	/// </summary>
 	[Table("AI")]
-	public class AI
+    [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
+    public class AI
 	{
 		/// <summary>
 		/// Application Identifier.
@@ -25,12 +27,14 @@ namespace Databar.Models
 		/// 21: Serial number (SERIAL)
 		/// </remarks>
 		[PrimaryKey, MaxLength(4)]
-		public int AInumber { get; set; }
+        [JsonProperty(PropertyName = "AInumber")]
+        public int AInumber { get; set; }
 
         /// <summary>
         /// Description of AI.
         /// </summary>
         [MaxLength(100)]
+        [JsonProperty(PropertyName = "AIdescription")]
         public string AIdescription { get; set; }
 	}
 }

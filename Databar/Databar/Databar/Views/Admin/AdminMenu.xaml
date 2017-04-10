@@ -58,6 +58,10 @@
 						IsVisible="False" 
 						DateSelected="SetCurrentDate"/>
 
+                <Button Text="Test DB" Clicked="TestDB"
+				VerticalOptions="Center"
+				HorizontalOptions="Center"/>
+
             </StackLayout>
 
 
