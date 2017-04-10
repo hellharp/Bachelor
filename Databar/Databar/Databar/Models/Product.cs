@@ -22,11 +22,6 @@ namespace Databar.Models
         [JsonProperty(PropertyName = "ProductName")]
         public string ProductName { get; set; }
 
-        // Price
-        [MaxLength(100)]
-        [JsonProperty(PropertyName = "Price")]
-        public double Price { get; set; }
-
         // Fire dager før utløpsdato
         [MaxLength(10)]
         [JsonProperty(PropertyName = "FourDaysRebate")]
@@ -57,18 +52,26 @@ namespace Databar.Models
         [MaxLength(10)]
         [JsonProperty(PropertyName = "Four_RebateType")]
         public string Four_RebateType { get; set; }
+
         [MaxLength(10)]
         [JsonProperty(PropertyName = "Three_RebateType")]
         public string Three_RebateType { get; set; }
+
         [MaxLength(10)]
         [JsonProperty(PropertyName = "Two_RebateType")]
         public string Two_RebateType { get; set; }
+
         [MaxLength(10)]
         [JsonProperty(PropertyName = "One_RebateType")]
         public string One_RebateType { get; set; }
+
         [MaxLength(10)]
         [JsonProperty(PropertyName = "Last_RebateType")]
         public string Last_RebateType { get; set; }
 
+        // Price
+        [MaxLength(100)]
+        [JsonProperty(PropertyName = "Price")]
+        public double Price { get; set; }
     }
 }

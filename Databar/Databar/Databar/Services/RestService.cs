@@ -119,20 +119,6 @@ namespace Databar.Services
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
 
-            // Kode under for å få se feil
-            //var response1 = await client.GetAsync(uri);
-            //var content1 = await response1.Content.ReadAsStringAsync();
-            //AIs = JsonConvert.DeserializeObject<List<AI>>(content1);
-            //AI[] arr = JObject.Parse(content1)["AI"].ToObject<AI[]>();
-            //AI[] arr = JsonConvert.DeserializeObject<AI[]>(content1).;
-            //AIs = arr.ToList<AI>();
-            //subjects[] arr = JObject.Parse(result)["subjects"].ToObject<subjects[]>();
-            //AIs = JsonConvert.DeserializeObject<JsonWrapper>(content1).AISet;
-
-
-            // For å sjekke:
-            //throw new Exception(content1);
-
             return AIs;
         }
 

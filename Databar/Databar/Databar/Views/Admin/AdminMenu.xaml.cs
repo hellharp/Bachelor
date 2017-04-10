@@ -90,23 +90,34 @@ namespace Databar.Views.Admin
             List<AI> ais = new List<AI>();
             List<Product> prods = new List<Product>();
             List<BatchBlock> bs = new List<BatchBlock>();
+            //Product p = new Product();
+            //p.GTIN = 12345678904321;
+            //p.ProductName = "testDBtest";
+            //await App.DBManager.SaveProductAsync(p);
+
+            //BatchBlock b = new BatchBlock();
+            //b.BatchNr = "BCA-666";
+            //b.Blocked = true;
+
+
             try
             {
-                //ais = await App.DBManager.GetAIsAsync();
-                //prods = await App.DBManager.GetProductsAsync();
+                //await App.DBManager.SaveBatchBlockAsync(b);
+                ais = await App.DBManager.GetAIsAsync();
+                prods = await App.DBManager.GetProductsAsync();
                 bs = await App.DBManager.GetBatchBlocksAsync();
-                //await DisplayAlert("TestDB airesultat Count", ais.Count.ToString(), "OK");
+                await DisplayAlert("TestDB ai Count", ais.Count.ToString(), "OK");
+                await DisplayAlert("TestDB batch Count", bs.Count.ToString(), "OK");
                 //await DisplayAlert("RestURL:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
-                string tmp = bs.Count.ToString();
-                await DisplayAlert("Batchcount", tmp, "OK");
-                tmp = "";
-                foreach (var b in bs)
-                {
-                    tmp += b.BatchNr;
-                }
-                if (tmp == "") { tmp = "tom liste"; }
-                await DisplayAlert("TestDB airesultat desc tostring", tmp, "OK");
-                // FEIL: HER BLIR DET 0
+                await DisplayAlert("TestDB prod Count", prods.Count.ToString(), "OK");
+                //string tmp = "";
+                //foreach (var prod in prods)
+                //{
+                //    tmp += prod.GTIN.ToString();
+                //}
+                //if (tmp == "") { tmp = "tom liste"; }
+                //await DisplayAlert("TestDB foreach tostring", tmp, "OK");
+                // FEIL: PRODS BLIR TOM LISTE
             }
             catch (Exception e)
             {
