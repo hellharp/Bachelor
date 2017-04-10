@@ -60,16 +60,19 @@
                      HorizontalOptions="Center"
                      Padding="0, 10, 0, 10">
 
-            <Button x:Name="cartButton"
-					BackgroundColor="Transparent"
+            <Button x:Name="barcodeButton"
+                    BackgroundColor="Transparent"
 					BorderColor="Transparent"
-                    Clicked="ToCart"
+					Clicked="StartZXing"
                     Margin="30,0,15,0">
+
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-						Android="gs1_shopping_cart.png"
-						iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"/>
+	                				Android="gs1_barcode.png"
+	                				iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
                 </Button.Image>
+
+
             </Button>
 
 <!-- Forsøk på å bruke image som knapp fremfor Button og slik slippe skygge og få den animert
@@ -93,17 +96,18 @@
 				</Button.Image>
 			</Button>
 
-			<Button x:Name="trashButton"
+ 			<Button x:Name="helpButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
+					Clicked="ToPopUp"
                     Margin="15,0,30,0">
 
-				<Button.Image>
-					<OnPlatform x:TypeArguments="FileImageSource"
-						Android="gs1_trash.png"
-						iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
-				</Button.Image>
-			</Button>
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+                			Android="gs1_help.png"
+                			iOS="GS1_Symbol_Help_RGB_2015-04-16.png"/>
+                </Button.Image>
+            </Button>
 		</StackLayout>
 	</StackLayout>
 

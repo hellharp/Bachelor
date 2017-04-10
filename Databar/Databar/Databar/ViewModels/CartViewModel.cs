@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Databar.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using ZXing.Mobile;
 
 namespace Databar.ViewModels
 {
@@ -47,6 +48,7 @@ namespace Databar.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+   
 
 
         //Skal CartServices gjøre dette i stedet for CartViewModel?
@@ -67,6 +69,24 @@ namespace Databar.ViewModels
             }
 
             return sum;
+        }
+
+        public async void StartZXing(object sender, EventArgs e)
+        {
+            var scanner = new MobileBarcodeScanner();
+
+            var result = await scanner.Scan();
+
+
+            //Gjør noe med resultatet
+           // AddBarcode(result.ToString());
+
+        }
+
+        public void AddBarcode(String e)
+        {
+            //Sends the scanned barcode to the Service to be registered in the DB
+            //CartServices.Add(e);
         }
 
     }

@@ -7,6 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Windows.Input;
+using Databar.ViewModels;
+using Databar.Models;
+using ZXing.Mobile;
 
 namespace Databar.Views
 {
@@ -20,7 +23,7 @@ namespace Databar.Views
             //NavigationPage.SetBackButtonTitle(this, "TEST");
             //NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
             //this.Icon = "icon.png";
-            //this.Title = "TEST";
+            //this.Title = "TEST"
 		}
 
 		//protected override void OnAppearing()
@@ -62,6 +65,35 @@ namespace Databar.Views
 			await Navigation.PushAsync(new ShoppingCart());
 		}
 
+		async void StartZXing(object sender, EventArgs e)
+		{
+			var scanner = new MobileBarcodeScanner();
+
+			var result = await scanner.Scan();
+
+
+			if (result != null)
+			{
+				Application.Current.Properties["ScannedCode"] = result;
+				await DisplayAlert("Databar skannet", result.ToString(), "OK");
+				// Code scanned and added to shoppingcart.
+				//await Navigation.PushAsync(new ShoppingCart());
+			}
+			else
+			{
+				Application.Current.Properties["ScannedCode"] = "";
+				// Scanning aborted
+				await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
+			}
+		}
+
+		async void ToPopUp(object sender, EventArgs e)
+		{
+			await DisplayAlert("Informasjon\n", "Bunnmeny: \n" +
+			                   "Strekkodeknappen til venstre starter strekkodeskanneren. " +
+			                   "Skannede varer havner i handlekurven.\n\n" +
+			                   "Menyknappen i midten sender deg administrasjonsmenyen (krever passord).\n", "Lukk");
+		}
 
 		//Handle device hardware back button to prevent accidental closing of app
 		private bool _canClose = true;
