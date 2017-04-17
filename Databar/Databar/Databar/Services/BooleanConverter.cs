@@ -10,6 +10,9 @@ namespace Databar.Services
     /// <summary>
     /// Custom converter to handle boolean and TINYINT JSON conversion.
     /// </summary>
+    /// <remarks>
+    /// Inspired by similar problem on StackOverflow.
+    /// </remarks>
     public class BooleanConverter : JsonConverter
     {
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)

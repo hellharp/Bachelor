@@ -12,6 +12,12 @@ using Newtonsoft.Json.Linq;
 
 namespace Databar.Services
 {
+    /// <summary>
+    /// Service for interacting with the REST-ful API of restSQL.
+    /// </summary>
+    /// <remarks>
+    /// Adapted from Xamarin's TodoREST example.
+    /// </remarks>
     public class RestService : IRestService
     {
         //http://www.example.com/api/resource/tablename/?param1=info1
@@ -28,6 +34,9 @@ namespace Databar.Services
         public List<AI> AIs { get; private set; }
         public List<BatchBlock> BlockedBatches { get; private set; }
 
+        /// <summary>
+        /// Constructor for RestService, which is used for database operations.
+        /// </summary>
         public RestService()
         {
             var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
@@ -38,6 +47,11 @@ namespace Databar.Services
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
         }
 
+        /// <summary>
+        /// Deletes an AI-object with the given ID from the database.
+        /// </summary>
+        /// <param name="id">AInumber of AI to be deleted.</param>
+        /// <returns></returns>
         public async Task DeleteAIAsync(string id)
         {
             //"http://138.68.180.198:8080/restsql/res/databar_db.{0}/{1}{2}"
@@ -59,6 +73,11 @@ namespace Databar.Services
             }
         }
 
+        /// <summary>
+        /// Deletes a BatchBlock-object from the database with the given ID.
+        /// </summary>
+        /// <param name="id">BatchNr of BatchBlock to be deleted.</param>
+        /// <returns></returns>
         public async Task DeleteBatchBlockAsync(string id)
         {
             var uri = new Uri(string.Format(Constants.RestUrl, "batchblock", id, String.Empty));
@@ -79,6 +98,11 @@ namespace Databar.Services
             }
         }
 
+        /// <summary>
+        /// Deletes a Product-object with the given ID from the database.
+        /// </summary>
+        /// <param name="id">GTIN of Product to be deleted.</param>
+        /// <returns></returns>
         public async Task DeleteProductAsync(string id)
         {
             var uri = new Uri(string.Format(Constants.RestUrl, "product", id, String.Empty));
@@ -99,6 +123,10 @@ namespace Databar.Services
             }
         }
 
+        /// <summary>
+        /// Returns a list containing all AI-objects in the database.
+        /// </summary>
+        /// <returns>List of type AI, containing all AI-objects in database.</returns>
         public async Task<List<AI>> RefreshAIDataAsync()
         {
             AIs = new List<AI>();
@@ -122,6 +150,10 @@ namespace Databar.Services
             return AIs;
         }
 
+        /// <summary>
+        /// Returns a list containing all BatchBlock-objects in the database.
+        /// </summary>
+        /// <returns>List of type BatchBlock, containing all BatchBlock-objects in database.</returns>
         public async Task<List<BatchBlock>> RefreshBatchDataAsync()
         {
             BlockedBatches = new List<BatchBlock>();
@@ -145,6 +177,10 @@ namespace Databar.Services
             return BlockedBatches;
         }
 
+        /// <summary>
+        /// Returns a list containing all Product-objects in the database.
+        /// </summary>
+        /// <returns>List of type Product, containing all Product-objects in database.</returns>
         public async Task<List<Product>> RefreshProductDataAsync()
         {
             Products = new List<Product>();
@@ -168,6 +204,12 @@ namespace Databar.Services
             return Products;
         }
 
+        /// <summary>
+        /// Saves or updates an AI-object in the database.
+        /// </summary>
+        /// <param name="ai">AI-object to be saved or updated.</param>
+        /// <param name="isNewItem">True = POST (save), False = PUT (update).</param>
+        /// <returns></returns>
         public async Task SaveAIAsync(AI ai, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.RestUrl, "ai", String.Empty, String.Empty));
@@ -201,6 +243,12 @@ namespace Databar.Services
             }
         }
 
+        /// <summary>
+        /// Saves or updates a BatchBlock-object in the database.
+        /// </summary>
+        /// <param name="batch">BatchBlock-object to be saved or updated.</param>
+        /// <param name="isNewItem">True = POST (save), False = PUT (update).</param>
+        /// <returns></returns>
         public async Task SaveBatchBlockAsync(BatchBlock batch, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.RestUrl, "batchblock", String.Empty, String.Empty));
@@ -234,6 +282,12 @@ namespace Databar.Services
             }
         }
 
+        /// <summary>
+        /// Saves or updates a Product-object in the database.
+        /// </summary>
+        /// <param name="prod">Product-object to be saved or updated.</param>
+        /// <param name="isNewItem">True = POST (save), False = PUT (update).</param>
+        /// <returns></returns>
         public async Task SaveProductAsync(Product prod, bool isNewItem = false)
         {
             var uri = new Uri(string.Format(Constants.RestUrl, "product", String.Empty, String.Empty));
