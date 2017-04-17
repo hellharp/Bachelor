@@ -27,5 +27,6 @@ namespace Databar.Models
         // Instead, Boolean values are stored as integers 0 (false) and 1 (true).
         [JsonProperty(PropertyName = "Blocked")]
         public Boolean Blocked { get; set; }
+
     }
 }

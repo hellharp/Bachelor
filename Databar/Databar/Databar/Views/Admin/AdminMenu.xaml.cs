@@ -1,7 +1,9 @@
 ﻿using Databar.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -95,20 +97,26 @@ namespace Databar.Views.Admin
             //p.ProductName = "testDBtest";
             //await App.DBManager.SaveProductAsync(p);
 
-            //BatchBlock b = new BatchBlock();
-            //b.BatchNr = "BCA-666";
-            //b.Blocked = true;
+            BatchBlock b = new BatchBlock();
+            b.BatchNr = "BCA-666";
+            b.Blocked = false;
+
+            //var json = JsonConvert.SerializeObject(b);
+            //var content = new StringContent(json, Encoding.UTF8, "application/json");
+
 
 
             try
             {
-                //await App.DBManager.SaveBatchBlockAsync(b);
+                await App.DBManager.SaveBatchBlockAsync(b);
                 ais = await App.DBManager.GetAIsAsync();
                 prods = await App.DBManager.GetProductsAsync();
                 bs = await App.DBManager.GetBatchBlocksAsync();
                 await DisplayAlert("TestDB ai Count (should be 5)", ais.Count.ToString(), "OK");
-                await DisplayAlert("TestDB batch Count (should be 2)", bs.Count.ToString(), "OK");
-                await DisplayAlert("TestDB prod Count (should be 1)", prods.Count.ToString(), "OK");
+                await DisplayAlert("TestDB batch Count (should be 3)", bs.Count.ToString(), "OK");
+                await DisplayAlert("TestDB prod Count (should be 2)", prods.Count.ToString(), "OK");
+
+               // await DisplayAlert("TestDB batchobject to json test", content.ToString(), "OK");
                 //await DisplayAlert("RestURL for AI:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
 
                 //string tmp = "";
@@ -118,7 +126,6 @@ namespace Databar.Views.Admin
                 //}
                 //if (tmp == "") { tmp = "tom liste"; }
                 //await DisplayAlert("TestDB foreach tostring", tmp, "OK");
-                // FEIL: PRODS BLIR TOM LISTE
             }
             catch (Exception e)
             {

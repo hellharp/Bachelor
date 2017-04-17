@@ -170,11 +170,13 @@ namespace Databar.Services
 
         public async Task SaveAIAsync(AI ai, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, "ai", ai.AInumber.ToString(), String.Empty));
+            var uri = new Uri(string.Format(Constants.RestUrl, "ai", String.Empty, String.Empty));
 
             try
             {
-                var json = JsonConvert.SerializeObject(ai);
+                JsonAI jw = new JsonAI();
+                jw.AISet.Add(ai);
+                var json = JsonConvert.SerializeObject(jw);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
@@ -201,12 +203,15 @@ namespace Databar.Services
 
         public async Task SaveBatchBlockAsync(BatchBlock batch, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, "batchblock", batch.BatchNr.ToString(), String.Empty));
+            var uri = new Uri(string.Format(Constants.RestUrl, "batchblock", String.Empty, String.Empty));
 
             try
             {
-                var json = JsonConvert.SerializeObject(batch);
+                JsonBatchBlock jw = new JsonBatchBlock();
+                jw.BatchSet.Add(batch);
+                var json = JsonConvert.SerializeObject(jw, new BooleanConverter());
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
+
 
                 HttpResponseMessage response = null;
                 if (isNewItem)
@@ -222,7 +227,6 @@ namespace Databar.Services
                 {
                     Debug.WriteLine(@"				BatchBlock successfully saved.");
                 }
-
             }
             catch (Exception ex)
             {
@@ -232,11 +236,13 @@ namespace Databar.Services
 
         public async Task SaveProductAsync(Product prod, bool isNewItem = false)
         {
-            var uri = new Uri(string.Format(Constants.RestUrl, "product", prod.GTIN.ToString(), String.Empty));
+            var uri = new Uri(string.Format(Constants.RestUrl, "product", String.Empty, String.Empty));
 
             try
             {
-                var json = JsonConvert.SerializeObject(prod);
+                JsonProduct jw = new JsonProduct();
+                jw.ProductSet.Add(prod);
+                var json = JsonConvert.SerializeObject(jw);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
                 HttpResponseMessage response = null;
