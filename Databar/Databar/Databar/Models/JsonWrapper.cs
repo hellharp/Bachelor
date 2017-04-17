@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Databar.Models
 {
+    [Obsolete("Not used anymore, see model-specific Json-classes.")]
     [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
     public class JsonWrapper
     {
@@ -43,7 +44,9 @@ namespace Databar.Models
             }
             else
             {
-                throw new Exception("feil i Jswonwrapper");
+                AISet = new List<AI>();
+                BatchSet = new List<BatchBlock>();
+                ProductSet = new List<Product>();
             }
         }
     }

@@ -108,7 +108,7 @@ namespace Databar.Views.Admin
 
             try
             {
-                await App.DBManager.SaveBatchBlockAsync(b, true);
+                await App.DBManager.SaveBatchBlockAsync(b);
                 ais = await App.DBManager.GetAIsAsync();
                 prods = await App.DBManager.GetProductsAsync();
                 bs = await App.DBManager.GetBatchBlocksAsync();

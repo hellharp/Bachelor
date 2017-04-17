@@ -139,7 +139,7 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    AIs = JsonConvert.DeserializeObject<JsonWrapper>(content).AISet;
+                    AIs = JsonConvert.DeserializeObject<JsonAI>(content).AISet;
                 }
                             }
             catch (Exception ex)
@@ -166,7 +166,7 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    BlockedBatches = JsonConvert.DeserializeObject<JsonWrapper>(content).BatchSet;
+                    BlockedBatches = JsonConvert.DeserializeObject<JsonBatchBlock>(content).BatchSet;
                 }
             }
             catch (Exception ex)
@@ -193,7 +193,7 @@ namespace Databar.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Products = JsonConvert.DeserializeObject<JsonWrapper>(content).ProductSet;
+                    Products = JsonConvert.DeserializeObject<JsonProduct>(content).ProductSet;
                 }
             }
             catch (Exception ex)
