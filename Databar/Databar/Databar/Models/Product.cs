@@ -15,7 +15,7 @@ namespace Databar.Models
     {
         [PrimaryKey, MaxLength(14)]
         [JsonProperty(PropertyName = "GTIN")]
-        public long GTIN { get; set; }
+        public string GTIN { get; set; }
 
         // Produktbeskrivelse
         [MaxLength(100)]
@@ -72,6 +72,6 @@ namespace Databar.Models
         // Price
         [MaxLength(100)]
         [JsonProperty(PropertyName = "Price")]
-        public double Price { get; set; }
+        public string Price { get; set; }
     }
 }

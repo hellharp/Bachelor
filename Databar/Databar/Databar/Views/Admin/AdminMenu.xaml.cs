@@ -106,10 +106,11 @@ namespace Databar.Views.Admin
                 ais = await App.DBManager.GetAIsAsync();
                 prods = await App.DBManager.GetProductsAsync();
                 bs = await App.DBManager.GetBatchBlocksAsync();
-                await DisplayAlert("TestDB ai Count", ais.Count.ToString(), "OK");
-                await DisplayAlert("TestDB batch Count", bs.Count.ToString(), "OK");
-                //await DisplayAlert("RestURL:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
-                await DisplayAlert("TestDB prod Count", prods.Count.ToString(), "OK");
+                await DisplayAlert("TestDB ai Count (should be 5)", ais.Count.ToString(), "OK");
+                await DisplayAlert("TestDB batch Count (should be 2)", bs.Count.ToString(), "OK");
+                await DisplayAlert("TestDB prod Count (should be 1)", prods.Count.ToString(), "OK");
+                //await DisplayAlert("RestURL for AI:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
+
                 //string tmp = "";
                 //foreach (var prod in prods)
                 //{

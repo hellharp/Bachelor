@@ -32,7 +32,7 @@ namespace Databar.Services
             return restService.RefreshBatchDataAsync();
         }
 
-        // Save operations
+        // Save operations. isNewItem = false -> PUT, true -> PUSH
         public Task SaveProductAsync(Product prod, bool isNewItem = false)
         {
             return restService.SaveProductAsync(prod, isNewItem);

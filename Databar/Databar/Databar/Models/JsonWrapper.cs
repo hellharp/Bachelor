@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Databar.Models
 {
+    [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
     public class JsonWrapper
     {
         [JsonProperty("ais")]

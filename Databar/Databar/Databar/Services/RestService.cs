@@ -149,7 +149,7 @@ namespace Databar.Services
         {
             Products = new List<Product>();
 
-            var uri = new Uri(string.Format(Constants.RestUrl, "products", String.Empty, Constants.JSONoutput));
+            var uri = new Uri(string.Format(Constants.RestUrl, "product", String.Empty, Constants.JSONoutput));
 
             try
             {
