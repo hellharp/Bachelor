@@ -23,6 +23,7 @@
 					HorizontalOptions="FillAndExpand"
 					VerticalOptions="Start"
 					Spacing="20"
+					Margin="0,0,0,200"
                     Padding="0,10,0,125">
 
                         <Label Text=
