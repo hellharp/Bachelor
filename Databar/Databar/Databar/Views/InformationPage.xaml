@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Databar.Views.InformationPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="StartAndExpand">
+            <!-- List if items that might need some explanation from which page the button where pushed -->
+            <ListView x:Name="InfoListView">
+                <ListView.Header>
+                    <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" />
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="5">
+                                <Grid>
+                                    <Label Text="{Binding NoImageText}" Grid.Column="0" FontSize="Small" TextColor="#002c6c"/>
+                                    <Image Grid.Column="0" >
+                                        <OnPlatform x:TypeArguments="FileImageSource"
+                                                    Android="{Binding ImageAndroid}"
+                                                    iOS="{Binding ImageIOS}" />
+                                    </Image>
+                                    <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3"/>
+                                </Grid>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <StackLayout>
+            <Button x:Name="dismissButton" 
+                    BackgroundColor="Transparent" 
+                    BorderColor="Transparent" 
+                    Clicked="OnDismissButtonClicked"
+                    HorizontalOptions="Center">
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+                                Android="gs1_remove-circle.png"
+                                iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png" />
+                </Button.Image>
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

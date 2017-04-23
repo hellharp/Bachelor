@@ -76,9 +76,9 @@
             </StackLayout>
             <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
             <StackLayout VerticalOptions="End" Spacing="40" Orientation="Horizontal" HorizontalOptions="Center" Padding="0, 10, 0, 10">
-                <Button x:Name="cartButton"	BackgroundColor="Transparent" BorderColor="Transparent" Margin="30,0,15,0">
+                <Button x:Name="cartButton"	BackgroundColor="Transparent" BorderColor="Transparent" Margin="30,0,15,0" Clicked="OnInfoButtonPressed">
                     <Button.Image>
-                        <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_help.png" iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
+                        <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_help.png" iOS="GS1_Symbol_Help_RGB_2015-04-16.png" />
                     </Button.Image>
                 </Button>
                 <Button x:Name="loginButton" BackgroundColor="Transparent" BorderColor="Transparent" Margin="15,0,15,0">
@@ -88,11 +88,10 @@
                 </Button>
                 <Button x:Name="trashButton" BackgroundColor="Transparent" BorderColor="Transparent" Margin="15,0,30,0" Clicked="ShowDeleteDialog" >
                     <Button.Image>
-                        <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_trash.png" iOS="GS1_Symbol_Help_RGB_2015-04-16.png"/>
+                        <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_trash.png" iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
                     </Button.Image>
                 </Button>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
-    
 </ContentPage>
