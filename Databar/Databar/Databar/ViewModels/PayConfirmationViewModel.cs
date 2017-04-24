@@ -51,8 +51,6 @@ namespace Databar.ViewModels
 
 		//Skal CartServices gjøre dette i stedet for PayConfirmationViewModel?
 
-
-
 		public decimal TotalDiscount()
 		{
 			decimal totaldiscount = 0;

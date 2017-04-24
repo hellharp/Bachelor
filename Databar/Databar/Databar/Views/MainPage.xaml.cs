@@ -116,6 +116,6 @@ namespace Databar.Views
 			}
 		}
 
-	}
+    }
 }
 

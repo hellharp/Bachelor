@@ -16,7 +16,8 @@ namespace Databar.Views
             InitializeComponent();
 
             //Henter CartViewModel
-            cartViewModel = new CartViewModel();
+            // cartViewModel = new CartViewModel();
+            cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
 
             //Setter XAML til å bruke CartViewModel. Denne gjør bruken av {Binding variabel} i XAML mulig.
             BindingContext = cartViewModel;
@@ -55,7 +56,13 @@ namespace Databar.Views
         {
             var selectedItem = (MenuItem)sender;
             var selectedProduct = selectedItem.CommandParameter as TempProd;
+
+            cartViewModel.RemoveProduct(selectedProduct);
+
             DisplayAlert("Fjernet", $"Du har fjernet {selectedProduct.Name} fra handlekurven", "OK");
+
+            OnPropertyChanged();
+            CalculatePrice();
         }
     }
 }

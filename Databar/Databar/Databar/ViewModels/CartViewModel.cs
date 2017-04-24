@@ -9,6 +9,7 @@ using Databar.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ZXing.Mobile;
+using Xamarin.Forms;
 
 namespace Databar.ViewModels
 {
@@ -16,12 +17,16 @@ namespace Databar.ViewModels
     public class CartViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<TempProd> _cartList;
+        private CartServices cartServices;
 
 
         //Konstruktøren kaller cartServices og henter cartListen fra den.
-        public CartViewModel()
+        public CartViewModel(CartServices _cartServices)
         {
-            var cartServices = new CartServices();
+            if (null == _cartList)
+            {
+                cartServices = _cartServices;
+            }
 
             CartList = cartServices.getCartList();
         }
@@ -48,27 +53,14 @@ namespace Databar.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-   
+
 
 
         //Skal CartServices gjøre dette i stedet for CartViewModel?
         public decimal Sum()
         {
-            decimal sum = 0;
-
-            for (int i = 0; i < _cartList.Count; i++)
-            {
-                if (_cartList[i].Discount == 0)
-                {
-                    sum += _cartList[i].UnitCost;
-                }
-                else
-                {
-                    sum += (_cartList[i].UnitCost * (_cartList[i].Discount / 100));
-                }
-            }
-
-            return sum;
+            OnPropertyChanged();
+            return cartServices.Sum();
         }
 
         public async void StartZXing(object sender, EventArgs e)
@@ -77,18 +69,36 @@ namespace Databar.ViewModels
 
             var result = await scanner.Scan();
 
+            AddBarcode();
+            OnPropertyChanged();
 
             //Gjør noe med resultatet
-           // AddBarcode(result.ToString());
+            // AddBarcode(result.ToString());
 
         }
 
-        public void AddBarcode(String e)
+        public void AddBarcode()
         {
+
             //Sends the scanned barcode to the Service to be registered in the DB
-            //CartServices.Add(e);
+            cartServices.Add(new TempProd
+            {
+                ID = 1,
+                Name = "Addet etter scan!",
+                Discount = 20,
+                DiscountType = "%",
+                UnitCost = 10.00m
+            });
+        }
+
+        public void RemoveProduct(TempProd t)
+        {
+            cartServices.RemoveProduct(t);
+            this.OnPropertyChanged();
         }
 
     }
+
+
 }
 
