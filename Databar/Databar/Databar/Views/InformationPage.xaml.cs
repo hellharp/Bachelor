@@ -15,7 +15,7 @@ using Xamarin.Forms.Xaml;
 namespace Databar.Views
 {
 
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+   // [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InformationPage : ContentPage
     {
         public InformationPage()
