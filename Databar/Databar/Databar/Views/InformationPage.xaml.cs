@@ -1,4 +1,6 @@
 ﻿using Databar.Models;
+using Databar.Services;
+using Databar.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,15 +17,24 @@ using Xamarin.Forms.Xaml;
 namespace Databar.Views
 {
 
-   // [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InformationPage : ContentPage
     {
-        public InformationPage()
+        private InformationPageViewModel InfoViewModel;
+
+        public InformationPage(string page)
         {
+
             InitializeComponent();
+
+            //Henter InfoPageViewModel
+            InfoViewModel = new InformationPageViewModel(page);
+
+            //Setter XAML til å bruke InformationPageViewModel.
+            BindingContext = InfoViewModel;
         }
 
-        async void OnDismissButtonClicked (object sender, EventArgs args)
+        async void OnDismissButtonClicked(object sender, EventArgs args)
         {
             await Navigation.PopModalAsync();
         }

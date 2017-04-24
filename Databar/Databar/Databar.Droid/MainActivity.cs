@@ -20,7 +20,7 @@ namespace Databar.Droid
        
           
             global::Xamarin.Forms.Forms.Init(this, bundle);
-          
+
 
             //Initialiserer ZXing
             ZXing.Net.Mobile.Forms.Android.Platform.Init();

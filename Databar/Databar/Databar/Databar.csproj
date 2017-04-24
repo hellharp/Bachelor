@@ -51,6 +51,7 @@
     <Compile Include="Services\BooleanConverter.cs" />
     <Compile Include="Services\CartServices.cs" />
     <Compile Include="Services\DBRestManager.cs" />
+    <Compile Include="Services\HelpServices.cs" />
     <Compile Include="Services\IRestService.cs" />
     <Compile Include="Services\RestService.cs" />
     <Compile Include="Strings.Designer.cs">
@@ -60,6 +61,7 @@
     </Compile>
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\EditProductPageViewModel.cs" />
+    <Compile Include="ViewModels\InformationPageViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>

@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Databar.Views.InformationPage">
+             x:Class="Databar.Views.InformationPage"
+             xmlns:ViewModels="clr-namespace:Databar.ViewModels">
+    
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
     </ContentPage.Padding>
+    
     <ContentPage.Content>
         <StackLayout VerticalOptions="StartAndExpand">
-            <!-- List if items that might need some explanation from which page the button where pushed -->
-            <ListView x:Name="InfoListView">
+       <!-- if items that might need some explanation from the page where the button was pushed -->
+            <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}">
                 <ListView.Header>
                     <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" />
                 </ListView.Header>
@@ -29,8 +32,8 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+            </ListView> 
+        </StackLayout> 
         <StackLayout>
             <Button x:Name="dismissButton" 
                     BackgroundColor="Transparent" 
@@ -41,7 +44,7 @@
                     <OnPlatform x:TypeArguments="FileImageSource"
                                 Android="gs1_remove-circle.png"
                                 iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png" />
-                </Button.Image>
+                </Button.Image> 
             </Button>
         </StackLayout>
     </ContentPage.Content>
