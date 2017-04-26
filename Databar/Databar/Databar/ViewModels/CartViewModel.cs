@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ZXing.Mobile;
 using Xamarin.Forms;
+using System.Diagnostics;
 
 namespace Databar.ViewModels
 {
@@ -53,8 +54,7 @@ namespace Databar.ViewModels
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-
-
+        
 
         //Skal CartServices gjøre dette i stedet for CartViewModel?
         public decimal Sum()
@@ -65,9 +65,19 @@ namespace Databar.ViewModels
 
         public async void StartZXing(object sender, EventArgs e)
         {
+            //Limit the scan to only read GS1Databar Expanded Stacked
+            //Does not work for some reason
+
+
+            var options = new MobileBarcodeScanningOptions();
+            options.PossibleFormats = new List<ZXing.BarcodeFormat>()
+            {
+                ZXing.BarcodeFormat.RSS_EXPANDED
+            };
+
             var scanner = new MobileBarcodeScanner();
 
-            var result = await scanner.Scan();
+            var result = await scanner.Scan(options);
 
             AddBarcode();
             OnPropertyChanged();
@@ -79,8 +89,8 @@ namespace Databar.ViewModels
 
         public void AddBarcode()
         {
-
             //Sends the scanned barcode to the Service to be registered in the DB
+
             cartServices.Add(new TempProd
             {
                 ID = 1,

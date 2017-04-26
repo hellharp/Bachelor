@@ -12,80 +12,88 @@ using ZXing.Mobile;
 
 namespace Databar.Views.Admin
 {
-	public partial class AdminMenu : ContentPage
-	{
-		// Variable used for handling back-button event
-		private bool _canClose = true;
+    public partial class AdminMenu : ContentPage
+    {
+        // Variable used for handling back-button event
+        private bool _canClose = true;
 
-		public AdminMenu()
-		{
-			InitializeComponent();
-		}
+        public AdminMenu()
+        {
+            InitializeComponent();
+        }
 
-		async void Logout(object sender, EventArgs e)
-		{
+        async void Logout(object sender, EventArgs e)
+        {
             Application.Current.Properties["IsLoggedIn"] = false;
             Application.Current.MainPage = new NavigationPage(new Views.MainPage());
-			//await Navigation.PopAsync();
-		}
+            //await Navigation.PopAsync();
+        }
 
-		//Handle device hardware back button to prevent accidental closing of app
-		protected override bool OnBackButtonPressed()
-		{
-			if (_canClose)
-			{
-				ShowExitDialog();
-			}
-			return _canClose;
-		}
-		// Exit dialog. NOTE: User has to press back-button again to actually close app
-		private async void ShowExitDialog()
-		{
-			var answer = await DisplayAlert("Advarsel!", "Vil du lukke appen?", "Ja", "Nei");
-			if (answer)
-			{
-				_canClose = false;
-				OnBackButtonPressed();
-			}
-		}
+        //Handle device hardware back button to prevent accidental closing of app
+        protected override bool OnBackButtonPressed()
+        {
+            if (_canClose)
+            {
+                ShowExitDialog();
+            }
+            return _canClose;
+        }
+        // Exit dialog. NOTE: User has to press back-button again to actually close app
+        private async void ShowExitDialog()
+        {
+            var answer = await DisplayAlert("Advarsel!", "Vil du lukke appen?", "Ja", "Nei");
+            if (answer)
+            {
+                _canClose = false;
+                OnBackButtonPressed();
+            }
+        }
 
-		async void StartZXing(object sender, EventArgs e)
-		{
-			var scanner = new MobileBarcodeScanner();
+        async void StartZXing(object sender, EventArgs e)
+        {
+            Application.Current.Properties["ScannedCode"] = "(01)09501101530003(17)140704(10)2929";
+            await Navigation.PushAsync(new EditProductPage());
+           
+          /*
+            var scanner = new MobileBarcodeScanner();
 
-			var result = await scanner.Scan();
+            var result = await scanner.Scan();
 
 
-			if (result != null)
-			{
-                Application.Current.Properties["ScannedCode"] = result;
-                await DisplayAlert("Databar skannet", result.ToString(), "OK");
+            if (result != null)
+            {
+                Application.Current.Properties["ScannedCode"] = result.Text;
+
+             
+
+
+                //    await DisplayAlert("Databar skannet", result.ToString(), "OK");
                 // Code scanned and saved in Properties["ScannedCode"], send to EditProductPage.
-                //await Navigation.PushAsync(new EditProductPage());
+                await Navigation.PushAsync(new EditProductPage());
                 // testcommit
             }
-			else
-			{
+            else
+            {
                 Application.Current.Properties["ScannedCode"] = "";
-				// Scanning aborted
-				await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
-			}
+                // Scanning aborted
+                await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
+            }*/
 
 
         }
 
-		// Focus on / display the hidden DatePicker when "calendar"-button is pressed
-		async void FocusDatePicker(object sender, EventArgs ea)
-		{
-			Curr_Date_Picker.Focus();
-		}
+        // Focus on / display the hidden DatePicker when "calendar"-button is pressed
+        async void FocusDatePicker(object sender, EventArgs ea)
+        {
+            Curr_Date_Picker.Focus();
+        }
 
-		// Save the chosen date as the "current" date
-		async void SetCurrentDate(object sender, EventArgs ea)
-		{
-			DateTime setCurrentDate = Curr_Date_Picker.Date;
+        // Save the chosen date as the "current" date
+        async void SetCurrentDate(object sender, EventArgs ea)
+        {
+            DateTime setCurrentDate = Curr_Date_Picker.Date;
             Application.Current.Properties["CurrentDate"] = setCurrentDate;
-		}
+        }
 
         async void TestDB(object sender, EventArgs ea)
         {
@@ -116,7 +124,7 @@ namespace Databar.Views.Admin
                 await DisplayAlert("TestDB batch Count (should be 3)", bs.Count.ToString(), "OK");
                 await DisplayAlert("TestDB prod Count (should be 2)", prods.Count.ToString(), "OK");
 
-               // await DisplayAlert("TestDB batchobject to json test", content.ToString(), "OK");
+                // await DisplayAlert("TestDB batchobject to json test", content.ToString(), "OK");
                 //await DisplayAlert("RestURL for AI:", string.Format(Constants.RestUrl, "ai", String.Empty, Constants.JSONoutput), "OK");
 
                 //string tmp = "";
@@ -132,5 +140,5 @@ namespace Databar.Views.Admin
                 await DisplayAlert("TestDB feil!", e.Message, "OK");
             }
         }
-	}
+    }
 }
