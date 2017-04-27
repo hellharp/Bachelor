@@ -14,12 +14,16 @@ namespace Databar.Views
 {
     public partial class EditProductPage : ContentPage
     {
-        private EditProductPageViewModel EditViewModel;
+        private EditProductPageViewModel editViewModel;
 
         public EditProductPage()
         {
             InitializeComponent();
-            EditViewModel = new EditProductPageViewModel();
+            editViewModel = new EditProductPageViewModel();
+
+			BindingContext = editViewModel;
+
+			OnPropertyChanged();
 
         }
 

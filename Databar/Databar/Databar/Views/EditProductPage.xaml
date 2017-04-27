@@ -1,7 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="Databar.Views.EditProductPage" >
+             x:Class="Databar.Views.EditProductPage"
+
+	 xmlns:ViewModels="clr-namespace:Databar.ViewModels">
 
     <ContentPage.Padding>
         <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
@@ -31,7 +33,7 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Label FontSize="Small" Text="GTIN:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
-                            <Entry x:Name="GTIN_entry" Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                            <Entry x:Name="GTIN_entry" Text="{Binding GetGTIN}" Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
                             <Label FontSize="Small" Text="Varetekst:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Entry x:Name="ProductText_entry" Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                             <Label FontSize="Small" Text="Batch/Lot nr.:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
