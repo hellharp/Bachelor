@@ -23,7 +23,7 @@ namespace Databar.Views
 
 			BindingContext = editViewModel;
 
-			OnPropertyChanged();
+			//OnPropertyChanged();
 
         }
 
