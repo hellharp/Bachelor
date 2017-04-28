@@ -18,12 +18,13 @@ namespace Databar.ViewModels
 	public class EditProductPageViewModel : INotifyPropertyChanged
 	{
 		private Product _product;
-		private String result, gtin, batchlotentry, serial_entry, gross_entry, fivedayrebate_entry, fourdayrebate_entry, threedayrebate_entry, 
-						twodayrebate_entry, onedayrebate_entry;
+		private String result, gtin, batchlotentry, serial_entry, gross_entry, fivedayrebate_entry, fourdayrebate_entry, threedayrebate_entry,
+						twodayrebate_entry, onedayrebate_entry, producttext_entry;
 
 		private DateTime _BBD, _ExpD;
 		private Boolean blocked_sw, fivedayrebate_sw, fourdayrebate_sw, threedayrebate_sw, twodayrebate_sw, onedayrebate_sw;
 
+		public List<Product> productList;
 
 
 		public EditProductPageViewModel()
@@ -31,11 +32,60 @@ namespace Databar.ViewModels
 			//Hent product med metode fra RestSQL
 
 			result = Application.Current.Properties["ScannedCode"] as String;
-				
-			if (result == null || !result.Equals(""))
+
+            SyncWithDB();
+
+			if (result != null || !result.Equals(""))
 				DecodeBarcode();
 
+
+
+
 		}
+
+		private async void SyncWithDB()
+		{
+			productList = new List<Product>();
+			try
+			{
+				Debug.WriteLine("Prøver å synce med db");
+				productList = await App.DBManager.GetProductsAsync();
+			}
+			catch (Exception e)
+			{
+				Debug.WriteLine("TestDB feil! " + e.Message);
+			}
+
+		}
+
+
+		private Product GetProduct(String GTIN)
+		{
+			Debug.WriteLine("I getprodukt");
+
+			if(productList != null)
+				Debug.WriteLine("produktliste er ikke null");
+			
+
+			//Debug.WriteLine("Finnes produktlist: " + productList.Count());
+		
+
+
+		/*	for (int i = 0; i < productList.Count; i++)
+			{
+				if (productList[i].Equals(GTIN.ToString()))
+					return productList[i];
+			}*/
+
+			//Returns a new product instead of returning null
+			Product nullProduct = new Product();
+			nullProduct.GTIN = GTIN;
+
+			return nullProduct;
+		}
+
+
+
 
 		//Decodes the barcode and sends it to WriteAItoGUI
 		private void DecodeBarcode()
@@ -81,41 +131,20 @@ namespace Databar.ViewModels
 		}
 
 
-		public String GTIN_entry { get { return gtin; } set { gtin = value; OnPropertyChanged(); } }
+		public void SetDate(String ai, String code)
+		{
+			/*	if (ai.Equals("15")
+				{
+					return:
+				}*/
+		}
 
-		public String BatchLot_entry { get { return batchlotentry; } set { batchlotentry = value; OnPropertyChanged(); } }
-
-		public DateTime BBD { get { return _BBD; } set { _BBD = value; OnPropertyChanged(); } }
-
-		public DateTime ExpD { get { return _ExpD; } set { _ExpD = value; OnPropertyChanged(); } }
-
-		public String Serial_entry { get { return serial_entry; } set { serial_entry = value; OnPropertyChanged(); } }
-
-		public String Gross_entry { get { return gross_entry; } set { gross_entry = value; OnPropertyChanged(); } }
-
-		public String FiveDayRebate_entry { get { return fivedayrebate_entry; } set { fivedayrebate_entry = value; OnPropertyChanged(); } }
-
-		public String FourDayRebate_entry { get { return fourdayrebate_entry; } set { fourdayrebate_entry = value; OnPropertyChanged(); } }
-
-		public String ThreeDayRebate_entry { get { return threedayrebate_entry; } set { threedayrebate_entry = value; OnPropertyChanged(); } }
-
-		public String TwoDayRebate_entry { get { return twodayrebate_entry; } set { twodayrebate_entry = value; OnPropertyChanged(); } }
-
-		public String OneDayRebate_entry { get { return onedayrebate_entry; } set { onedayrebate_entry = value; OnPropertyChanged(); } }
+		private void DisplayProductInfo(Product p)
+		{
+			ProductText_entry = p.ProductName;
+		}
 
 
-
-		public Boolean Blocked_sw { get { return blocked_sw; } set { blocked_sw = value; OnPropertyChanged(); } }
-
-		public Boolean FiveDayRebate_sw { get { return fivedayrebate_sw; } set { fivedayrebate_sw = value; OnPropertyChanged(); } }
-
-		public Boolean FourDayRebate_sw { get { return fourdayrebate_sw; } set { fourdayrebate_sw = value; OnPropertyChanged(); } }
-
-		public Boolean ThreeDayRebate_sw { get { return threedayrebate_sw; } set { threedayrebate_sw = value; OnPropertyChanged(); } }
-
-		public Boolean TwoDayRebate_sw { get { return twodayrebate_sw; } set { twodayrebate_sw = value; OnPropertyChanged(); } }
-
-		public Boolean OneDayRebate_sw { get { return onedayrebate_sw; } set { onedayrebate_sw = value; OnPropertyChanged(); } }
 
 
 
@@ -125,6 +154,7 @@ namespace Databar.ViewModels
 			if ((AI.Equals("01") || AI.Equals("1")) && !Code.Equals(""))
 			{
 				GTIN_entry = Code.ToString();
+				GetProduct(Code);
 			}
 
 			else if (AI.Equals("10") && !Code.Equals(""))
@@ -166,5 +196,44 @@ namespace Databar.ViewModels
 		{
 			//DB_Service.RemoveProduct(_product);
 		}
+
+
+
+public String GTIN_entry { get { return gtin; } set { gtin = value; OnPropertyChanged(); } }
+
+public String ProductText_entry { get { return producttext_entry; } set { producttext_entry = value; OnPropertyChanged(); } }
+
+public String BatchLot_entry { get { return batchlotentry; } set { batchlotentry = value; OnPropertyChanged(); } }
+
+public DateTime BBD_picker { get { return _BBD; } set { _BBD = value; OnPropertyChanged(); } }
+
+public DateTime ExpD_picker { get { return _ExpD; } set { _ExpD = value; OnPropertyChanged(); } }
+
+public String Serial_entry { get { return serial_entry; } set { serial_entry = value; OnPropertyChanged(); } }
+
+public String Gross_entry { get { return gross_entry; } set { gross_entry = value; OnPropertyChanged(); } }
+
+public String FiveDayRebate_entry { get { return fivedayrebate_entry; } set { fivedayrebate_entry = value; OnPropertyChanged(); } }
+
+public String FourDayRebate_entry { get { return fourdayrebate_entry; } set { fourdayrebate_entry = value; OnPropertyChanged(); } }
+
+public String ThreeDayRebate_entry { get { return threedayrebate_entry; } set { threedayrebate_entry = value; OnPropertyChanged(); } }
+
+public String TwoDayRebate_entry { get { return twodayrebate_entry; } set { twodayrebate_entry = value; OnPropertyChanged(); } }
+
+public String OneDayRebate_entry { get { return onedayrebate_entry; } set { onedayrebate_entry = value; OnPropertyChanged(); } }
+
+public Boolean Blocked_sw { get { return blocked_sw; } set { blocked_sw = value; OnPropertyChanged(); } }
+
+public Boolean FiveDayRebate_sw { get { return fivedayrebate_sw; } set { fivedayrebate_sw = value; OnPropertyChanged(); } }
+
+public Boolean FourDayRebate_sw { get { return fourdayrebate_sw; } set { fourdayrebate_sw = value; OnPropertyChanged(); } }
+
+public Boolean ThreeDayRebate_sw { get { return threedayrebate_sw; } set { threedayrebate_sw = value; OnPropertyChanged(); } }
+
+public Boolean TwoDayRebate_sw { get { return twodayrebate_sw; } set { twodayrebate_sw = value; OnPropertyChanged(); } }
+
+public Boolean OneDayRebate_sw { get { return onedayrebate_sw; } set { onedayrebate_sw = value; OnPropertyChanged(); } }
+
 	}
 }

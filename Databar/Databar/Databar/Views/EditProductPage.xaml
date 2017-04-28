@@ -35,13 +35,13 @@
                             <Label FontSize="Small" Text="GTIN:" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Entry x:Name="GTIN_entry" Text="{Binding GTIN_entry}" Keyboard="Numeric" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" />
                             <Label FontSize="Small" Text="Varetekst:" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
-                            <Entry x:Name="ProductText_entry" Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
+                            <Entry x:Name="ProductText_entry" Text="{Binding ProductText_entry}" Keyboard="Default" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                             <Label FontSize="Small" Text="Batch/Lot nr.:" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Entry x:Name="BatchLot_entry" Text="{Binding BatchLot_entry}" Keyboard="Default" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                             <Label FontSize="Small" Text="Best før dato:" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
-                            <DatePicker x:Name="BBD_picker" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C" Format="dd.MM.yy" IsEnabled="False"/>
+                            <DatePicker x:Name="BBD_picker" Date="{Binding BBD_picker}" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C" Format="dd.MM.yy" IsEnabled="False"/>
                             <Label FontSize="Small" Text="Siste forbruksdato:" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
-                            <DatePicker x:Name="ExpD_picker" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C"  Format="dd.MM.yy" IsEnabled="False"/>
+                            <DatePicker x:Name="ExpD_picker" Date="{Binding ExpD_picker}" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0" TextColor="#002C6C"  Format="dd.MM.yy" IsEnabled="False"/>
                             <Label FontSize="Small" Text="Serienummer:" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
                             <Entry x:Name="Serial_entry" Keyboard="Numeric" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="0,0,20,0"/>
                             <Label FontSize="Small" Text="Bruttopris (kr):" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="20,0,0,0" VerticalTextAlignment="Center" TextColor="#002C6C"/>
