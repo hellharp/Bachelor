@@ -24,19 +24,17 @@ namespace Databar.Views
 
 			BindingContext = editViewModel;
 
-			//OnPropertyChanged();
-
         }
 
-        void FiveDayToggle(object sender, ToggledEventArgs e)
+        void LastDayToggle(object sender, ToggledEventArgs e)
         {
-            if (FiveDayRebate_sw.IsToggled == true)
+			if (LastDayRebate_sw.IsToggled == true)
             {
-                FiveDayRebateType_label.Text = "%";
+				LastDayRebateType_label.Text = "%";
             }
-            else if(FiveDayRebate_sw.IsToggled == false)
+            else if(LastDayRebate_sw.IsToggled == false)
             {
-                FiveDayRebateType_label.Text = "Kr";
+                LastDayRebateType_label.Text = "Kr";
             }
         }
 

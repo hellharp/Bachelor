@@ -51,7 +51,7 @@ namespace Databar.Views.Admin
 
         async void StartZXing(object sender, EventArgs e)
         {
-			Application.Current.Properties["ScannedCode"] = "(1)12345678901234(17)140704(10)1234";
+			Application.Current.Properties["ScannedCode"] = "(1)12345678901234(15)140704(10)ABC-123(17)170430";
             await Navigation.PushAsync(new EditProductPage());
            
           /*
