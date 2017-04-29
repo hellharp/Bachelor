@@ -83,7 +83,7 @@
                         <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_help.png" iOS="GS1_Symbol_Help_RGB_2015-04-16.png" />
                     </Button.Image>
                 </Button>
-                <Button x:Name="loginButton" BackgroundColor="Transparent" BorderColor="Transparent" Margin="15,0,15,0">
+                <Button x:Name="loginButton" BackgroundColor="Transparent" BorderColor="Transparent" Margin="15,0,15,0" Clicked="OnSavedButton">
                     <Button.Image>
                         <OnPlatform x:TypeArguments="FileImageSource" Android="gs1_ok_circle.png" iOS="GS1_Symbol_OK_Circle_RGB_20150416.png"/>
                     </Button.Image>

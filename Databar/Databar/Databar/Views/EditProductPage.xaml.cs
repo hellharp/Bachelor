@@ -87,7 +87,12 @@ namespace Databar.Views
         async void ShowDeleteDialog(object sender, EventArgs e)
         {
             var answer = await DisplayAlert("Advarsel!", "Vil du slette det valgte produktet?", "Ja", "Nei");
-            Debug.WriteLine("Answer:" + answer);
+			Debug.WriteLine("Answer:" + answer.ToString());
+			if (answer.Equals(true))
+			{
+				Debug.WriteLine("sender til delete");
+				editViewModel.DeleteProduct();
+			}
         }
 
         async void OnInfoButtonPressed(object sender, EventArgs e)
@@ -96,5 +101,13 @@ namespace Databar.Views
 
             await Navigation.PushAsync(infoPage, true);
         }
+
+		async void OnSavedButton(object sender, EventArgs e)
+		{
+			editViewModel.SaveProduct();
+			await DisplayAlert("Save", "Klikket save!", "OK");
+		}
     }
+
+
 }

@@ -37,10 +37,6 @@ namespace Databar.ViewModels
 
 			SyncWithDB();
 
-
-
-
-
 		}
 
 		private async void SyncWithDB()
@@ -278,13 +274,19 @@ namespace Databar.ViewModels
 				p.Last_RebateType = "fixed";
 
 			//Save the product to the DB
-			App.DBManager.SaveProductAsync(p);
+			App.DBManager.SaveProductAsync(p, true);
 
 		}
 
 		public void DeleteProduct()
 		{
-			//DB_Service.RemoveProduct(_product);
+			Product p = new Product();
+
+			p.GTIN = GTIN_entry;
+
+			Debug.WriteLine("Starter delete");
+			Debug.WriteLine("sjekker GTIN: " + p.GTIN.ToString());
+			App.DBManager.DeleteProductAsync(p);
 		}
 
 
