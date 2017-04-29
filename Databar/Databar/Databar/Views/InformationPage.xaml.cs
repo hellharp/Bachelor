@@ -21,14 +21,17 @@ namespace Databar.Views
     public partial class InformationPage : ContentPage
     {
         private InformationPageViewModel InfoViewModel;
+        private string location;
 
         public InformationPage(string page)
         {
 
+            location = page;
+
             InitializeComponent();
 
             //Henter InfoPageViewModel
-            InfoViewModel = new InformationPageViewModel(page);
+            InfoViewModel = new InformationPageViewModel(location);
 
             //Setter XAML til å bruke InformationPageViewModel.
             BindingContext = InfoViewModel;
@@ -36,7 +39,7 @@ namespace Databar.Views
 
         async void OnDismissButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

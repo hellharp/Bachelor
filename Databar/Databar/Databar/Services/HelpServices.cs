@@ -49,7 +49,22 @@ namespace Databar.Services
                 return pageItemList;
             }
             else
-                return null;
+            {
+                var errorList = new ObservableCollection<HelpItem>
+                {
+                    new HelpItem
+                    {
+                        NoImageText = "ERROR",
+                        ImageAndroid = "",
+                        ImageIOS = "",
+                        Explanation = "Something didn't go as planned!"
+                    }
+                };
+
+
+                return errorList;
+            }
+                
         }
 
     }

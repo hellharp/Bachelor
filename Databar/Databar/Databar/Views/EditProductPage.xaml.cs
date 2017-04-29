@@ -15,6 +15,7 @@ namespace Databar.Views
     public partial class EditProductPage : ContentPage
     {
         private EditProductPageViewModel editViewModel;
+        private string Page = "EditProductPage";
 
         public EditProductPage()
         {
@@ -93,12 +94,9 @@ namespace Databar.Views
 
         async void OnInfoButtonPressed(object sender, EventArgs e)
         {
-            string Page = "EditProductPage";
-
             var infoPage = new InformationPage(Page);
 
-
-            await Navigation.PushModalAsync(infoPage, true);
+            await Navigation.PushAsync(infoPage, true);
         }
     }
 }

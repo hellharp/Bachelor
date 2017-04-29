@@ -14,12 +14,15 @@ namespace Databar.ViewModels
     public class InformationPageViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<HelpItem> _helpList;
+        private string location;
 
         public InformationPageViewModel(string page)
         {
+            location = page;
+
             var helpService = new HelpServices();
 
-            HelpList = helpService.getHelpList(page);
+            HelpList = helpService.getHelpList(location);
         }
 
         public ObservableCollection<HelpItem> HelpList

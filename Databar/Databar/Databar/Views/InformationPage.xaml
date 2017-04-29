@@ -9,43 +9,45 @@
     </ContentPage.Padding>
     
     <ContentPage.Content>
-        <StackLayout VerticalOptions="StartAndExpand">
-       <!-- if items that might need some explanation from the page where the button was pushed -->
-            <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}">
-                <ListView.Header>
-                    <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" />
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Padding="5">
-                                <Grid>
-                                    <Label Text="{Binding NoImageText}" Grid.Column="0" FontSize="Small" TextColor="#002c6c"/>
-                                    <Image Grid.Column="0" >
-                                        <OnPlatform x:TypeArguments="FileImageSource"
+        <StackLayout>
+            <StackLayout VerticalOptions="StartAndExpand">
+                <!-- if items that might need some explanation from the page where the button was pushed -->
+                <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}">
+                    <ListView.Header>
+                        <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" />
+                    </ListView.Header>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Padding="5">
+                                    <Grid>
+                                        <Label Text="{Binding NoImageText}" Grid.Column="0" FontSize="Small" TextColor="#002c6c"/>
+                                        <Image Grid.Column="0" >
+                                            <OnPlatform x:TypeArguments="FileImageSource"
                                                     Android="{Binding ImageAndroid}"
                                                     iOS="{Binding ImageIOS}" />
-                                    </Image>
-                                    <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3"/>
-                                </Grid>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView> 
-        </StackLayout> 
-        <StackLayout>
-            <Button x:Name="dismissButton" 
+                                        </Image>
+                                        <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3"/>
+                                    </Grid>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+                <Button x:Name="dismissButton" 
                     BackgroundColor="Transparent" 
                     BorderColor="Transparent" 
                     Clicked="OnDismissButtonClicked"
                     HorizontalOptions="Center">
-                <Button.Image>
-                    <OnPlatform x:TypeArguments="FileImageSource"
-                                Android="gs1_remove-circle.png"
+                    <Button.Image>
+                        <OnPlatform x:TypeArguments="FileImageSource"
+                                Android="gs1_remove_circle.png"
                                 iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png" />
-                </Button.Image> 
-            </Button>
+                    </Button.Image>
+                </Button>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
