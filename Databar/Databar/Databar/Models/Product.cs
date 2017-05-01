@@ -47,6 +47,17 @@ namespace Databar.Models
         [JsonProperty(PropertyName = "LastDayRebate")]
         public string LastDayRebate { get; set; }
 
+		public string ProductNameAndPrice
+		{
+			get
+			{
+				return ProductName + "\n" + Price.ToString();
+			} set
+			{
+				ProductNameAndPrice = value;
+			}
+		}
+
         // Variabler for å holde rede på om rabatt er i % eller kr.
         // Foreslått konvensjon: "percent" for %-rabatt og "fixed" for fastrabatt.
         [MaxLength(10)]
@@ -68,6 +79,8 @@ namespace Databar.Models
         [MaxLength(10)]
         [JsonProperty(PropertyName = "Last_RebateType")]
         public string Last_RebateType { get; set; }
+
+		public string TodaysRebate { get; set; }
 
         // Price
         [MaxLength(100)]

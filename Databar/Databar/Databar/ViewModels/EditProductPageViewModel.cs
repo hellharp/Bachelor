@@ -22,7 +22,8 @@ namespace Databar.ViewModels
 						twodayrebate_entry, onedayrebate_entry, lastdayrebate_entry, producttext_entry;
 
 		private DateTime _BBD, _ExpD;
-		private Boolean blocked_sw, lastdayrebate_sw, fourdayrebate_sw, threedayrebate_sw, twodayrebate_sw, onedayrebate_sw;
+		private Boolean blocked_sw, lastdayrebate_sw, fourdayrebate_sw, threedayrebate_sw, twodayrebate_sw, onedayrebate_sw
+		, _BBD_pickerActive, _ExpD_pickerActive;
 
 		private List<Product> productList;
 
@@ -34,6 +35,8 @@ namespace Databar.ViewModels
 			//Hent product med metode fra RestSQL
 
 			result = Application.Current.Properties["ScannedCode"] as String;
+			BBD_pickerActive = false;
+			Expd_pickerActive = false;
 
 			SyncWithDB();
 
@@ -150,10 +153,18 @@ namespace Databar.ViewModels
 			DateTime dateTime = new DateTime(year_int, month_int, day_int);
 
 			if (ai.Equals("15"))
+			{
 				BBD_picker = dateTime;
+				BBD_pickerActive = true;
+			
+			}
 
 			else
+			{
 				ExpD_picker = dateTime;
+				Expd_pickerActive = true;
+
+			}
 
 		}
 
@@ -192,11 +203,16 @@ namespace Databar.ViewModels
 			OneDayRebate_entry = p.OneDayRebate;
 			LastDayRebate_entry = p.LastDayRebate;
 
-			FourDayRebate_sw = p.Four_RebateType.Equals("percent");
-			ThreeDayRebate_sw = p.Three_RebateType.Equals("percent");
-			TwoDayRebate_sw = p.Two_RebateType.Equals("percent");
-			OneDayRebate_sw = p.One_RebateType.Equals("percent");
-			LastDayRebate_sw = p.Last_RebateType.Equals("percent");
+
+			if (p.FourDaysRebate != null)
+			{
+
+				FourDayRebate_sw = p.Four_RebateType.Equals("percent");
+				ThreeDayRebate_sw = p.Three_RebateType.Equals("percent");
+				TwoDayRebate_sw = p.Two_RebateType.Equals("percent");
+				OneDayRebate_sw = p.One_RebateType.Equals("percent");
+				LastDayRebate_sw = p.Last_RebateType.Equals("percent");
+			}
 
 		}
 
@@ -297,10 +313,14 @@ namespace Databar.ViewModels
 
 		public String BatchLot_entry { get { return batchlotentry; } set { batchlotentry = value; OnPropertyChanged(); } }
 
+		public Boolean BBD_pickerActive { get { return _BBD_pickerActive; } set { _BBD_pickerActive = value; OnPropertyChanged(); } } 
+
+		public Boolean Expd_pickerActive { get { return _ExpD_pickerActive; } set { _ExpD_pickerActive = value; OnPropertyChanged(); } }
+
 		public DateTime BBD_picker { get { return _BBD; } set { _BBD = value; OnPropertyChanged(); } }
 
 		public DateTime ExpD_picker { get { return _ExpD; } set { _ExpD = value; OnPropertyChanged(); } }
-
+		
 		public String Serial_entry { get { return serial_entry; } set { serial_entry = value; OnPropertyChanged(); } }
 
 		public String Gross_entry { get { return gross_entry; } set { gross_entry = value; OnPropertyChanged(); } }

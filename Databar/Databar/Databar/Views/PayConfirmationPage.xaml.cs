@@ -1,6 +1,7 @@
 ﻿using System;
 using Databar.ViewModels;
 using Xamarin.Forms;
+using Databar.Services;
 
 namespace Databar.Views
 {
@@ -13,7 +14,7 @@ namespace Databar.Views
 			InitializeComponent();
 
 			//Gets PayConfirmationViewModel
-			payConfirmationViewModel = new PayConfirmationViewModel();
+			payConfirmationViewModel =  new PayConfirmationViewModel();
 
 			CalculateDiscountPrice();
 

@@ -20,17 +20,27 @@ namespace Databar.Views
         public EditProductPage()
         {
             InitializeComponent();
-            editViewModel = new EditProductPageViewModel();
+
+			editViewModel = new EditProductPageViewModel();
 
 			BindingContext = editViewModel;
 
+			Task.Delay(10000);
+			CheckDates();
+              
+
+			Debug.WriteLine("EXPDatepicker sin toString :" + ExpD_picker.Date.ToString());
+
         }
+
 
         void LastDayToggle(object sender, ToggledEventArgs e)
         {
 			if (LastDayRebate_sw.IsToggled == true)
             {
 				LastDayRebateType_label.Text = "%";
+				ExpD_picker.IsVisible = false;
+				SisteForbruksdato.IsVisible = false;
             }
             else if(LastDayRebate_sw.IsToggled == false)
             {
@@ -94,6 +104,15 @@ namespace Databar.Views
 				editViewModel.DeleteProduct();
 			}
         }
+
+		private void CheckDates()
+		{
+
+			if (ExpD_picker.Date.ToString().Equals("ExpD_picker.Date.ToString()"))
+				ExpD_picker.IsVisible = false;
+			OnPropertyChanged();
+		}
+
 
         async void OnInfoButtonPressed(object sender, EventArgs e)
         {

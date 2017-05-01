@@ -14,7 +14,7 @@ namespace Databar.ViewModels
 	//denne må inheret INotifyPropertyChanged
 	public class PayConfirmationViewModel : INotifyPropertyChanged
 	{
-		private ObservableCollection<TempProd> _cartList;
+		private ObservableCollection<Product> _cartList;
 
 
 		//Konstruktøren kaller cartServices og henter cartListen fra den.
@@ -27,7 +27,7 @@ namespace Databar.ViewModels
 
 
 
-		public ObservableCollection<TempProd> CartList
+		public ObservableCollection<Product> CartList
 		{
 			get { return _cartList; }
 			set
@@ -55,7 +55,7 @@ namespace Databar.ViewModels
 		{
 			decimal totaldiscount = 0;
 
-			for (int i = 0; i < _cartList.Count; i++)
+			/*for (int i = 0; i < _cartList.Count; i++)
 			{
 				if (_cartList[i].Discount == 0)
 				{
@@ -65,7 +65,7 @@ namespace Databar.ViewModels
 				{
 					totaldiscount += ((_cartList[i].UnitCost / 100) * _cartList[i].Discount);
 				}
-			}
+			}*/
 
 			return totaldiscount;
 		}

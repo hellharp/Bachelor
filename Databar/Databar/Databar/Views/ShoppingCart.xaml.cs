@@ -38,8 +38,8 @@ namespace Databar.Views
         {
             if (e.SelectedItem != null)
             {
-                var selection = e.SelectedItem as TempProd;
-                DisplayAlert("Du klikket på ", selection.Name, "OK");
+				var selection = e.SelectedItem as Product;
+                DisplayAlert("Du klikket på ", selection.ProductName, "OK");
                 //Fjerner seleksjonen slik at objektet ikke lenger er markert
                 ((ListView)sender).SelectedItem = null;
             }
@@ -49,20 +49,28 @@ namespace Databar.Views
         //Starts ZXing from the viewmodel
         async void StartZXing(object sender, EventArgs e)
         {
-            cartViewModel.StartZXing(sender, e);
+			bool success = false;
+            success = await cartViewModel.StartZXing(sender, e);
+			if (!success)
+				await DisplayAlert("Invalid product", "This product has not been registered in the database", "Ok");
         }
 
         private void OnRemoved(object sender, EventArgs e)
         {
             var selectedItem = (MenuItem)sender;
-            var selectedProduct = selectedItem.CommandParameter as TempProd;
+			var selectedProduct = selectedItem.CommandParameter as Product;
 
             cartViewModel.RemoveProduct(selectedProduct);
 
-            DisplayAlert("Fjernet", $"Du har fjernet {selectedProduct.Name} fra handlekurven", "OK");
+			DisplayAlert("Fjernet", $"Du har fjernet {selectedProduct.ProductName} fra handlekurven", "OK");
 
             OnPropertyChanged();
             CalculatePrice();
         }
+
+		 async void ToPayPage(object sender, EventArgs e)
+		{
+			await Navigation.PushAsync(new PayPage());
+		}
     }
 }

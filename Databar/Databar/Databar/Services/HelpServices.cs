@@ -5,25 +5,33 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using Xamarin.Forms;
 
 namespace Databar.Services
 {
     public class HelpServices
     {
+		
         public ObservableCollection<HelpItem> getHelpList(string page)
         {
-            if (page.Equals("EditProductPage"))
+			if (page.ToString().Equals("EditProductPage"))
             {
-                var pageItemList = new ObservableCollection<HelpItem>
+				Debug.WriteLine("I if");
+				FileImageSourceConverter f1 = new FileImageSourceConverter();
+				Image s1 = new Image();
+				s1.Source = "GS1_Symbol_OK_Circle_RGB_20150416.png";
+
+ 				ObservableCollection<HelpItem> pageItemList = new ObservableCollection<HelpItem>
                 {
                     new HelpItem
-                    {
-                        NoImageText = "",
-                        ImageAndroid = "gs1_ok_circle.png",
-                        ImageIOS = "GS1_Symbol_OK_Circle_RGB_20150416.png",
+					{
+						NoImageText = "",
+						ImageAndroid = "",
+						ImageIOS = s1,
                         Explanation = "Ved å trykke denne knappen vil man lagre produktets verdier."
-                    },
-                    new HelpItem
+                    }
+                   /* new HelpItem
                     {
                         NoImageText = "",
                         ImageAndroid = "gs1_remove_circle.png",
@@ -43,7 +51,7 @@ namespace Databar.Services
                         ImageAndroid = "",
                         ImageIOS = "",
                         Explanation = "Her vil man sette de ulike rabattene for de produktet. Slideren på høyre side vil avgjøre om rabatten settes i kroner eller rabatt"
-                    }
+                    }*/
                 };
 
                 return pageItemList;
@@ -55,8 +63,8 @@ namespace Databar.Services
                     new HelpItem
                     {
                         NoImageText = "ERROR",
-                        ImageAndroid = "",
-                        ImageIOS = "",
+						// ImageAndroid = "",
+                      //  ImageIOS = "",
                         Explanation = "Something didn't go as planned!"
                     }
                 };

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Databar.ViewModels
 {
@@ -20,14 +21,18 @@ namespace Databar.ViewModels
         {
             location = page;
 
-            var helpService = new HelpServices();
+			HelpServices helpService = new HelpServices();
 
             HelpList = helpService.getHelpList(location);
+
+			Debug.WriteLine("Help list sin nr 0:" + HelpList[0].Explanation);
         }
 
         public ObservableCollection<HelpItem> HelpList
         {
-            get { return _helpList; }
+			get {
+				return _helpList;
+			}
             set
             {
                 _helpList = value;

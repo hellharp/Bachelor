@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Databar.Views.InformationPage"
@@ -22,11 +22,13 @@
                                 <StackLayout Padding="5">
                                     <Grid>
                                         <Label Text="{Binding NoImageText}" Grid.Column="0" FontSize="Small" TextColor="#002c6c"/>
-                                        <Image Grid.Column="0" >
-                                            <OnPlatform x:TypeArguments="FileImageSource"
-                                                    Android="{Binding ImageAndroid}"
-                                                    iOS="{Binding ImageIOS}" />
-                                        </Image>
+                                        <Button x:Name="ButtonImage" Grid.Column="0" IsEnabled="false">
+											<Button.Image>
+                                              <OnPlatform x:TypeArguments="FileImageSource"
+	                				Android="gs1_menu.png"
+	                				iOS="{Binding ImageIOS}"/>
+												</Button.Image>
+                                        </Button>
                                         <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3"/>
                                     </Grid>
                                 </StackLayout>
@@ -36,6 +38,13 @@
                 </ListView>
             </StackLayout>
             <StackLayout>
+				<Button>
+					<Button.Image>
+					 <OnPlatform x:TypeArguments="FileImageSource"
+	                				Android="gs1_ok_circle.png"
+	                				iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
+						</Button.Image>
+				</Button>
                 <Button x:Name="dismissButton" 
                     BackgroundColor="Transparent" 
                     BorderColor="Transparent" 
