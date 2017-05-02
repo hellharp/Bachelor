@@ -15,13 +15,21 @@ namespace Databar.Services
 		ObservableCollection<Product> list = new ObservableCollection<Product>();
 		List<Product> prods = new List<Product>();
 
-		//denne skal hente fra sql
+		
+        /// <summary>
+        /// Get method for items in the shopping cart
+        /// </summary>
+        /// <returns>
+        /// Returns ObservableCollection of type Product
+        /// </returns>
 		public ObservableCollection<Product> getCartList()
 		{
-			//var list = new ObservableCollection<TempProd>
 			return list;
 		}
 
+        /// <summary>
+        /// Method for synchronizing the shoppingcart with the database
+        /// </summary>
 		private async void SyncWithDB()
 		{
 			prods = new List<Product>();
@@ -41,16 +49,34 @@ namespace Databar.Services
 
 		}
 
+        /// <summary>
+        /// Method to add a Product to the shopping cart
+        /// </summary>
+        /// <param name="e">
+        /// Adds the product with the variable name equal to e
+        /// </param>
 		public void Add(Product e)
 		{
 			list.Add(e);
 		}
 
+        /// <summary>
+        /// Method to remove a Product from the shopping cart
+        /// </summary>
+        /// <param name="t">
+        /// Removes the product with the variable name equal to t
+        /// </param>
 		public void RemoveProduct(Product t)
 		{
 			list.Remove(t);
 		}
 
+        /// <summary>
+        /// Method to get the price for all items in the shopping cart
+        /// </summary>
+        /// <returns>
+        /// Returns a decimal value
+        /// </returns>
 		public decimal Sum()
 		{
 			decimal sum = 0;

@@ -8,17 +8,16 @@ using System.Threading.Tasks;
 
 namespace Databar.Models
 {
-    // Model for å lagre blokkerte batch/lotnumre
-    // Blokkert for salg hvis Blocked == true, ikke blokkert hvis false eller hvis BatchNr ikke fins i tabellen.
-
 	/// <summary>
-	/// Table
+	/// Model for saving blocked batchnumbers
+    /// If Blocked == True the batchnumber will be blocked for sale
+    /// Default is False
 	/// </summary>
     [Table("BatchBlock")]
     [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
     public class BatchBlock
     {
-        // String for å håndtere bindestreker o.l.
+        // String to handle non-letter characters 
         [PrimaryKey, MaxLength(20)]
         [JsonProperty(PropertyName = "BatchNr")]
         public string BatchNr { get; set; }

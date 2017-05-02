@@ -10,9 +10,20 @@ using Xamarin.Forms;
 
 namespace Databar.Services
 {
+    /// <summary>
+    /// Service which puts the correct elements in the help page
+    /// </summary>
     public class HelpServices
     {
-		
+        /// <summary>
+        /// Method which creates a collection of all the help elements from a given page
+        /// </summary>
+        /// <param name="page">
+        /// Name of the page where the help button were pressed
+        /// </param>
+        /// <returns>
+        /// Returns a ObservableCollection of type HelpItem
+        /// </returns>
         public ObservableCollection<HelpItem> getHelpList(string page)
         {
 			if (page.ToString().Equals("EditProductPage"))

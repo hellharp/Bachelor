@@ -15,7 +15,9 @@ using System.Diagnostics;
 
 namespace Databar.ViewModels
 {
-	//denne må inheret INotifyPropertyChanged
+	/// <summary>
+    /// ViewModel for the shopping cart
+    /// </summary>
 	public class CartViewModel : INotifyPropertyChanged
 	{
 		private ObservableCollection<Product> _cartList;
@@ -23,8 +25,12 @@ namespace Databar.ViewModels
 		private List<Product> prods;
 		private String result, _GTIN;
 
-
-		//Konstruktøren kaller cartServices og henter cartListen fra den.
+        /// <summary>
+        /// Constructor which calles cartServices and it's getCartList method
+        /// </summary>
+        /// <param name="_cartServices">
+        /// 
+        /// </param>
 		public CartViewModel(CartServices _cartServices)
 		{
 			if (null == _cartList)
@@ -45,13 +51,13 @@ namespace Databar.ViewModels
 			set
 			{
 				_cartList = value;
-				//Refresher user-interface hver gang listen blir endret
+				//Refreshes the user-interface every time the list is changed
 				OnPropertyChanged();
 			}
 		}
 
 
-		//Disse må implementeres på grunn av INotifyPropertyChanged
+		
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -61,7 +67,7 @@ namespace Databar.ViewModels
 
 
 
-		//Skal CartServices gjøre dette i stedet for CartViewModel?
+		
 		public decimal Sum()
 		{
 			OnPropertyChanged();
