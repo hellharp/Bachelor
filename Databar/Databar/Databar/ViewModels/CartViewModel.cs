@@ -16,27 +16,31 @@ using System.Diagnostics;
 namespace Databar.ViewModels
 {
 	/// <summary>
-    /// ViewModel for the shopping cart
-    /// </summary>
+	/// ViewModel for the shopping cart
+	/// </summary>
 	public class CartViewModel : INotifyPropertyChanged
 	{
 		private ObservableCollection<Product> _cartList;
 		private CartServices cartServices;
 		private List<Product> prods;
+		private List<string> dateList;
 		private String result, _GTIN;
 
-        /// <summary>
-        /// Constructor which calles cartServices and it's getCartList method
-        /// </summary>
-        /// <param name="_cartServices">
-        /// 
-        /// </param>
+		/// <summary>
+		/// Constructor which calles cartServices and it's getCartList method
+		/// </summary>
+		/// <param name="_cartServices">
+		/// 
+		/// </param>
 		public CartViewModel(CartServices _cartServices)
 		{
 			if (null == _cartList)
 			{
 				cartServices = _cartServices;
 			}
+
+			//Should be removed after everything is working
+			dateList = new List<string>();
 
 			CartList = cartServices.getCartList();
 			SyncWithDB();
@@ -57,7 +61,7 @@ namespace Databar.ViewModels
 		}
 
 
-		
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -67,11 +71,12 @@ namespace Databar.ViewModels
 
 
 
-		
+
 		public decimal Sum()
 		{
 			OnPropertyChanged();
-			return cartServices.Sum();
+			//		Debug.WriteLine("I cartviewmodel datelist count: " + dateList.Count);
+			return cartServices.Sum(dateList);
 		}
 
 		private async void SyncWithDB()
@@ -89,10 +94,10 @@ namespace Databar.ViewModels
 				Debug.WriteLine("TestDB feil! " + e.Message);
 			}
 
-			Debug.WriteLine("I SyncWithDB. Productlist: " + prods.Count.ToString());
+			//	Debug.WriteLine("I SyncWithDB. Productlist: " + prods.Count.ToString());
 		}
 
-		public async Task<Boolean> StartZXing(object sender, EventArgs e)
+		public async Task<Boolean> StartZXing(object sender, EventArgs e, string tempbarcode)
 		{
 			//Limit the scan to only read GS1Databar Expanded Stacked
 			//Does not work for some reason
@@ -110,9 +115,9 @@ namespace Databar.ViewModels
 
 			result = "(01)12345678901234(10)ABC-321(15)170502";
 
-			DecodeBarcode();
+			DecodeBarcode(tempbarcode);
 
-		//	AddBarcode(result.ToString());
+			//	AddBarcode(result.ToString());
 			OnPropertyChanged();
 
 			return AddBarcode(result.ToString());
@@ -142,7 +147,10 @@ namespace Databar.ViewModels
 				if (prods[i].GTIN.ToString().Equals(_GTIN.ToString()))
 				{
 					Debug.WriteLine("I if");
-					cartServices.Add(prods[i]);
+					prods[i].DateList = dateList;
+					//SetRebate(prods[i]);
+					//cartServices.Add(prods[i]);
+					cartServices.Add(SetRebate(prods[i]));
 					productInDB = true;
 				}
 			}
@@ -157,10 +165,10 @@ namespace Databar.ViewModels
 			this.OnPropertyChanged();
 		}
 
-		private void DecodeBarcode()
+		private void DecodeBarcode(string barcode)
 		{
 
-			Debug.WriteLine("Databar skannet " + result.ToString());
+			Debug.WriteLine("Databar skannet " + barcode.ToString());
 
 
 			int nr = 1;
@@ -168,7 +176,7 @@ namespace Databar.ViewModels
 
 			//Finds the AI number
 			String pattern = @"(?<=\().+?(?=\))";
-			Match match = Regex.Match(result, pattern);
+			Match match = Regex.Match(barcode, pattern);
 
 
 			Debug.WriteLine("Start på loop");
@@ -183,7 +191,7 @@ namespace Databar.ViewModels
 
 
 				//Greps what comes after the AI
-				String rest = result.Substring(result.IndexOf(ai.ToString()) + ai.Length);
+				String rest = barcode.Substring(barcode.IndexOf(ai.ToString()) + ai.Length);
 
 				//Matches everything up to the next "(" aka start of new AI, or end of string
 				Match code = Regex.Match(rest, @"^.*?(?=[(]|\Z)");
@@ -191,7 +199,7 @@ namespace Databar.ViewModels
 				//Write everything to the log
 				Debug.WriteLine("Match nr: " + nr++ + "AI: " + match.Groups[0].Value + " Code: " + code.ToString());
 
-				//Write code to editProductPage
+
 				GetGTIN(match.Groups[0].Value.ToString(), code.ToString());
 
 				//Increment match to check next AI
@@ -204,10 +212,113 @@ namespace Databar.ViewModels
 		{
 			Debug.WriteLine("Er i GetGtin()");
 
+			int nr = 1;
+
 			if ((AI.Equals("01") || AI.Equals("1")) && !Code.Equals(""))
 			{
 				_GTIN = Code.ToString();
 			}
+			if (AI.Equals("15") || AI.Equals("17"))
+			{
+				Debug.WriteLine("Skriver til datelist #" + nr++);
+				dateList.Add(Code);
+				Debug.WriteLine("Så er datelist count: " + dateList.Count);
+			}
+
+		}
+
+		private Product SetRebate(Product p)
+		{
+			string closestExpirationDateString = "";
+			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
+
+			for (int i = 0; i < dateList.Count; i++)
+			{
+				if (dateList[i] != null)
+				{
+					closestExpirationDateString = dateList[i];
+					break;
+				}
+			}
+
+			//Find the experation/bestbefore date from the barcode and set it to a DateTime
+
+			StringBuilder date = new StringBuilder(closestExpirationDateString);
+
+			string year = "20" + date[0].ToString() + "" + date[1].ToString();
+			string month = date[2].ToString() + "" + date[3].ToString();
+			string day = date[4].ToString() + "" + date[5].ToString();
+
+			int year_int = Int32.Parse(year.ToString());
+			int month_int = Int32.Parse(month.ToString());
+			int day_int = Int32.Parse(day.ToString());
+
+			DateTime closestExpirationDate = new DateTime(year_int, month_int, day_int);
+
+			Debug.WriteLine("currdate: " + currDate.ToString());
+
+			Debug.WriteLine("closesDate: " + closestExpirationDate.ToString());
+
+			TimeSpan difference = closestExpirationDate - currDate;
+
+			Debug.WriteLine("Difference in days: " + difference.Days.ToString());
+
+
+			//Writes the rebate to the Product object
+			if (difference.Days == 1)
+			{
+				p.CurrentRebate = p.OneDayRebate;
+				p.CurrentRebateType = p.One_RebateType;
+			}
+			else if (difference.Days == 2)
+			{
+				p.CurrentRebate = p.TwoDaysRebate;
+				p.CurrentRebateType = p.Two_RebateType;
+			}
+			else if (difference.Days == 3)
+			{
+				p.CurrentRebate = p.ThreeDaysRebate;
+				p.CurrentRebateType = p.Three_RebateType;
+			}
+			else if (difference.Days == 4)
+			{
+				p.CurrentRebate = p.FourDaysRebate;
+				p.CurrentRebateType = p.Four_RebateType;
+			}
+			else if (difference.Days == 0)
+			{
+				p.CurrentRebate = p.LastDayRebate;
+				p.CurrentRebateType = p.Last_RebateType;
+			}
+
+
+			//set rebated price
+
+			if (p.CurrentRebateType.Equals("fixed"))
+			{
+				p.RebatedPrice = Decimal.Parse(p.Price) - Int32.Parse(p.CurrentRebate);
+			}
+			else
+			{
+				Debug.WriteLine("Skal regne ut pris basert på prosent");
+				decimal percentage = Decimal.Parse(p.CurrentRebate);
+				Debug.WriteLine("Bruker prosenten: " + percentage);
+
+				decimal total = 0;
+				decimal temp = percentage / 100;
+
+				decimal ganger = 1 - (percentage / 100);
+				Debug.WriteLine("temp ble: " + temp.ToString());
+
+				total = Decimal.Parse(p.Price) * ganger;
+
+				p.RebatedPrice = total;
+
+				Debug.WriteLine("Total ble: " + total);
+
+			}
+
+			return p;
 
 		}
 

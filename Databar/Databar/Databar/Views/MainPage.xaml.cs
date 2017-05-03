@@ -15,11 +15,14 @@ namespace Databar.Views
 {
 	public partial class MainPage : ContentPage
 	{
+		private CartViewModel cartViewModel;
+
 		public MainPage()
 		{
 			InitializeComponent();
 			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
 			currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
+
             //NavigationPage.SetBackButtonTitle(this, "TEST");
             //NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
             //this.Icon = "icon.png";
@@ -67,9 +70,13 @@ namespace Databar.Views
 
 		async void StartZXing(object sender, EventArgs e)
 		{
+			cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
 			var scanner = new MobileBarcodeScanner();
 
-			var result = await scanner.Scan();
+			//var result = await scanner.Scan();
+
+			var result = "(01)12345678901234(10)ABC-321(15)170504";
+			await cartViewModel.StartZXing(sender, e, result);
 
 
 			if (result != null)
@@ -77,7 +84,8 @@ namespace Databar.Views
 				Application.Current.Properties["ScannedCode"] = result;
 				await DisplayAlert("Databar skannet", result.ToString(), "OK");
 				// Code scanned and added to shoppingcart.
-				//await Navigation.PushAsync(new ShoppingCart());
+			//	cartViewModel.AddBarcode(result);
+				await Navigation.PushAsync(new ShoppingCart());
 			}
 			else
 			{

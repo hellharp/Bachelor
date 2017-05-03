@@ -47,7 +47,7 @@
 				VerticalOptions="Center"
 				HorizontalOptions="Center"/>
 
-			<Button Text="To Shopping Cart" Clicked="ToCart"
+			<Button Text="Ikke bruk denne lenger!To Shopping Cart" Clicked="ToCart"
 				VerticalOptions="Center"
 				HorizontalOptions="Center"/>
 

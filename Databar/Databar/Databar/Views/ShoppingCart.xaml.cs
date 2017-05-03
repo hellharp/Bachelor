@@ -3,12 +3,14 @@ using System;
 using Xamarin.Forms;
 using Databar.Models;
 using Databar.ViewModels;
+using System.Diagnostics;
 
 namespace Databar.Views
 {
     public partial class ShoppingCart : ContentPage
     {
         private CartViewModel cartViewModel;
+		private string sumstring;
 
 
         public ShoppingCart()
@@ -29,8 +31,10 @@ namespace Databar.Views
 
         private void CalculatePrice()
         {
-            decimal number = cartViewModel.Sum();
-            SumLabel.Text = number.ToString() + "kr";
+			SumString = cartViewModel.Sum().ToString();
+			// SumLabel.Text = number.ToString() + "kr";
+			SumLabel.Text = SumString;
+			OnPropertyChanged();
         }
 
 
@@ -50,7 +54,8 @@ namespace Databar.Views
         async void StartZXing(object sender, EventArgs e)
         {
 			bool success = false;
-            success = await cartViewModel.StartZXing(sender, e);
+            success = await cartViewModel.StartZXing(sender, e, "(01)12345678901234(10)ABC-321(15)170510");
+			CalculatePrice();
 			if (!success)
 				await DisplayAlert("Invalid product", "This product has not been registered in the database", "Ok");
         }
@@ -72,5 +77,7 @@ namespace Databar.Views
 		{
 			await Navigation.PushAsync(new PayPage());
 		}
+
+		public String SumString { get { return sumstring+"kr"; } set { sumstring = value; OnPropertyChanged(); } }
     }
 }

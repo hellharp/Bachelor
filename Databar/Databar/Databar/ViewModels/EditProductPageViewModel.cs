@@ -27,6 +27,8 @@ namespace Databar.ViewModels
 
 		private List<Product> productList;
 
+		private List<string> dateList;
+
 		private List<BatchBlock> batchlotList;
 
 
@@ -138,7 +140,7 @@ namespace Databar.ViewModels
 
 		public void SetDate(String ai, String code)
 		{
-			
+			dateList = new List<string>();
 
 			StringBuilder date = new StringBuilder(code);
 
@@ -156,6 +158,7 @@ namespace Databar.ViewModels
 			{
 				BBD_picker = dateTime;
 				BBD_pickerActive = true;
+				dateList[0] = code;
 			
 			}
 
@@ -163,6 +166,7 @@ namespace Databar.ViewModels
 			{
 				ExpD_picker = dateTime;
 				Expd_pickerActive = true;
+				dateList[1] = code;
 
 			}
 
