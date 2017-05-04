@@ -158,7 +158,10 @@ namespace Databar.ViewModels
 			{
 				BBD_picker = dateTime;
 				BBD_pickerActive = true;
-				dateList[0] = code;
+			//	if(dateList.Count == 0)
+					dateList.Add(code);
+			//	else
+				//	dateList
 			
 			}
 
@@ -166,7 +169,8 @@ namespace Databar.ViewModels
 			{
 				ExpD_picker = dateTime;
 				Expd_pickerActive = true;
-				dateList[1] = code;
+				//dateList[dateList.Count] = code;
+				dateList.Add(code);
 
 			}
 

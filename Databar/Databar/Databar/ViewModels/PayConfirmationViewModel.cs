@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Databar.Services;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace Databar.ViewModels
 {
@@ -15,12 +16,14 @@ namespace Databar.ViewModels
 	public class PayConfirmationViewModel : INotifyPropertyChanged
 	{
 		private ObservableCollection<Product> _cartList;
+		private CartViewModel cartViewModel;
 
 
 		//Konstruktøren kaller cartServices og henter cartListen fra den.
 		public PayConfirmationViewModel()
 		{
-			var cartServices = new CartServices();
+			cartViewModel = App.Current.Properties["CartViewModel"] as CartViewModel;
+			var cartServices = cartViewModel.GetCartService();
 
 			CartList = cartServices.getCartList();
 		}
@@ -55,17 +58,19 @@ namespace Databar.ViewModels
 		{
 			decimal totaldiscount = 0;
 
-			/*for (int i = 0; i < _cartList.Count; i++)
+			Debug.WriteLine("I TotalDiscount()");
+			Debug.WriteLine("Cartliste count: " + _cartList.Count);
+
+
+			for (int i = 0; i < _cartList.Count; i++)
 			{
-				if (_cartList[i].Discount == 0)
-				{
-					totaldiscount += 0;
-				}
-				else
-				{
-					totaldiscount += ((_cartList[i].UnitCost / 100) * _cartList[i].Discount);
-				}
-			}*/
+				if (_cartList[i] != null)
+					totaldiscount += Decimal.Parse(_cartList[i].Price) -_cartList[i].RebatedPrice;
+				Debug.WriteLine("Totaldiscount: " + totaldiscount);
+			}
+			//totaldiscount += ((Int32.Parse(_cartList[i].Price) / 100) * Int32.Parse(_cartList[i].CurrentRebate));
+
+
 
 			return totaldiscount;
 		}

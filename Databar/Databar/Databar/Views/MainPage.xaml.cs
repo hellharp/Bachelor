@@ -75,7 +75,7 @@ namespace Databar.Views
 
 			//var result = await scanner.Scan();
 
-			var result = "(01)12345678901234(10)ABC-321(15)170504";
+			var result = "(01)12345678901234(10)ABC-321(15)170505";
 			await cartViewModel.StartZXing(sender, e, result);
 
 

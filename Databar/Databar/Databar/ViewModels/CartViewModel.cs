@@ -60,6 +60,11 @@ namespace Databar.ViewModels
 			}
 		}
 
+		public CartServices GetCartService()
+		{
+			return cartServices;
+		}
+
 
 
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -68,7 +73,6 @@ namespace Databar.ViewModels
 		{
 			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 		}
-
 
 
 
