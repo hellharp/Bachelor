@@ -72,7 +72,7 @@ namespace Databar.Models
 		{
 			get
 			{
-				return ProductName + "\n" + Price.ToString();
+				return ProductName + "\nOrd. Pris:" + Price;
 			}
 			set
 			{
@@ -80,8 +80,8 @@ namespace Databar.Models
 			}
 		}
 
-		public string CurrentRebate
-		{ get; set;}
+
+		public string CurrentRebate { get; set;}
 
 		public string CurrentRebateType { get; set; }
 

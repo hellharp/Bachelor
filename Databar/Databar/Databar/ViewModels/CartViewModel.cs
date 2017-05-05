@@ -23,8 +23,9 @@ namespace Databar.ViewModels
 		private ObservableCollection<Product> _cartList;
 		private CartServices cartServices;
 		private List<Product> prods;
+		private List<BatchBlock> batchlist;
 		private List<string> dateList;
-		private String result, _GTIN;
+		private String result, _GTIN, batchlot;
 
 		/// <summary>
 		/// Constructor which calles cartServices and it's getCartList method
@@ -47,7 +48,11 @@ namespace Databar.ViewModels
 
 		}
 
-
+		public void ResetCartlist()
+		{
+			cartServices.ResetCartlist();
+			CartList = cartServices.ResetCartlist();
+		}
 
 		public ObservableCollection<Product> CartList
 		{
@@ -79,18 +84,26 @@ namespace Databar.ViewModels
 		public decimal Sum()
 		{
 			OnPropertyChanged();
-			//		Debug.WriteLine("I cartviewmodel datelist count: " + dateList.Count);
+			Debug.WriteLine("I cartviewmodel datelist count: " + dateList.Count);
+
 			return cartServices.Sum(dateList);
+		}
+
+		public void SlettDateList()
+		{
+			dateList = new List<string>();
 		}
 
 		private async void SyncWithDB()
 		{
 			prods = new List<Product>();
+			batchlist = new List<BatchBlock>();
 
 			try
 			{
 				Debug.WriteLine("Prøver å synce med db");
 				prods = await App.DBManager.GetProductsAsync();
+				batchlist = await App.DBManager.GetBatchBlocksAsync();
 
 			}
 			catch (Exception e)
@@ -101,11 +114,11 @@ namespace Databar.ViewModels
 			//	Debug.WriteLine("I SyncWithDB. Productlist: " + prods.Count.ToString());
 		}
 
-		public async Task<Boolean> StartZXing(object sender, EventArgs e, string tempbarcode)
+		public async Task<Boolean> StartZXing(object sender, EventArgs e)
 		{
 			//Limit the scan to only read GS1Databar Expanded Stacked
 			//Does not work for some reason
-
+            SyncWithDB();
 
 			var options = new MobileBarcodeScanningOptions();
 			options.PossibleFormats = new List<ZXing.BarcodeFormat>()
@@ -113,31 +126,33 @@ namespace Databar.ViewModels
 				ZXing.BarcodeFormat.RSS_EXPANDED
 			};
 
-			//	var scanner = new MobileBarcodeScanner();
+			var scanner = new MobileBarcodeScanner();
 
-			//	var result = await scanner.Scan(options);
+			var result2 = await scanner.Scan(options);
 
-			result = "(01)12345678901234(10)ABC-321(15)170502";
+			//var result2 = "(01)00012345600012(10)ABC-321(15)170507";
 
-			DecodeBarcode(tempbarcode);
+			Application.Current.Properties["ScannedCode"] = result2;
+
+			DecodeBarcode(result2.Text);
 
 			//	AddBarcode(result.ToString());
 			OnPropertyChanged();
 
-			return AddBarcode(result.ToString());
+			return AddBarcode(result2.Text);
 
 			//Gjør noe med resultatet
 			// AddBarcode(result.ToString());
 
 		}
 
-		public Boolean AddBarcode(String barcode)
+		public bool AddBarcode(String barcode)
 		{
-			//Sends the scanned barcode to the Service to be registered in the DB
-
 
 			result = barcode;
 			bool productInDB = false;
+
+
 
 			Debug.WriteLine("prods sin count:" + prods.Count.ToString());
 
@@ -150,15 +165,26 @@ namespace Databar.ViewModels
 				Debug.WriteLine("I for loopet addbarcode");
 				if (prods[i].GTIN.ToString().Equals(_GTIN.ToString()))
 				{
-					Debug.WriteLine("I if");
-					prods[i].DateList = dateList;
-					//SetRebate(prods[i]);
-					//cartServices.Add(prods[i]);
-					cartServices.Add(SetRebate(prods[i]));
-					productInDB = true;
+				//	for (int p = 0; p < batchlist.Count; p++)
+					//{
+						//!!!!!!!!!!!!!!!!!!! sett til NOT BLOCKED
+					//	if (batchlist[p].BatchNr.Equals(batchlot) && batchlist[p].Blocked)
+					//	{
+							Debug.WriteLine("I if");
+							prods[i].DateList = dateList;
+
+							cartServices.Add(SetRebate(prods[i]));
+							productInDB = true;
+					//	}
+
+					//}
+
 				}
 			}
 
+			//Sjekk datoen her!
+
+			Debug.WriteLine("Returnerer productInDb: " + productInDB);
 			return productInDB;
 
 		}
@@ -171,6 +197,7 @@ namespace Databar.ViewModels
 
 		private void DecodeBarcode(string barcode)
 		{
+			//dateList = new List<string>();
 
 			Debug.WriteLine("Databar skannet " + barcode.ToString());
 
@@ -220,13 +247,17 @@ namespace Databar.ViewModels
 
 			if ((AI.Equals("01") || AI.Equals("1")) && !Code.Equals(""))
 			{
-				_GTIN = Code.ToString();
+				_GTIN = Code;
 			}
-			if (AI.Equals("15") || AI.Equals("17"))
+			else if (AI.Equals("15") || AI.Equals("17"))
 			{
 				Debug.WriteLine("Skriver til datelist #" + nr++);
 				dateList.Add(Code);
 				Debug.WriteLine("Så er datelist count: " + dateList.Count);
+			}
+			else if (AI.Equals("10") && !Code.Equals(""))
+			{
+				batchlot = Code;
 			}
 
 		}
@@ -294,11 +325,22 @@ namespace Databar.ViewModels
 				p.CurrentRebate = p.LastDayRebate;
 				p.CurrentRebateType = p.Last_RebateType;
 			}
+			else if (difference.Days > 4)
+			{
+				p.CurrentRebate = "0";
+				p.CurrentRebateType = "kr";
+			}
+			else if (difference.Days < 0)
+			{
+				p.CurrentRebate = "100";
+				p.CurrentRebateType = "percent";
+			}
+
 
 
 			//set rebated price
 
-			if (p.CurrentRebateType.Equals("fixed"))
+			if (p.CurrentRebateType.Equals("kr"))
 			{
 				p.RebatedPrice = Decimal.Parse(p.Price) - Int32.Parse(p.CurrentRebate);
 			}
@@ -321,6 +363,12 @@ namespace Databar.ViewModels
 				Debug.WriteLine("Total ble: " + total);
 
 			}
+
+			//nylig
+
+			Debug.WriteLine("Det returnerte produktet har info. Rabpris: " + p.RebatedPrice + " CurrentRebate: " + p.CurrentRebate
+							+ " Currentrebatetype: " + p.CurrentRebateType);
+
 
 			return p;
 

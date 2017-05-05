@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using ZXing.Mobile;
+using Databar.ViewModels;
 
 namespace Databar.Views.Admin
 {
@@ -16,10 +17,13 @@ namespace Databar.Views.Admin
     {
         // Variable used for handling back-button event
         private bool _canClose = true;
+		private CartViewModel cartViewModel;
 
         public AdminMenu()
         {
             InitializeComponent();
+			cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
+			cartViewModel.ResetCartlist();
         }
 
         async void Logout(object sender, EventArgs e)
@@ -51,10 +55,10 @@ namespace Databar.Views.Admin
 
         async void StartZXing(object sender, EventArgs e)
         {
-			Application.Current.Properties["ScannedCode"] = "(1)12345678901999(17)140704(15)200404(10)ABC-123";
-            await Navigation.PushAsync(new EditProductPage());
+			//Application.Current.Properties["ScannedCode"] = "(1)12345678901999(17)140704(15)200404(10)ABC-123";
            
-          /*
+           
+          
             var scanner = new MobileBarcodeScanner();
 
             var result = await scanner.Scan();
@@ -77,9 +81,9 @@ namespace Databar.Views.Admin
                 Application.Current.Properties["ScannedCode"] = "";
                 // Scanning aborted
                 await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
-            }*/
+            }
 
-
+//qawait Navigation.PushAsync(new EditProductPage());
         }
 
         // Focus on / display the hidden DatePicker when "calendar"-button is pressed

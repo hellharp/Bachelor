@@ -95,6 +95,7 @@
             <Button x:Name="trashButton"
 						BackgroundColor="Transparent"
 						BorderColor="Transparent"
+				Clicked="OnRemoveIcon"
                     Margin="15,0,30,0">
 
                 <Button.Image>

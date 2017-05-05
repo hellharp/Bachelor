@@ -275,35 +275,38 @@ namespace Databar.ViewModels
 			if (FourDayRebate_sw == true)
 				p.Four_RebateType = "percent";
 			else
-				p.Four_RebateType = "fixed";
+				p.Four_RebateType = "kr";
 
 			if (ThreeDayRebate_sw == true)
 				p.Three_RebateType = "percent";
 			else
-				p.Three_RebateType = "fixed";
+				p.Three_RebateType = "kr";
 
 			if (TwoDayRebate_sw == true)
 				p.Two_RebateType = "percent";
 			else
-				p.Two_RebateType = "fixed";
+				p.Two_RebateType = "kr";
 
 			if (OneDayRebate_sw == true)
 				p.One_RebateType = "percent";
 			else
-				p.One_RebateType = "fixed";
+				p.One_RebateType = "kr";
 
 			if (LastDayRebate_sw == true)
 				p.Last_RebateType = "percent";
 			else
-				p.Last_RebateType = "fixed";
+				p.Last_RebateType = "kr";
 
 			//Save the product to the DB
 			App.DBManager.SaveProductAsync(p, true);
+
+			ResetView();
 
 		}
 
 		public void DeleteProduct()
 		{
+           
 			Product p = new Product();
 
 			p.GTIN = GTIN_entry;
@@ -311,8 +314,35 @@ namespace Databar.ViewModels
 			Debug.WriteLine("Starter delete");
 			Debug.WriteLine("sjekker GTIN: " + p.GTIN.ToString());
 			App.DBManager.DeleteProductAsync(p);
+
+            ResetView();
+
+
 		}
 
+		public void ResetView()
+		{
+			GTIN_entry = "";
+			ProductText_entry = "";
+			BatchLot_entry = "";
+
+			Serial_entry = "";
+			Gross_entry = "";
+			FiveDayRebate_entry = "";
+			FourDayRebate_entry = "";
+			ThreeDayRebate_entry = "";
+			TwoDayRebate_entry = "";
+			OneDayRebate_entry = "";
+			LastDayRebate_entry = "";
+
+			FourDayRebate_sw = false;
+			ThreeDayRebate_sw = false;
+			TwoDayRebate_sw = false;
+			OneDayRebate_sw = false;
+			LastDayRebate_sw = false;
+
+
+		}
 
 
 		public String GTIN_entry { get { return gtin; } set { gtin = value; OnPropertyChanged(); } }

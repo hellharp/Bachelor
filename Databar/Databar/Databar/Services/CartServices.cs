@@ -72,6 +72,12 @@ namespace Databar.Services
 		}
 
 
+		public ObservableCollection<Product> ResetCartlist()
+		{
+			list = new ObservableCollection<Product>();
+			return list;
+		}
+
 		/// <summary>
 		/// Method to get the price for all items in the shopping cart
 		/// </summary>
@@ -82,6 +88,7 @@ namespace Databar.Services
 		public decimal Sum(List<string> dateList)
 		{
 			decimal sum = 0;
+			
 			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
 			string output = "";
 
@@ -102,9 +109,14 @@ namespace Databar.Services
 			for (int i = 0; i < list.Count; i++)
 			{
 				if (list[i] != null)
+				{
+					Debug.WriteLine("I if for å telle opp sum");
+					Debug.WriteLine("Rebated price: " + list[i].RebatedPrice);
 					sum += list[i].RebatedPrice;
+					Debug.WriteLine("Sum er: " + sum);
+				}
 			}
-	
+
 			return sum;
 		}
 

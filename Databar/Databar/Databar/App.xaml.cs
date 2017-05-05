@@ -26,6 +26,8 @@ namespace Databar
 
             // Global variable for current (possibly overridden) date. Initialize as today.
             Current.Properties["CurrentDate"] = DateTime.Today;
+			decimal i = 0;
+			Current.Properties["Cartsum"] = i; 
 
             // Initialize DBRestManager
             DBManager = new DBRestManager(new RestService());

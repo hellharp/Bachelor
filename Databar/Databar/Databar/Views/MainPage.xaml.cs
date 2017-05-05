@@ -71,18 +71,18 @@ namespace Databar.Views
 		async void StartZXing(object sender, EventArgs e)
 		{
 			cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
-			var scanner = new MobileBarcodeScanner();
+			//var scanner = new MobileBarcodeScanner();
 
 			//var result = await scanner.Scan();
 
-			var result = "(01)12345678901234(10)ABC-321(15)170505";
-			await cartViewModel.StartZXing(sender, e, result);
+			//var result = "(01)12345678901234(10)ABC-123(15)170503";
+			bool ok = await cartViewModel.StartZXing(sender, e);
 
 
-			if (result != null)
+			if (ok)
 			{
-				Application.Current.Properties["ScannedCode"] = result;
-				await DisplayAlert("Databar skannet", result.ToString(), "OK");
+				//Application.Current.Properties["ScannedCode"] = result;
+				await DisplayAlert("Databar skannet", Application.Current.Properties["ScannedCode"].ToString(), "OK");
 				// Code scanned and added to shoppingcart.
 			//	cartViewModel.AddBarcode(result);
 				await Navigation.PushAsync(new ShoppingCart());
