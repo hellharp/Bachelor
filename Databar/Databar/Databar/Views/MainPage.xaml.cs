@@ -23,10 +23,10 @@ namespace Databar.Views
 			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
 			currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
 
-            //NavigationPage.SetBackButtonTitle(this, "TEST");
-            //NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
-            //this.Icon = "icon.png";
-            //this.Title = "TEST"
+			//NavigationPage.SetBackButtonTitle(this, "TEST");
+			//NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
+			//this.Icon = "icon.png";
+			//this.Title = "TEST"
 		}
 
 		//protected override void OnAppearing()
@@ -70,37 +70,15 @@ namespace Databar.Views
 
 		async void StartZXing(object sender, EventArgs e)
 		{
-			cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
-			//var scanner = new MobileBarcodeScanner();
-
-			//var result = await scanner.Scan();
-
-			//var result = "(01)12345678901234(10)ABC-123(15)170503";
-			bool ok = await cartViewModel.StartZXing(sender, e);
-
-
-			if (ok)
-			{
-				//Application.Current.Properties["ScannedCode"] = result;
-				await DisplayAlert("Databar skannet", Application.Current.Properties["ScannedCode"].ToString(), "OK");
-				// Code scanned and added to shoppingcart.
-			//	cartViewModel.AddBarcode(result);
-				await Navigation.PushAsync(new ShoppingCart());
-			}
-			else
-			{
-				Application.Current.Properties["ScannedCode"] = "";
-				// Scanning aborted
-				await DisplayAlert("Advarsel", "Skanning av strekkode avbrutt!", "OK");
-			}
+			await Navigation.PushAsync(new ShoppingCart());
 		}
 
 		async void ToPopUp(object sender, EventArgs e)
 		{
 			await DisplayAlert("Informasjon\n", "Bunnmeny: \n" +
-			                   "Strekkodeknappen til venstre starter strekkodeskanneren. " +
-			                   "Skannede varer havner i handlekurven.\n\n" +
-			                   "Menyknappen i midten sender deg administrasjonsmenyen (krever passord).\n", "Lukk");
+							   "Strekkodeknappen til venstre starter strekkodeskanneren. " +
+							   "Skannede varer havner i handlekurven.\n\n" +
+							   "Menyknappen i midten sender deg administrasjonsmenyen (krever passord).\n", "Lukk");
 		}
 
 		//Handle device hardware back button to prevent accidental closing of app
@@ -124,6 +102,6 @@ namespace Databar.Views
 			}
 		}
 
-    }
+	}
 }
 

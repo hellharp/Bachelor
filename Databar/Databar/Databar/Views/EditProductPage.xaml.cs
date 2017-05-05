@@ -25,6 +25,7 @@ namespace Databar.Views
 
 			BindingContext = editViewModel;
 
+			//Is this delay needed?
 			Task.Delay(10000);
 			CheckDates();
               

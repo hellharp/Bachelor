@@ -74,8 +74,6 @@ namespace Databar.ViewModels
 				Debug.WriteLine("produktliste er ikke null");
 
 
-			//Debug.WriteLine("Finnes produktlist: " + productList.Count());
-
 
 
 			for (int i = 0; i < productList.Count; i++)
@@ -158,11 +156,11 @@ namespace Databar.ViewModels
 			{
 				BBD_picker = dateTime;
 				BBD_pickerActive = true;
-			//	if(dateList.Count == 0)
-					dateList.Add(code);
-			//	else
+				//	if(dateList.Count == 0)
+				dateList.Add(code);
+				//	else
 				//	dateList
-			
+
 			}
 
 			else
@@ -306,7 +304,7 @@ namespace Databar.ViewModels
 
 		public void DeleteProduct()
 		{
-           
+
 			Product p = new Product();
 
 			p.GTIN = GTIN_entry;
@@ -315,8 +313,7 @@ namespace Databar.ViewModels
 			Debug.WriteLine("sjekker GTIN: " + p.GTIN.ToString());
 			App.DBManager.DeleteProductAsync(p);
 
-            ResetView();
-
+			ResetView();
 
 		}
 
@@ -351,14 +348,14 @@ namespace Databar.ViewModels
 
 		public String BatchLot_entry { get { return batchlotentry; } set { batchlotentry = value; OnPropertyChanged(); } }
 
-		public Boolean BBD_pickerActive { get { return _BBD_pickerActive; } set { _BBD_pickerActive = value; OnPropertyChanged(); } } 
+		public Boolean BBD_pickerActive { get { return _BBD_pickerActive; } set { _BBD_pickerActive = value; OnPropertyChanged(); } }
 
 		public Boolean Expd_pickerActive { get { return _ExpD_pickerActive; } set { _ExpD_pickerActive = value; OnPropertyChanged(); } }
 
 		public DateTime BBD_picker { get { return _BBD; } set { _BBD = value; OnPropertyChanged(); } }
 
 		public DateTime ExpD_picker { get { return _ExpD; } set { _ExpD = value; OnPropertyChanged(); } }
-		
+
 		public String Serial_entry { get { return serial_entry; } set { serial_entry = value; OnPropertyChanged(); } }
 
 		public String Gross_entry { get { return gross_entry; } set { gross_entry = value; OnPropertyChanged(); } }

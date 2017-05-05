@@ -111,14 +111,13 @@ namespace Databar.ViewModels
 				Debug.WriteLine("TestDB feil! " + e.Message);
 			}
 
-			//	Debug.WriteLine("I SyncWithDB. Productlist: " + prods.Count.ToString());
 		}
 
 		public async Task<Boolean> StartZXing(object sender, EventArgs e)
 		{
 			//Limit the scan to only read GS1Databar Expanded Stacked
 			//Does not work for some reason
-            SyncWithDB();
+			SyncWithDB();
 
 			var options = new MobileBarcodeScanningOptions();
 			options.PossibleFormats = new List<ZXing.BarcodeFormat>()
@@ -130,19 +129,14 @@ namespace Databar.ViewModels
 
 			var result2 = await scanner.Scan(options);
 
-			//var result2 = "(01)00012345600012(10)ABC-321(15)170507";
 
 			Application.Current.Properties["ScannedCode"] = result2;
 
 			DecodeBarcode(result2.Text);
 
-			//	AddBarcode(result.ToString());
 			OnPropertyChanged();
 
 			return AddBarcode(result2.Text);
-
-			//Gjør noe med resultatet
-			// AddBarcode(result.ToString());
 
 		}
 
@@ -165,16 +159,16 @@ namespace Databar.ViewModels
 				Debug.WriteLine("I for loopet addbarcode");
 				if (prods[i].GTIN.ToString().Equals(_GTIN.ToString()))
 				{
-				//	for (int p = 0; p < batchlist.Count; p++)
+					//	for (int p = 0; p < batchlist.Count; p++)
 					//{
-						//!!!!!!!!!!!!!!!!!!! sett til NOT BLOCKED
+					//!!!!!!!!!!!!!!!!!!! sett til NOT BLOCKED
 					//	if (batchlist[p].BatchNr.Equals(batchlot) && batchlist[p].Blocked)
 					//	{
-							Debug.WriteLine("I if");
-							prods[i].DateList = dateList;
+					Debug.WriteLine("I if");
+					prods[i].DateList = dateList;
 
-							cartServices.Add(SetRebate(prods[i]));
-							productInDB = true;
+					cartServices.Add(SetRebate(prods[i]));
+					productInDB = true;
 					//	}
 
 					//}

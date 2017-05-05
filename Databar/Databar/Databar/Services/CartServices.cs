@@ -27,27 +27,6 @@ namespace Databar.Services
 			return list;
 		}
 
-		/// <summary>
-		/// Method for synchronizing the shoppingcart with the database
-		/// </summary>
-		/*	private async void SyncWithDB()
-			{
-				prods = new List<Product>();
-
-				try
-				{
-					Debug.WriteLine("Prøver å synce med db");
-					prods = await App.DBManager.GetProductsAsync();
-
-				}
-				catch (Exception e)
-				{
-					Debug.WriteLine("TestDB feil! " + e.Message);
-				}
-
-				Debug.WriteLine("I SyncWithDB. Productlist: " + prods.Count.ToString());
-
-			}*/
 
 		/// <summary>
 		/// Method to add a Product to the shopping cart
@@ -88,11 +67,9 @@ namespace Databar.Services
 		public decimal Sum(List<string> dateList)
 		{
 			decimal sum = 0;
-			
+
 			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
 			string output = "";
-
-			//	Debug.WriteLine("!!!!!!!!!!!!!!!!!prods count er: " + list[0].ProductName.ToString());
 
 
 			for (int i = 0; i < dateList.Count; i++)
@@ -105,7 +82,8 @@ namespace Databar.Services
 
 
 			Debug.WriteLine("Teller sum i CartService");
-				Debug.WriteLine("Skal ta summen av antall produkter: " + list.Count);
+			Debug.WriteLine("Skal ta summen av antall produkter: " + list.Count);
+
 			for (int i = 0; i < list.Count; i++)
 			{
 				if (list[i] != null)
