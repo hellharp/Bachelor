@@ -73,13 +73,17 @@ namespace Databar.ViewModels
 			if (productList != null)
 				Debug.WriteLine("produktliste er ikke null");
 
+			newProduct = true;
 
 
 
 			for (int i = 0; i < productList.Count; i++)
 			{
-				if (productList[i].GTIN.Equals(GTIN.ToString()))
+				if (productList[i].GTIN.Equals(GTIN))
+				{
+					newProduct = false;
 					return productList[i];
+				}
 			}
 
 			//Returns a new product instead of returning null
@@ -194,13 +198,12 @@ namespace Databar.ViewModels
 				SetDate(AI, Code);
 			}
 
-
-
 		}
 
 		//Sends the Product's information to the view
 		private void SetProductInfo(Product p)
 		{
+
 			Gross_entry = p.Price;
 			ProductText_entry = p.ProductName;
 			FourDayRebate_entry = p.FourDaysRebate;
@@ -210,15 +213,11 @@ namespace Databar.ViewModels
 			LastDayRebate_entry = p.LastDayRebate;
 
 
-			if (p.FourDaysRebate != null)
-			{
-
-				FourDayRebate_sw = p.Four_RebateType.Equals("percent");
-				ThreeDayRebate_sw = p.Three_RebateType.Equals("percent");
-				TwoDayRebate_sw = p.Two_RebateType.Equals("percent");
-				OneDayRebate_sw = p.One_RebateType.Equals("percent");
-				LastDayRebate_sw = p.Last_RebateType.Equals("percent");
-			}
+			FourDayRebate_sw = p.Four_RebateType.Equals("percent");
+			ThreeDayRebate_sw = p.Three_RebateType.Equals("percent");
+			TwoDayRebate_sw = p.Two_RebateType.Equals("percent");
+			OneDayRebate_sw = p.One_RebateType.Equals("percent");
+			LastDayRebate_sw = p.Last_RebateType.Equals("percent");
 
 		}
 
@@ -254,19 +253,43 @@ namespace Databar.ViewModels
 			}
 		}
 
+		private void SaveBatchlot()
+		{
+
+		}
+
 		public void SaveProduct()
 		{
 			Product p = new Product();
 
+			//Skip checking these, as they are mandatory
 			p.GTIN = GTIN_entry;
 			p.ProductName = ProductText_entry;
-			p.FourDaysRebate = FourDayRebate_entry;
-			p.ThreeDaysRebate = ThreeDayRebate_entry;
-			p.TwoDaysRebate = TwoDayRebate_entry;
-			p.OneDayRebate = OneDayRebate_entry;
-			p.LastDayRebate = LastDayRebate_entry;
-			p.Price = Gross_entry;
 
+			if (!Gross_entry.Equals(""))
+				p.Price = Gross_entry;
+			else p.Price = "0";
+
+			//Checks for any fields not filled out and sets them to 0
+			if (FourDayRebate_entry == null || FourDayRebate_entry.Equals(""))
+				p.FourDaysRebate = "0";
+			else p.FourDaysRebate = FourDayRebate_entry;
+
+			if (ThreeDayRebate_entry == null || ThreeDayRebate_entry.Equals(""))
+				p.ThreeDaysRebate = "0";
+			else p.ThreeDaysRebate = ThreeDayRebate_entry;
+
+			if (TwoDayRebate_entry == null || TwoDayRebate_entry.Equals(""))
+				p.TwoDaysRebate = "0";
+			else p.TwoDaysRebate = TwoDayRebate_entry;
+
+			if (OneDayRebate_entry == null || OneDayRebate_entry.Equals(""))
+				p.OneDayRebate = "0";
+			else p.OneDayRebate = OneDayRebate_entry;
+
+			if (LastDayRebate_entry == null || LastDayRebate_entry.Equals(""))
+				p.LastDayRebate = "0";
+			else p.LastDayRebate = LastDayRebate_entry;
 
 			//Set rebate type
 
@@ -296,7 +319,10 @@ namespace Databar.ViewModels
 				p.Last_RebateType = "kr";
 
 			//Save the product to the DB
-			App.DBManager.SaveProductAsync(p, true);
+
+			Debug.WriteLine("newProduct: " + newProduct);
+
+			App.DBManager.SaveProductAsync(p, newProduct);
 
 			ResetView();
 
@@ -337,10 +363,9 @@ namespace Databar.ViewModels
 			TwoDayRebate_sw = false;
 			OneDayRebate_sw = false;
 			LastDayRebate_sw = false;
-
-
 		}
 
+		private Boolean newProduct { get; set; }
 
 		public String GTIN_entry { get { return gtin; } set { gtin = value; OnPropertyChanged(); } }
 
