@@ -31,25 +31,6 @@
 				VerticalOptions="Center"
 				HorizontalOptions="Center"/>
 
-			<Button Text="To ZXing" Clicked="ToZXing"
-					VerticalOptions="Center"
-					HorizontalOptions="Center"/>
-
-			<Button Text="Edit Product Page" Clicked="ToEditProductPage"
-					VerticalOptions="Center"
-					HorizontalOptions="Center"/>
-
-			<Button Text="To Pay Page" Clicked="ToPayPage"
-				VerticalOptions="Center"
-				HorizontalOptions="Center"/>
-
-			<Button Text="To Pay Confirmation Page" Clicked="ToPayConfirmationPage"
-				VerticalOptions="Center"
-				HorizontalOptions="Center"/>
-
-			<Button Text="Ikke bruk denne lenger!To Shopping Cart" Clicked="ToCart"
-				VerticalOptions="Center"
-				HorizontalOptions="Center"/>
 
 		</StackLayout>
 		<!--Bottom button navigation row-->
@@ -63,13 +44,13 @@
             <Button x:Name="barcodeButton"
                     BackgroundColor="Transparent"
 					BorderColor="Transparent"
-					Clicked="StartZXing"
+					Clicked="ToCart"
                     Margin="30,0,15,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_barcode.png"
-	                				iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
+	                				Android="gs1_shopping_cart.png"
+	                				iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"/>
                 </Button.Image>
 
 

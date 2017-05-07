@@ -35,48 +35,23 @@ namespace Databar.Views
 		//	currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
 		//}
 
-		async void ToZXing(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new BasisUI());
-
-			//361923d... Commit av div endringer + paypage og PayConfirmationPage
-		}
-
-		async void ToEditProductPage(object sender, EventArgs e)
-		{
-
-			await Navigation.PushAsync(new EditProductPage());
-		}
-
+			
 		async void ToAdminLogin(object sender, EventArgs e)
 		{
 			// Endret til PushAsync for å gi IOS back-button
 			await Navigation.PushAsync(new LoginModal());
 		}
 
-		async void ToPayPage(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync((new PayPage()));
-		}
-
-		async void ToPayConfirmationPage(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new PayConfirmationPage());
-		}
 		async void ToCart(object sender, EventArgs e)
 		{
 			await Navigation.PushAsync(new ShoppingCart());
 		}
 
-		async void StartZXing(object sender, EventArgs e)
-		{
-			await Navigation.PushAsync(new ShoppingCart());
-		}
 
 		async void ToPopUp(object sender, EventArgs e)
 		{
 			await DisplayAlert("Informasjon\n", "Bunnmeny: \n" +
-							   "Strekkodeknappen til venstre starter strekkodeskanneren. " +
+							   "Handlekurven til venstre starter strekkodeskanneren. " +
 							   "Skannede varer havner i handlekurven.\n\n" +
 							   "Menyknappen i midten sender deg administrasjonsmenyen (krever passord).\n", "Lukk");
 		}

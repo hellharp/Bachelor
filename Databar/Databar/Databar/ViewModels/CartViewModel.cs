@@ -113,7 +113,7 @@ namespace Databar.ViewModels
 
 		}
 
-		public async Task<Boolean> StartZXing(object sender, EventArgs e)
+		public async Task<String> StartZXing(object sender, EventArgs e)
 		{
 			//Limit the scan to only read GS1Databar Expanded Stacked
 			//Does not work for some reason
@@ -129,6 +129,9 @@ namespace Databar.ViewModels
 
 			var result2 = await scanner.Scan(options);
 
+			if (result2.ToString().Length < 16)
+				return "barcodeFail";
+
 
 			Application.Current.Properties["ScannedCode"] = result2;
 
@@ -140,11 +143,14 @@ namespace Databar.ViewModels
 
 		}
 
-		public bool AddBarcode(String barcode)
+		public String AddBarcode(String barcode)
 		{
 
 			result = barcode;
-			bool productInDB = false;
+
+			bool isBlocked = false;
+
+			String addResult = "";
 
 
 
@@ -159,27 +165,46 @@ namespace Databar.ViewModels
 				Debug.WriteLine("I for loopet addbarcode");
 				if (prods[i].GTIN.ToString().Equals(_GTIN.ToString()))
 				{
-					//	for (int p = 0; p < batchlist.Count; p++)
-					//{
-					//!!!!!!!!!!!!!!!!!!! sett til NOT BLOCKED
-					//	if (batchlist[p].BatchNr.Equals(batchlot) && batchlist[p].Blocked)
-					//	{
-					Debug.WriteLine("I if");
-					prods[i].DateList = dateList;
 
-					cartServices.Add(SetRebate(prods[i]));
-					productInDB = true;
-					//	}
+					for (int p = 0; p < batchlist.Count; p++)
+					{
+						//!!!!!!!!!!!!!!!!!!! sett til NOT BLOCKED
+						if (batchlist[p].BatchNr.Equals(batchlot) && !batchlist[p].Blocked)
+						{
+							Debug.WriteLine("I if");
+							prods[i].DateList = dateList;
 
-					//}
+							cartServices.Add(SetRebate(prods[i]));
+
+							Debug.WriteLine("JEGERHER!!!!!");
+							addResult = "inDB";
+							Debug.WriteLine("Returnerer productInDb øverst: " + addResult);
+							return addResult;
+						}
+						else
+						{
+							addResult = "isBlocked";
+							isBlocked = true;
+						
+						}
+						
+
+					}
+	
 
 				}
+				else 
+					addResult = "notinDB";
 			}
 
 			//Sjekk datoen her!
 
-			Debug.WriteLine("Returnerer productInDb: " + productInDB);
-			return productInDB;
+			Debug.WriteLine("Returnerer productInDb: " + addResult);
+
+			if (isBlocked)
+				return "isBlocked";
+			else 
+				return addResult;
 
 		}
 
@@ -266,6 +291,7 @@ namespace Databar.ViewModels
 				if (dateList[i] != null)
 				{
 					closestExpirationDateString = dateList[i];
+					Debug.WriteLine("Closest er: " + dateList[i].ToString());
 					break;
 				}
 			}
@@ -291,6 +317,10 @@ namespace Databar.ViewModels
 			TimeSpan difference = closestExpirationDate - currDate;
 
 			Debug.WriteLine("Difference in days: " + difference.Days.ToString());
+
+			if (difference.Days < 0)
+			{
+			}
 
 
 			//Writes the rebate to the Product object

@@ -226,13 +226,15 @@ namespace Databar.ViewModels
 		{
 			for (int i = 0; i < batchlotList.Count; i++)
 			{
-				if (batchlotList[i].BatchNr.Equals(Code.ToString()))
+				if (batchlotList[i].BatchNr.Equals(Code))
 				{
 					Blocked_sw = batchlotList[i].Blocked;
+					newBatch = false;
 					return;
 				}
 			}
 			Blocked_sw = false;
+			newBatch = true;
 		}
 
 
@@ -255,7 +257,11 @@ namespace Databar.ViewModels
 
 		private void SaveBatchlot()
 		{
+			BatchBlock b = new BatchBlock();
+			b.BatchNr = BatchLot_entry;
+			b.Blocked = blocked_sw;
 
+			App.DBManager.SaveBatchBlockAsync(b, newBatch);
 		}
 
 		public void SaveProduct()
@@ -323,6 +329,7 @@ namespace Databar.ViewModels
 			Debug.WriteLine("newProduct: " + newProduct);
 
 			App.DBManager.SaveProductAsync(p, newProduct);
+			SaveBatchlot();
 
 			ResetView();
 
@@ -366,6 +373,8 @@ namespace Databar.ViewModels
 		}
 
 		private Boolean newProduct { get; set; }
+
+		private Boolean newBatch { get; set; }
 
 		public String GTIN_entry { get { return gtin; } set { gtin = value; OnPropertyChanged(); } }
 
