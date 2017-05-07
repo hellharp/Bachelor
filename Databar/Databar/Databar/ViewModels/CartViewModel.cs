@@ -26,6 +26,8 @@ namespace Databar.ViewModels
 		private List<BatchBlock> batchlist;
 		private List<string> dateList;
 		private String result, _GTIN, batchlot;
+		private Boolean isAI17;
+		private TimeSpan difference;
 
 		/// <summary>
 		/// Constructor which calles cartServices and it's getCartList method
@@ -165,21 +167,44 @@ namespace Databar.ViewModels
 				Debug.WriteLine("I for loopet addbarcode");
 				if (prods[i].GTIN.ToString().Equals(_GTIN.ToString()))
 				{
+					//Temporary fix to check date, should not be used, inefficient. Should write checkdate method instead
+					Product temp = SetRebate(prods[i]);
 
 					for (int p = 0; p < batchlist.Count; p++)
 					{
-						//!!!!!!!!!!!!!!!!!!! sett til NOT BLOCKED
+						
 						if (batchlist[p].BatchNr.Equals(batchlot) && !batchlist[p].Blocked)
 						{
 							Debug.WriteLine("I if");
 							prods[i].DateList = dateList;
 
-							cartServices.Add(SetRebate(prods[i]));
+						
 
 							Debug.WriteLine("JEGERHER!!!!!");
 							addResult = "inDB";
 							Debug.WriteLine("Returnerer productInDb øverst: " + addResult);
-							return addResult;
+
+							if (!isAI17)
+							{
+								cartServices.Add(SetRebate(prods[i]));
+								return addResult;
+							}
+
+							else if (isAI17 && (difference.Days < 0))
+							{
+						
+
+								Debug.WriteLine("Diff holdbar: " + difference.Days.ToString());
+					
+									return "expirDate";
+					
+							}
+							else
+							{
+								cartServices.Add(SetRebate(prods[i]));
+								return addResult;
+							}
+								
 						}
 						else
 						{
@@ -261,6 +286,7 @@ namespace Databar.ViewModels
 		public void GetGTIN(String AI, String Code)
 		{
 			Debug.WriteLine("Er i GetGtin()");
+			isAI17 = false;
 
 			int nr = 1;
 
@@ -273,6 +299,8 @@ namespace Databar.ViewModels
 				Debug.WriteLine("Skriver til datelist #" + nr++);
 				dateList.Add(Code);
 				Debug.WriteLine("Så er datelist count: " + dateList.Count);
+				if (AI.Equals("17"))
+					isAI17 = true;
 			}
 			else if (AI.Equals("10") && !Code.Equals(""))
 			{
@@ -285,6 +313,7 @@ namespace Databar.ViewModels
 		{
 			string closestExpirationDateString = "";
 			DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
+			difference = new TimeSpan();
 
 			for (int i = 0; i < dateList.Count; i++)
 			{
@@ -314,7 +343,7 @@ namespace Databar.ViewModels
 
 			Debug.WriteLine("closesDate: " + closestExpirationDate.ToString());
 
-			TimeSpan difference = closestExpirationDate - currDate;
+			difference = closestExpirationDate - currDate;
 
 			Debug.WriteLine("Difference in days: " + difference.Days.ToString());
 

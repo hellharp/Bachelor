@@ -102,9 +102,7 @@ namespace Databar.ViewModels
 
 			Debug.WriteLine("Databar skannet " + result.ToString());
 
-
 			int nr = 1;
-
 
 			//Finds the AI number
 			String pattern = @"(?<=\().+?(?=\))";
@@ -181,6 +179,7 @@ namespace Databar.ViewModels
 
 		public void WriteAItoGUI(String AI, String Code)
 		{
+			isAI17 = false;
 
 			if ((AI.Equals("01") || AI.Equals("1")) && !Code.Equals(""))
 			{
@@ -196,6 +195,8 @@ namespace Databar.ViewModels
 			else if (AI.Equals("15") || AI.Equals("17"))
 			{
 				SetDate(AI, Code);
+				if (AI.Equals("17"))
+					isAI17 = true;
 			}
 
 		}
@@ -383,6 +384,8 @@ namespace Databar.ViewModels
 			OneDayRebate_sw = false;
 			LastDayRebate_sw = false;
 		}
+
+		private Boolean isAI17 { get; set; }
 
 		private Boolean newProduct { get; set; }
 

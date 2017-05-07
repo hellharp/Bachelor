@@ -59,13 +59,15 @@ namespace Databar.Views
 			CalculatePrice();
 			if (success.Equals("isBlocked"))
 			{
-				await DisplayAlert("Blocked batch/lot number", "This product has been blocked", "Ok");
+				await DisplayAlert("Sperret batch/lot nummer", "Dette produktet har blitt sperret", "Ok");
 				return;
 			}
 			else if (success.Equals("notinDB"))
-				await DisplayAlert("Invalid product", "This product has not been registered", "Ok");
+				await DisplayAlert("Ugyldig produkt", "Dette produktet har ikke blitt registrert", "Ok");
 			else if (success.Equals("barcodeFail"))
-				await DisplayAlert("Scanning failed", "The barcode couldn't be read", "Ok");
+				await DisplayAlert("Feil", "Strekkoden kunne ikke bli lest", "Ok");
+			else if (success.Equals("expirDate"))
+				await DisplayAlert("Advarsel", "Holdbarhetsdatoen er oversteget", "Ok");
 		}
 
 		private void OnRemoved(object sender, EventArgs e)
