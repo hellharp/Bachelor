@@ -212,12 +212,24 @@ namespace Databar.ViewModels
 			OneDayRebate_entry = p.OneDayRebate;
 			LastDayRebate_entry = p.LastDayRebate;
 
+			//If this is null, then the rest are also null
+			if (p.Four_RebateType != null)
+			{
+				FourDayRebate_sw = p.Four_RebateType.Equals("percent");
+				ThreeDayRebate_sw = p.Three_RebateType.Equals("percent");
+				TwoDayRebate_sw = p.Two_RebateType.Equals("percent");
+				OneDayRebate_sw = p.One_RebateType.Equals("percent");
+				LastDayRebate_sw = p.Last_RebateType.Equals("percent");
+			}
+			else
+			{
+				FourDayRebate_sw = false;
+				ThreeDayRebate_sw = false;
+				TwoDayRebate_sw = false;
+				OneDayRebate_sw = false;
+				LastDayRebate_sw = false;
+			}
 
-			FourDayRebate_sw = p.Four_RebateType.Equals("percent");
-			ThreeDayRebate_sw = p.Three_RebateType.Equals("percent");
-			TwoDayRebate_sw = p.Two_RebateType.Equals("percent");
-			OneDayRebate_sw = p.One_RebateType.Equals("percent");
-			LastDayRebate_sw = p.Last_RebateType.Equals("percent");
 
 		}
 
