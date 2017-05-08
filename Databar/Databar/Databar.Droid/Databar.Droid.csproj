@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
-    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidKeyStore></AndroidKeyStore>
     <AndroidSigningKeyStore>/Users/evire/Desktop/androidKey/databarAndroidCert.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>gruppe20databar</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>databarAndroidCert</AndroidSigningKeyAlias>
