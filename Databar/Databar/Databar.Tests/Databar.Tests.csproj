@@ -47,6 +47,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\Databar\bin\Debug\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
     <Reference Include="SQLite.Net">
       <HintPath>..\Databar\bin\Debug\SQLite.Net.dll</HintPath>
     </Reference>
@@ -96,6 +97,40 @@
     </Compile>
     <Compile Include="CartServicesTest.Sum.g.cs">
       <DependentUpon>CartServicesTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.AddBarcode.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.CartListGet.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.CartListSet.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.Constructor.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.cs" />
+    <Compile Include="CartViewModelTest.GetCartService.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.GetGTIN.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.RemoveProduct.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.ResetCartlist.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.SlettDateList.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.StartZXing.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CartViewModelTest.Sum.g.cs">
+      <DependentUpon>CartViewModelTest.cs</DependentUpon>
     </Compile>
     <Compile Include="DBRestManagerTest.Constructor.g.cs">
       <DependentUpon>DBRestManagerTest.cs</DependentUpon>
@@ -148,6 +183,17 @@
       <DependentUpon>JsonProductTest.cs</DependentUpon>
     </Compile>
     <Compile Include="JsonProductTest.cs" />
+    <Compile Include="MainViewModelTest.Constructor.g.cs">
+      <DependentUpon>MainViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainViewModelTest.cs" />
+    <Compile Include="MainViewModelTest.TapCommandGet.g.cs">
+      <DependentUpon>MainViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PayConfirmationViewModelTest.Constructor.g.cs">
+      <DependentUpon>PayConfirmationViewModelTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PayConfirmationViewModelTest.cs" />
     <Compile Include="ProductTest.cs" />
     <Compile Include="ProductTest.ProductNameAndPriceSet.g.cs">
       <DependentUpon>ProductTest.cs</DependentUpon>
