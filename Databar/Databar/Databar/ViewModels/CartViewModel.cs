@@ -131,11 +131,18 @@ namespace Databar.ViewModels
 
 			var result2 = await scanner.Scan(options);
 
-			if (result2.ToString().Length < 16)
-				return "barcodeFail";
+			
+            if (result2 == null)
+            {
+                return "userAbort";
+            }
+            else if (result2.ToString().Length < 16)
+            {
+                return "barcodeFail";
+            }
 
 
-			Application.Current.Properties["ScannedCode"] = result2;
+            Application.Current.Properties["ScannedCode"] = result2;
 
 			DecodeBarcode(result2.Text);
 
