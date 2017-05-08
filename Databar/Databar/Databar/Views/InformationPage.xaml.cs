@@ -40,7 +40,7 @@ namespace Databar.Views
 
         async void OnDismissButtonClicked(object sender, EventArgs args)
         {
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
     }
 }

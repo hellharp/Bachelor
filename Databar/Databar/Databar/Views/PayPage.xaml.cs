@@ -10,6 +10,8 @@ namespace Databar.Views
 {
     public partial class PayPage : ContentPage
     {
+        private string Page = "PayPage";
+
         public PayPage()
         {
             InitializeComponent();
@@ -39,5 +41,12 @@ namespace Databar.Views
 			                   "Menyknappen i midten sender deg tilbake til hovedmenyen uten å ha betalt.", "Lukk");
 		}
 
-	}
+        async void OnInfoButtonPressed(object sender, EventArgs e)
+        {
+            var infoPage = new InformationPage(Page);
+
+            await Navigation.PushModalAsync(infoPage, true);
+        }
+
+    }
 }

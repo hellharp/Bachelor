@@ -119,7 +119,7 @@ namespace Databar.Views
         {
             var infoPage = new InformationPage(Page);
 
-            await Navigation.PushAsync(infoPage, true);
+            await Navigation.PushModalAsync(infoPage, true);
         }
 
 		async void OnSavedButton(object sender, EventArgs e)

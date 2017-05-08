@@ -18,18 +18,11 @@
                     </ListView.Header>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell>
+                            <ViewCell Height="50">
                                 <StackLayout Padding="5">
                                     <Grid>
-                                        <Label Text="{Binding NoImageText}" Grid.Column="0" FontSize="Small" TextColor="#002c6c"/>
-                                        <Button x:Name="ButtonImage" Grid.Column="0" IsEnabled="false">
-											<Button.Image>
-                                              <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_menu.png"
-	                				iOS="{Binding ImageIOS}"/>
-												</Button.Image>
-                                        </Button>
-                                        <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3"/>
+                                        <Label Text="{Binding ItemText}" FontAttributes="Bold" Grid.Column="0" FontSize="Small" TextColor="#002c6c" />
+                                        <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3" />
                                     </Grid>
                                 </StackLayout>
                             </ViewCell>
@@ -38,13 +31,6 @@
                 </ListView>
             </StackLayout>
             <StackLayout>
-				<Button>
-					<Button.Image>
-					 <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_ok_circle.png"
-	                				iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
-						</Button.Image>
-				</Button>
                 <Button x:Name="dismissButton" 
                     BackgroundColor="Transparent" 
                     BorderColor="Transparent" 
