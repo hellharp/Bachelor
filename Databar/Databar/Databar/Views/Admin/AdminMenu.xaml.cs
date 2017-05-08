@@ -22,7 +22,13 @@ namespace Databar.Views.Admin
         public AdminMenu()
         {
             InitializeComponent();
-			cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
+
+            // Set the date on the datepicker to "CurrentDate" to avoid resetting to the actual date
+            DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
+            Curr_Date_Picker.Date = currDate;
+
+            // Reset shopping cart
+            cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
 			cartViewModel.ResetCartlist();
         }
 

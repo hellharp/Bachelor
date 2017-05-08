@@ -52,6 +52,11 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidKeyStore>True</AndroidKeyStore>
+    <AndroidSigningKeyStore>/Users/evire/Desktop/androidKey/databarAndroidCert.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>gruppe20databar</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>databarAndroidCert</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>gruppe20databar</AndroidSigningKeyPass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FastAndroidCamera, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">

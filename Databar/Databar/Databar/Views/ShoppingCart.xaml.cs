@@ -57,7 +57,11 @@ namespace Databar.Views
 			string success = "";
 			success = await cartViewModel.StartZXing(sender, e); //"(01)12345678901234(10)ABC-321(15)170510");
 			CalculatePrice();
-			if (success.Equals("isBlocked"))
+            if (success.Equals("userAbort"))
+            {
+                await DisplayAlert("Avbrutt", "Strekkodelesing ble avbrutt", "Ok");
+            }
+			else if (success.Equals("isBlocked"))
 			{
 				await DisplayAlert("Sperret batch/lot nummer", "Dette produktet har blitt sperret", "Ok");
 				return;

@@ -12,6 +12,7 @@ using Xamarin.Forms;
 namespace Databar.Services
 {
     //https://xamarindevelopervietnam.wordpress.com/2016/01/08/how-to-use-sqliteasync-pcl-in-xamarin-forms/
+    [Obsolete("Not used anymore.")]
     public class DB_Service : IDB_Service
     {
         //IRestService restService;
