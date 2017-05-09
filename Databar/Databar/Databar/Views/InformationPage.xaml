@@ -12,18 +12,24 @@
         <StackLayout>
             <StackLayout VerticalOptions="StartAndExpand">
                 <!-- if items that might need some explanation from the page where the button was pushed -->
-                <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}">
+                <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}" >
                     <ListView.Header>
                         <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
                     </ListView.Header>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell Height="50">
+                            <ViewCell>
                                 <StackLayout Padding="5">
-                                    <Grid>
+                                   <Grid RowSpacing="5">
+										<Grid.RowDefinitions >
+											<RowDefinition Height="Auto"/>
+											 </Grid.RowDefinitions>
+									
+								
                                         <Label Text="{Binding ItemText}" FontAttributes="Bold" Grid.Column="0" FontSize="Small" TextColor="#002c6c" HeightRequest="75"/>
-                                        <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3" HeightRequest="75" />
-                                    </Grid>
+                                        <Label Text="{Binding Explanation}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="3" HeightRequest="100" />
+                                       
+									</Grid>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
