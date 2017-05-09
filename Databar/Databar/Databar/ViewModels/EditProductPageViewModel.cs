@@ -167,9 +167,12 @@ namespace Databar.ViewModels
 
 			else
 			{
+				Debug.WriteLine("I expd og skal sette expd til true");
+
 				ExpD_picker = dateTime;
+				Debug.WriteLine("Datetime er: " + dateTime.Date.ToString());
 				Expd_pickerActive = true;
-				//dateList[dateList.Count] = code;
+
 				dateList.Add(code);
 
 			}
@@ -198,6 +201,8 @@ namespace Databar.ViewModels
 				if (AI.Equals("17"))
 					isAI17 = true;
 			}
+			else if (AI.Equals("21"))
+				Serial_entry = Code.ToString();
 
 		}
 

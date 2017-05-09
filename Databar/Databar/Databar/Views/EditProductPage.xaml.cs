@@ -40,8 +40,8 @@ namespace Databar.Views
 			if (LastDayRebate_sw.IsToggled == true)
             {
 				LastDayRebateType_label.Text = "%";
-				ExpD_picker.IsVisible = false;
-				SisteForbruksdato.IsVisible = false;
+				//ExpD_picker.IsVisible = false;
+				//SisteForbruksdato.IsVisible = false;
             }
             else if(LastDayRebate_sw.IsToggled == false)
             {
