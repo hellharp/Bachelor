@@ -1,0 +1,84 @@
+{
+  "images": [
+    {
+      "scale": "2x",
+      "size": "29x29",
+      "idiom": "iphone",
+      "filename": "spoticon2x_5_6 (2).png"
+    },
+    {
+      "scale": "3x",
+      "size": "29x29",
+      "idiom": "iphone",
+      "filename": "seticon3x_9_10 (2).png"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "iphone",
+      "filename": "spoticon2x_7_8 (2).png"
+    },
+    {
+      "scale": "3x",
+      "size": "40x40",
+      "idiom": "iphone",
+      "filename": "spoticon3x_9_10 (2).png"
+    },
+    {
+      "scale": "2x",
+      "size": "60x60",
+      "idiom": "iphone",
+      "filename": "appicon2x_7_8 (2).png"
+    },
+    {
+      "scale": "3x",
+      "size": "60x60",
+      "idiom": "iphone",
+      "filename": "appicon3x_9_10 (2).png"
+    },
+    {
+      "scale": "1x",
+      "size": "29x29",
+      "idiom": "ipad",
+      "filename": "spoticon1x_5_6 (2).png"
+    },
+    {
+      "scale": "2x",
+      "size": "29x29",
+      "idiom": "ipad",
+      "filename": "spoticon2x_5_6 (2).png"
+    },
+    {
+      "scale": "1x",
+      "size": "40x40",
+      "idiom": "ipad"
+    },
+    {
+      "scale": "2x",
+      "size": "40x40",
+      "idiom": "ipad"
+    },
+    {
+      "scale": "1x",
+      "size": "76x76",
+      "idiom": "ipad"
+    },
+    {
+      "scale": "2x",
+      "size": "76x76",
+      "idiom": "ipad"
+    },
+    {
+      "scale": "2x",
+      "size": "83.5x83.5",
+      "idiom": "ipad"
+    }
+  ],
+  "properties": {
+    "pre-rendered": false
+  },
+  "info": {
+    "version": 1,
+    "author": ""
+  }
+}
