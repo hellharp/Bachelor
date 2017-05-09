@@ -14,7 +14,7 @@
                 <!-- if items that might need some explanation from the page where the button was pushed -->
                 <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}">
                     <ListView.Header>
-                        <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" />
+                        <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
                     </ListView.Header>
                     <ListView.ItemTemplate>
                         <DataTemplate>
