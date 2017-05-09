@@ -21,8 +21,8 @@
                             <ViewCell Height="50">
                                 <StackLayout Padding="5">
                                     <Grid>
-                                        <Label Text="{Binding ItemText}" FontAttributes="Bold" Grid.Column="0" FontSize="Small" TextColor="#002c6c" />
-                                        <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3" />
+                                        <Label Text="{Binding ItemText}" FontAttributes="Bold" Grid.Column="0" FontSize="Small" TextColor="#002c6c" HeightRequest="75"/>
+                                        <Label Text="{Binding Explanation}" FontSize="Small" TextColor="#002c6c" Grid.Column="1" Grid.ColumnSpan="3" HeightRequest="75" />
                                     </Grid>
                                 </StackLayout>
                             </ViewCell>

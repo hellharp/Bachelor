@@ -8,8 +8,9 @@ namespace Databar.Views
     public partial class PayConfirmationPage : ContentPage
 	{
 		private PayConfirmationViewModel payConfirmationViewModel;
+        private CartViewModel cartViewModel;
 
-		public PayConfirmationPage()
+        public PayConfirmationPage()
 		{
 			InitializeComponent();
 
@@ -29,7 +30,9 @@ namespace Databar.Views
 
 		async void CloseWindow(object sender, EventArgs e)
 		{
-			//await Navigation.PushAsync(new Views.MainPage());
+            //await Navigation.PushAsync(new Views.MainPage());
+            cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
+            cartViewModel.ResetCartlist();
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }
 	}
