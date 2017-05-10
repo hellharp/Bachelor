@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using System.Net;
 
 namespace Databar.iOS
 {
@@ -24,6 +25,11 @@ namespace Databar.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            // This enables the use of self-signed certificates by allowing all certificates no matter what.
+            // This is obviously not a secure solution, but works for development and small-scale testing.
+            // Comment out or remove the line of code if one gets a CA certificate for the server.
+            ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
 
             return base.FinishedLaunching(app, options);
         }

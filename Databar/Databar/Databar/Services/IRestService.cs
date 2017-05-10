@@ -12,6 +12,9 @@ namespace Databar.Services
     /// </summary>
     public interface IRestService
     {
+        //Authenticate
+        Task<Boolean> AuthenticateAdmin();
+
         //Product
         Task<List<Product>> RefreshProductDataAsync();
 

@@ -6,7 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
-
+using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Databar.Droid
 {
@@ -21,6 +22,11 @@ namespace Databar.Droid
           
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
+            
+            // This enables the use of self-signed certificates by allowing all certificates no matter what.
+            // This is obviously not a secure solution, but works for development and small-scale testing.
+            // Comment out or remove the line of code if one gets a CA certificate for the server.
+            ServicePointManager.ServerCertificateValidationCallback += (o, certificate, chain, errors) => true;
 
             //Initialiserer ZXing
             ZXing.Net.Mobile.Forms.Android.Platform.Init();

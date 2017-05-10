@@ -23,6 +23,16 @@ namespace Databar.Services
             restService = service;
         }
 
+        public void SetDBRestManager(IRestService service)
+        {
+            restService = service;
+        }
+
+        public Task<Boolean> AuthenticateAdmin()
+        {
+            return restService.AuthenticateAdmin();
+        }
+
         /// <summary>
         /// Returns a list of Product-objects in the database.
         /// </summary>

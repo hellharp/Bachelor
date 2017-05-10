@@ -35,17 +35,67 @@ namespace Databar.Services
         public List<BatchBlock> BlockedBatches { get; private set; }
 
         /// <summary>
-        /// Constructor for RestService, which is used for database operations.
+        /// Constructor for RestService, which is used for admin database operations.
+        /// </summary>
+        public RestService(string user, string pwd)
+        {
+
+
+            var authData = string.Format("{0}:{1}", user, pwd);
+            var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
+
+            client = new HttpClient();
+            client.MaxResponseContentBufferSize = 256000;
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+
+        }
+
+        /// <summary>
+        /// Constructor for RestService, which is used for read only database operations.
         /// </summary>
         public RestService()
         {
+
+
             var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
             var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
 
             client = new HttpClient();
             client.MaxResponseContentBufferSize = 256000;
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
+
         }
+
+        public async Task<Boolean> AuthenticateAdmin()
+        {
+            try
+            {
+                // Test against admin-restricted page
+                var uri = new Uri(string.Format(Constants.AdminAuthUrl));
+                var response = await client.GetAsync(uri);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    // User input valid admin credentials
+                    Debug.WriteLine(@"				User authenticated against tomcat-users.");
+                    return true;
+                }
+                else
+                {
+                    // User did not input valid admin credentials
+                    return false;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(@"				ERROR {0}", ex.Message);
+                return false;
+            }
+
+
+        }
+
 
         /// <summary>
         /// Deletes an AI-object with the given ID from the database.
@@ -195,9 +245,17 @@ namespace Databar.Services
                     var content = await response.Content.ReadAsStringAsync();
                     Products = JsonConvert.DeserializeObject<JsonProduct>(content).ProductSet;
                 }
+                //else
+                //{
+                //    throw new Exception(response.StatusCode.ToString());
+                //}
             }
-            catch (Exception ex)
+            //catch (Exception ex)
+            catch (HttpRequestException ex)
             {
+                // throw new Exception(ex.Message);
+                Debug.WriteLine("Feil her " + ex.InnerException.Message);
+                Debug.WriteLine(client.DefaultRequestHeaders.ToString());
                 Debug.WriteLine(@"				ERROR {0}", ex.Message);
             }
 

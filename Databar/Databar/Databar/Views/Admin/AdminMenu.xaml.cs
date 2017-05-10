@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using ZXing.Mobile;
 using Databar.ViewModels;
+using Databar.Services;
 
 namespace Databar.Views.Admin
 {
@@ -35,6 +36,8 @@ namespace Databar.Views.Admin
         async void Logout(object sender, EventArgs e)
         {
             Application.Current.Properties["IsLoggedIn"] = false;
+            //App.DBManager = new DBRestManager(new RestService(Constants.Username, Constants.Password));
+            App.DBManager.SetDBRestManager(new RestService());
             Application.Current.MainPage = new NavigationPage(new Views.MainPage());
             //await Navigation.PopAsync();
         }
