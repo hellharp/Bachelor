@@ -23,9 +23,9 @@ namespace Databar
         // Append to resturl {2} to get JSON-output
         public static string JSONoutput = "?_output=application/json";
 
-        // Credentials for default tomcat user "all", which has readonly-access to the restSQL API.
-        public static string Username = "all";
-        public static string Password = "all";
+        // Credentials for default tomcat user "readonly", which has readonly-access to the restSQL API.
+        public static string Username = "readonly";
+        public static string Password = "readonly";
 
         // Admin
         public static string Admin = "admin";

@@ -21,20 +21,12 @@ namespace Databar.Views
 		// Handle password entry for admin access
 		async void Password_Completed(object sender, EventArgs e)
 		{
-			var pw = ((Entry)sender).Text; // cast sender to access properties of the Entry
-                                           //if (pw == "test")
-                                           //{
-                                           //             Application.Current.Properties["IsLoggedIn"] = true;
-                                           //             Application.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
-                                           //}
-                                           //else
-                                           //{
-                                           //	await DisplayAlert("Feil passord", "Feil adminpassord (passord: test)", "OK");
-                                           //}
+            var usr = usrEntry.Text;
+            var pw = ((Entry)sender).Text; // cast sender to access properties of the Entry
 
             try
             {
-                App.DBManager.SetDBRestManager(new RestService(Constants.Admin, pw));
+                App.DBManager.SetDBRestManager(new RestService(usr, pw));
                 bool auth = await App.DBManager.AuthenticateAdmin();
                 if (auth)
                 {
@@ -45,33 +37,25 @@ namespace Databar.Views
                 {
                     // Set DBManager to readonly
                     App.DBManager.SetDBRestManager(new RestService());
-                    await DisplayAlert("Feil passord", "Feil adminpassord, prøv igjen eller kontakt sysadmin", "OK");
+                    await DisplayAlert("Feil passord", "Feil brukernavn eller passord, prøv igjen", "OK");
                 }
             }
             catch (Exception ex)
             {
                 App.DBManager.SetDBRestManager(new RestService());
-                await DisplayAlert("Feil passord", "Kontakt sysadmin, feil: " + ex.Message, "OK");
+                await DisplayAlert("Feil", "Kontakt sysadmin, feil: " + ex.Message, "OK");
             }
         }
 
 		// Handle Enter-button-press event on login-page
 		async void Enter_Button_Pressed(object sender, EventArgs e)
 		{
-			var pw = pwEntry.Text; // Access entry text
-                                   //if (pw == "test")
-                                   //{
-                                   //             Application.Current.Properties["IsLoggedIn"] = true;
-                                   //             Application.Current.MainPage = new NavigationPage(new Admin.AdminMenu());
-                                   //}
-                                   //else
-                                   //{
-                                   //	await DisplayAlert("Feil passord", "Feil adminpassord (passord: test)", "OK");
-                                   //}
+            var usr = usrEntry.Text;
+            var pw = pwEntry.Text; // Access entry text
 
             try
             {
-                App.DBManager.SetDBRestManager(new RestService(Constants.Admin, pw));
+                App.DBManager.SetDBRestManager(new RestService(usr, pw));
                 bool auth = await App.DBManager.AuthenticateAdmin();
                 if (auth)
                 {
@@ -82,13 +66,13 @@ namespace Databar.Views
                 {
                     // Set DBManager to readonly
                     App.DBManager.SetDBRestManager(new RestService());
-                    await DisplayAlert("Feil passord", "Feil adminpassord, prøv igjen eller kontakt sysadmin", "OK");
+                    await DisplayAlert("Feil passord", "Feil brukernavn eller passord, prøv igjen", "OK");
                 }
             }
             catch (Exception ex)
             {
                 //App.DBManager.SetDBRestManager(new RestService());
-                await DisplayAlert("Feil passord", "Kontakt sysadmin, feil: " + ex.Message, "OK");
+                await DisplayAlert("Feil", "Kontakt sysadmin, feil: " + ex.Message, "OK");
             }
 
         }

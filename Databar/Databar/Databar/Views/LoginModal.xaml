@@ -23,6 +23,13 @@
 									Android="GS1_Norway_logo_61px.png" />
 
             </Image>
+            <Label Text="Tast inn brukernavn med administratorrettigheter"
+					VerticalOptions="Center"
+					HorizontalOptions="Center" />
+            <!--Entry field for admin-password-->
+            <Entry x:Name="usrEntry" Placeholder="admin" Text="admin"
+		   VerticalOptions="Center" HorizontalOptions="Center"/>
+            
             <Label Text="Tast inn administrasjonspassord"
 					VerticalOptions="Center"
 					HorizontalOptions="Center" />
