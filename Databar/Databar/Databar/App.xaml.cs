@@ -30,7 +30,7 @@ namespace Databar
 			Current.Properties["Cartsum"] = i; 
 
             // Initialize DBRestManager
-            DBManager = new DBRestManager(new RestService(Constants.Username, Constants.Password));
+            DBManager = new DBRestManager(new RestService());
 
 
             //Velger hvilken xaml som først starter. I dette tilfellet MainPage.xaml

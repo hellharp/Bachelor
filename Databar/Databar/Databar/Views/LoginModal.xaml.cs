@@ -43,12 +43,15 @@ namespace Databar.Views
                 }
                 else
                 {
+                    // Set DBManager to readonly
+                    App.DBManager.SetDBRestManager(new RestService());
                     await DisplayAlert("Feil passord", "Feil adminpassord, prøv igjen eller kontakt sysadmin", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Feil passord", "Feil adminpassord, prøv igjen eller kontakt sysadmin", "OK");
+                App.DBManager.SetDBRestManager(new RestService());
+                await DisplayAlert("Feil passord", "Kontakt sysadmin, feil: " + ex.Message, "OK");
             }
         }
 
@@ -77,15 +80,18 @@ namespace Databar.Views
                 }
                 else
                 {
+                    // Set DBManager to readonly
+                    App.DBManager.SetDBRestManager(new RestService());
                     await DisplayAlert("Feil passord", "Feil adminpassord, prøv igjen eller kontakt sysadmin", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Feil passord", "Feil adminpassord, prøv igjen eller kontakt sysadmin", "OK");
+                //App.DBManager.SetDBRestManager(new RestService());
+                await DisplayAlert("Feil passord", "Kontakt sysadmin, feil: " + ex.Message, "OK");
             }
 
-		}
+        }
 
         async void CloseWindow(object sender, EventArgs e)
         {
