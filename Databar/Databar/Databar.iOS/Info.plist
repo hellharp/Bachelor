@@ -44,5 +44,7 @@
 	<string>Resources/Media.xcassets/AppIcons.appiconset</string>
 	<key>XSLaunchImageAssets</key>
 	<string>Resources/Media.xcassets/LaunchImages.launchimage</string>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to scan barcodes</string>
 </dict>
 </plist>
