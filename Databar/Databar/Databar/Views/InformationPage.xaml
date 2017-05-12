@@ -12,7 +12,7 @@
         <StackLayout>
             <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand">
                 <!-- if items that might need some explanation from the page where the button was pushed -->
-                <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}" SeparatorVisibility="None" HasUnevenRows="true">
+                <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}" SeparatorVisibility="None" HasUnevenRows="true" HeightRequest="700">
                     <ListView.Header>
                         <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
                     </ListView.Header>
@@ -38,6 +38,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
             <StackLayout VerticalOptions="End">
                 <Button x:Name="dismissButton" 
                     BackgroundColor="Transparent" 

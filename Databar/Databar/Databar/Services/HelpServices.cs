@@ -44,12 +44,12 @@ namespace Databar.Services
                     new HelpItem
                     {
                         ItemText = "Sperret bryter",
-                        Explanation = "Her vil man kunne sperre et produkts batch/lot nr. Alle produkter med tilsvarende batch/lot nr. vil da være stengt for salg"
+                        Explanation = "Her vil man kunne sperre et produkts batch/lot nr. Alle produkter med tilsvarende batch/lot nr. vil da være stengt for salg."
                     },
                     new HelpItem
                     {
                         ItemText = "Rabatter",
-                        Explanation = "Her vil man sette de ulike rabattene for de produktet. Slideren på høyre side vil avgjøre om rabatten settes i kroner eller rabatt"
+                        Explanation = "Her vil man sette de ulike rabattene for de produktet. Slideren på høyre side vil avgjøre om rabatten settes i kroner eller prosent."
                     }
                 };
 
@@ -91,7 +91,7 @@ namespace Databar.Services
                     new HelpItem
                     {
                         ItemText = "Meny knapp",
-                        Explanation = "Menyknappen sender deg til administrasjonsmenyen. Krever innlogging"
+                        Explanation = "Menyknappen sender deg til administrasjonsmenyen. Krever innlogging."
                     }
 
                 };
