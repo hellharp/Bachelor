@@ -121,7 +121,7 @@ namespace Databar.ViewModels
 			//Does not work for some reason
 			SyncWithDB();
 
-			var options = new MobileBarcodeScanningOptions();
+		/*	var options = new MobileBarcodeScanningOptions();
 			options.PossibleFormats = new List<ZXing.BarcodeFormat>()
 			{
 				ZXing.BarcodeFormat.RSS_EXPANDED
@@ -141,16 +141,18 @@ namespace Databar.ViewModels
                 return "barcodeFail";
             }
 
+    */
+            Application.Current.Properties["ScannedCode"] = "(01)07048840000036(10)ABC321(15)170517";
 
-            Application.Current.Properties["ScannedCode"] = result2;
-
-			DecodeBarcode(result2.Text);
+			DecodeBarcode("(01)07048840000036(10)ABC321(15)170517");
 
 			OnPropertyChanged();
 
-			return AddBarcode(result2.Text);
+            return AddBarcode("(01)07048840000036(10)ABC321(15)170517");
+         
 
-		}
+
+        }
 
 		public String AddBarcode(String barcode)
 		{

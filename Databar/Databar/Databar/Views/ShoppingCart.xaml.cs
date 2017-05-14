@@ -55,8 +55,10 @@ namespace Databar.Views
 		async void StartZXing(object sender, EventArgs e)
 		{
 			string success = "";
-			success = await cartViewModel.StartZXing(sender, e); //"(01)12345678901234(10)ABC-321(15)170510");
-			CalculatePrice();
+            //	success = await cartViewModel.StartZXing(sender, e); //"(01)12345678901234(10)ABC-321(15)170510");
+            success = "(01)07048840000036(10)ABC321(15)170517";
+
+            CalculatePrice();
             if (success.Equals("userAbort"))
             {
                 await DisplayAlert("Avbrutt", "Strekkodelesing ble avbrutt", "Ok");
