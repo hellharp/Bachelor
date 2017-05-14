@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout>
             <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand">
-                <!-- if items that might need some explanation from the page where the button was pushed -->
+                <!-- items that might need some explanation from the page where the button was pushed -->
                 <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}" SeparatorVisibility="None" HasUnevenRows="true" HeightRequest="700">
                     <ListView.Header>
                         <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
@@ -20,19 +20,9 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                
-                             <!--      <Grid Padding="5" RowSpacing="60" ColumnSpacing="60">
-                                        <Grid.RowDefinitions >
-                                            <RowDefinition Height="Auto"/>
-                    
-                                             </Grid.RowDefinitions> -->
-                                    <RelativeLayout VerticalOptions="FillAndExpand">
-                                        
-                                        <Label Text="{Binding TextAnd}" FontAttributes="Bold" Grid.Column="0" FontSize="Small" TextColor="#002c6c" HeightRequest="100" VerticalOptions="FillAndExpand" />
-                                   </RelativeLayout>
-                                       
-                                    <!--</Grid>-->
-                          
+                                <RelativeLayout VerticalOptions="FillAndExpand">
+                                    <Label Text="{Binding TextAnd}" FontAttributes="Bold" Grid.Column="0" FontSize="Small" TextColor="#002c6c" HeightRequest="100" VerticalOptions="FillAndExpand" />
+                                </RelativeLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

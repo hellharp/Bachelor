@@ -19,13 +19,13 @@
 						  HorizontalOptions="Center"
 						  VerticalOptions="Center"
 						  x:Name="imageView"
-						  Source="GS1_Norway_logo_61px.png"
+						  Source="gs1_logo.png"
 						  BackgroundColor="Transparent"
 						  IsVisible="true">
 
                     <OnPlatform x:TypeArguments="ImageSource"
-									iOS="GS1_Norway_logo_61px.png"
-									Android="GS1_Norway_logo_61px.png" />
+									iOS="gs1_logo.png"
+									Android="gs1_logo.png" />
 
                 </Image>
 
@@ -57,10 +57,6 @@
 						Format="yy-MM-dd" 
 						IsVisible="False" 
 						DateSelected="SetCurrentDate"/>
-
-                <Button Text="Test DB" Clicked="TestDB"
-				VerticalOptions="Center"
-				HorizontalOptions="Center"/>
 
             </StackLayout>
 
