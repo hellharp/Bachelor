@@ -70,12 +70,12 @@ namespace Databar.Views.Admin
           
             var scanner = new MobileBarcodeScanner();
 
-            var result = await scanner.Scan();
+			string result = "(01)07010001234567(10)ABC321(15)170517";//await scanner.Scan();
 
 
             if (result != null)
             {
-                Application.Current.Properties["ScannedCode"] = result.Text;
+				Application.Current.Properties["ScannedCode"] = result.ToString();
 
              
 
