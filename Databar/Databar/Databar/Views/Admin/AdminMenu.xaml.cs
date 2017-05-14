@@ -64,18 +64,22 @@ namespace Databar.Views.Admin
 
         async void StartZXing(object sender, EventArgs e)
         {
-			//Application.Current.Properties["ScannedCode"] = "(1)12345678901999(17)140704(15)200404(10)ABC-123";
-           
-           
-          
+            //Application.Current.Properties["ScannedCode"] = "(1)12345678901999(17)140704(15)200404(10)ABC-123";
+
+
+            var options = new MobileBarcodeScanningOptions()
+            {
+                TryHarder = true,
+                AutoRotate = false
+            };
             var scanner = new MobileBarcodeScanner();
 
-			string result = "(01)07010001234567(10)ABC321(15)170517";//await scanner.Scan();
+			var result = await scanner.Scan(options);
 
 
             if (result != null)
             {
-				Application.Current.Properties["ScannedCode"] = result.ToString();
+				Application.Current.Properties["ScannedCode"] = result.Text;
 
              
 

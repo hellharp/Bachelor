@@ -121,13 +121,17 @@ namespace Databar.ViewModels
 			//Does not work for some reason
 			SyncWithDB();
 
-			var options = new MobileBarcodeScanningOptions();
-			options.PossibleFormats = new List<ZXing.BarcodeFormat>()
-			{
-				ZXing.BarcodeFormat.RSS_EXPANDED
-			};
+            var options = new MobileBarcodeScanningOptions()
+            {
+                PossibleFormats = new List<ZXing.BarcodeFormat>()
+            {
+                ZXing.BarcodeFormat.RSS_EXPANDED
+            },
 
-			var scanner = new MobileBarcodeScanner();
+                TryHarder = true,
+                AutoRotate = false
+            };
+            var scanner = new MobileBarcodeScanner();
 
 			var result2 = await scanner.Scan(options);
 

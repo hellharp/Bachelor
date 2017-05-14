@@ -85,6 +85,7 @@ namespace Databar.Views
             await Navigation.PushModalAsync(infoPage, true);
 
         }
+
     }
 }
 
