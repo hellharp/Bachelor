@@ -34,7 +34,7 @@ namespace Databar.Views
 			SumString = cartViewModel.Sum().ToString();
 			// SumLabel.Text = number.ToString() + "kr";
 			SumLabel.Text = SumString;
-			cartViewModel.SlettDateList();
+			cartViewModel.DeleteDateList();
 			OnPropertyChanged();
 		}
 

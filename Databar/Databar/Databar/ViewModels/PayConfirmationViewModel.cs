@@ -25,7 +25,7 @@ namespace Databar.ViewModels
 			cartViewModel = App.Current.Properties["CartViewModel"] as CartViewModel;
 			var cartServices = cartViewModel.GetCartService();
 
-			CartList = cartServices.getCartList();
+			CartList = cartServices.GetCartList();
 		}
 
 

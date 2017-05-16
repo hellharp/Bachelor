@@ -1,8 +1,6 @@
 ﻿using Databar.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Databar.Services
@@ -28,6 +26,12 @@ namespace Databar.Services
             restService = service;
         }
 
+        /// <summary>
+        /// Constructor that instantiates DBRestManager with a given IRestService.
+        /// </summary>
+        /// <returns>
+        /// Boolean
+        /// </returns>
         public Task<Boolean> AuthenticateAdmin()
         {
             return restService.AuthenticateAdmin();
@@ -125,7 +129,5 @@ namespace Databar.Services
         {
             return restService.DeleteBatchBlockAsync(batch.BatchNr.ToString());
         }
-
-        // UPDATE operations needed
     }
 }
