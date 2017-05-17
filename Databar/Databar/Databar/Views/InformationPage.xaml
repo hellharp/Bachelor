@@ -5,40 +5,67 @@
              xmlns:ViewModels="clr-namespace:Databar.ViewModels">
     
     <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0" />
+        <OnPlatform x:TypeArguments="Thickness" 
+                    iOS="0,20,0,0" 
+                    />
     </ContentPage.Padding>
     
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="StartAndExpand">
+            <StackLayout HorizontalOptions="StartAndExpand"
+                         VerticalOptions="StartAndExpand">
+                
                 <!-- items that might need some explanation from the page where the button was pushed -->
-                <ListView x:Name="InfoListView" ItemsSource="{Binding HelpList}" SeparatorVisibility="None" HasUnevenRows="true" HeightRequest="700">
+                <ListView x:Name="InfoListView" 
+                          HasUnevenRows="true" 
+                          HeightRequest="700"
+                          ItemsSource="{Binding HelpList}" 
+                          SeparatorVisibility="None">
                     <ListView.Header>
-                        <Label Text="Hjelp" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" HorizontalTextAlignment="Center" />
+                        <Label FontAttributes="Bold" 
+                               FontSize="Medium"
+                               HorizontalOptions="Center"                                 
+                               HorizontalTextAlignment="Center" 
+                               Text="Hjelp" 
+                               TextColor="#002c6c"                               
+                               />
                     </ListView.Header>
                     
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <RelativeLayout VerticalOptions="FillAndExpand">
-                                    <Label Text="{Binding TextAnd}" FontAttributes="Bold" Grid.Column="0" FontSize="Small" TextColor="#002c6c" HeightRequest="100" VerticalOptions="FillAndExpand" />
+                                    <Label FontAttributes="Bold" 
+                                           Grid.Column="0" 
+                                           HeightRequest="100" 
+                                           FontSize="Small" 
+                                           Text="{Binding TextAnd}" 
+                                           TextColor="#002c6c" 
+                                           VerticalOptions="FillAndExpand" 
+                                           />
                                 </RelativeLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
-            <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
+            
+            <BoxView Color="#F26334"
+                     HeightRequest="3" 
+                     WidthRequest="1" 
+                      />
+            
             <StackLayout VerticalOptions="End">
                 <Button x:Name="dismissButton" 
-                    BackgroundColor="Transparent" 
-                    BorderColor="Transparent" 
-                    Clicked="OnDismissButtonClicked"
-                    HorizontalOptions="Center">
+                        BackgroundColor="Transparent" 
+                        BorderColor="Transparent" 
+                        Clicked="OnDismissButtonClicked"
+                        HorizontalOptions="Center">
                     <Button.Image>
                         <OnPlatform x:TypeArguments="FileImageSource"
-                                Android="gs1_remove_circle.png"
-                                iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png" />
+                                    Android="gs1_remove_circle.png"
+                                    iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png" 
+                                    />
                     </Button.Image>
                 </Button>
             </StackLayout>

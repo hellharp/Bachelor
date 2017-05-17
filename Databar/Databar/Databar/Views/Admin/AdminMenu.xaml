@@ -5,9 +5,10 @@
     <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
 
     <ContentPage.Padding>
-        <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
+        <!-- The view on iOS has to start further down, or else it will cover the statusbar (aka the clock) -->
         <OnPlatform x:TypeArguments="Thickness"
-					iOS="0,20,0,0"/>
+					iOS="0,20,0,0"
+                    />
     </ContentPage.Padding>
 
     <StackLayout>
@@ -15,61 +16,66 @@
             <StackLayout
 					Orientation="Vertical">
 
-                <Image
-						  HorizontalOptions="Center"
-						  VerticalOptions="Center"
-						  x:Name="imageView"
-						  Source="gs1_logo.png"
-						  BackgroundColor="Transparent"
-						  IsVisible="true">
+                <Image x:Name="imageView"
+                       BackgroundColor="Transparent"
+				       HorizontalOptions="Center"
+                       IsVisible="true"
+                       Source="gs1_logo.png"
+					   VerticalOptions="Center">
 
                     <OnPlatform x:TypeArguments="ImageSource"
-									iOS="gs1_logo.png"
-									Android="gs1_logo.png" />
-
+								iOS="gs1_logo.png"
+								Android="gs1_logo.png" 
+                                />
                 </Image>
 
                 <Label Text="Administrasjonsmeny"
 					VerticalOptions="Center"
-					HorizontalOptions="Start" />
+					HorizontalOptions="Start" 
+                       />
                 <Label Text="Via denne menyen kan du: "
 					VerticalOptions="Center"
-					HorizontalOptions="Start" />
+					HorizontalOptions="Start" 
+                       />
                 <Label Text="1) Opprette nye varer"
 					VerticalOptions="Center"
-					HorizontalOptions="Start" />
+					HorizontalOptions="Start" 
+                       />
                 <Label Text="2) Endre eksisterende varer"
 					VerticalOptions="Center"
-					HorizontalOptions="Start" />
+					HorizontalOptions="Start" 
+                       />
                 <Label Text="3) Slette eksisterende varer"
 					VerticalOptions="Center"
-					HorizontalOptions="Start" />
+					HorizontalOptions="Start" 
+                       />
                 <Label Text="4) Sperre varer for salg"
 					VerticalOptions="Center"
-					HorizontalOptions="Start" />
+					HorizontalOptions="Start" 
+                       />
                 <Label Text="5) Sette dagens dato for sjekk mot best før dato/siste forbruksdato"
 					VerticalOptions="Center"
-					HorizontalOptions="Start" />
+					HorizontalOptions="Start" 
+                       />
 
                 <!--This DatePicker is hidden until calendarButton is pressed-->
                 <DatePicker x:Name="Curr_Date_Picker" 
-						TextColor="#002C6C" 
-						Format="yy-MM-dd" 
-						IsVisible="False" 
-						DateSelected="SetCurrentDate"/>
-
+                        DateSelected="SetCurrentDate"
+                        Format="yy-MM-dd"
+                        IsVisible="False"
+						TextColor="#002C6C"						
+                            />
             </StackLayout>
-
-
         </ScrollView>
 
-        <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
+        <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" 
+                 />
         <StackLayout
-				VerticalOptions="End"
-				Spacing="40"
-				Orientation="Horizontal"
-				HorizontalOptions="Center"
-                Padding="0,10,0,10">
+              HorizontalOptions="Center"
+			  Orientation="Horizontal"
+              Padding="0,10,0,10"
+			  Spacing="40"
+              VerticalOptions="End">
 
             <Button x:Name="barcodeButton"
 					BackgroundColor="Transparent"
@@ -79,11 +85,11 @@
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-						Android="gs1_barcode.png"
-						iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
+					        	Android="gs1_barcode.png"
+					        	iOS="GS1_Symbol_Barcode_RGB_20150416.png"
+                                />
                 </Button.Image>
-
-
+                
             </Button>
 
             <Button x:Name="logoutButton"
@@ -94,12 +100,12 @@
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-						Android="gs1_remove_circle.png"
-						iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"/>
+						        Android="gs1_remove_circle.png"
+						        iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"
+                                />
                 </Button.Image>
 
             </Button>
-
 
             <Button x:Name="calendarButton"
 					BackgroundColor="Transparent"
@@ -109,13 +115,11 @@
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-						Android="gs1_calendar.png"
-						iOS="GS1_Symbol_Calendar_RGB_20150416.png"/>
+						        Android="gs1_calendar.png"
+						        iOS="GS1_Symbol_Calendar_RGB_20150416.png"
+                                />
                 </Button.Image>
             </Button>
-
-
         </StackLayout>
     </StackLayout>
-
 </ContentPage>

@@ -1,54 +1,49 @@
-
 using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using System.Windows.Input;
-using Databar.ViewModels;
-using Databar.Models;
-using ZXing.Mobile;
 
 namespace Databar.Views
 {
     public partial class MainPage : ContentPage
     {
         private string Page = "HomeScreen";
-        private CartViewModel cartViewModel;
 
+        /// <summary>
+        /// Constructor for MainPage. Sets the current date
+        /// </summary>
         public MainPage()
         {
             InitializeComponent();
+
             DateTime currDate = (DateTime)Application.Current.Properties["CurrentDate"];
             currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
-
-            //NavigationPage.SetBackButtonTitle(this, "TEST");
-            //NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
-            //this.Icon = "icon.png";
-            //this.Title = "TEST"
         }
 
-        //protected override void OnAppearing()
-        //{
-        //	DateTime currDate = (DateTime)App.Current.Properties["CurrentDate"];
-        //	currentDate.Text = currDate.ToString("d", new CultureInfo("nb-NO"));
-        //}
-
-
+        /// <summary>
+        /// Starts the AdminMenu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void ToAdminLogin(object sender, EventArgs e)
         {
-            // Endret til PushAsync for å gi IOS back-button
             await Navigation.PushAsync(new LoginModal());
         }
 
+        /// <summary>
+        /// Starts the ShoppingCart
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void ToCart(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ShoppingCart());
         }
 
-
+        /// <summary>
+        /// Displays a popup with information
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void ToPopUp(object sender, EventArgs e)
         {
             await DisplayAlert("Informasjon\n", "Bunnmeny: \n" +
@@ -57,8 +52,13 @@ namespace Databar.Views
                                "Menyknappen i midten sender deg administrasjonsmenyen (krever passord).\n", "Lukk");
         }
 
-        //Handle device hardware back button to prevent accidental closing of app
+
         private bool _canClose = true;
+
+        /// <summary>
+        /// Handle device hardware back button to prevent accidental closing of app
+        /// </summary>
+        /// <returns></returns>
         protected override bool OnBackButtonPressed()
         {
             if (_canClose)
@@ -67,7 +67,10 @@ namespace Databar.Views
             }
             return _canClose;
         }
-        // Exit dialog. NOTE: User has to press back-button again to actually close app
+
+        /// <summary>
+        /// Exit dialog. NOTE: User has to press back-button again to actually close app
+        /// </summary>
         private async void ShowExitDialog()
         {
             var answer = await DisplayAlert("Advarsel!", "Vil du lukke appen?", "Ja", "Nei");
@@ -78,14 +81,17 @@ namespace Databar.Views
             }
         }
 
+        /// <summary>
+        /// Calls the InformationPage to display an infoPage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnInfoButtonPressed(object sender, EventArgs e)
         {
             var infoPage = new InformationPage(Page);
 
             await Navigation.PushModalAsync(infoPage, true);
-
         }
-
     }
 }
 

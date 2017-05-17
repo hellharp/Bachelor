@@ -1,54 +1,53 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Databar.Views;
 using Databar.ViewModels;
 using Xamarin.Forms;
-using System.Diagnostics;
-using System.Collections.ObjectModel;
-using Databar.Models;
 
 namespace Databar.Views
 {
+    /// <summary>
+    /// The View for EditProductPage
+    /// </summary>
     public partial class EditProductPage : ContentPage
     {
         private EditProductPageViewModel editViewModel;
         private string Page = "EditProductPage";
 
+        /// <summary>
+        /// The constructor calls the EditProductPageViewModel
+        /// </summary>
         public EditProductPage()
         {
             InitializeComponent();
 
-			editViewModel = new EditProductPageViewModel();
+            editViewModel = new EditProductPageViewModel();
 
-			BindingContext = editViewModel;
+            BindingContext = editViewModel;
 
-			//Is this delay needed?
-
-			CheckDates();
-              
-
-			Debug.WriteLine("EXPDatepicker sin toString :" + ExpD_picker.Date.ToString());
-
+            CheckDates();
         }
 
-
+        /// <summary>
+        /// Changes the View to display either % or kr when the switch is toggeled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void LastDayToggle(object sender, ToggledEventArgs e)
         {
-			if (LastDayRebate_sw.IsToggled == true)
+            if (LastDayRebate_sw.IsToggled == true)
             {
-				LastDayRebateType_label.Text = "%";
-				//ExpD_picker.IsVisible = false;
-				//SisteForbruksdato.IsVisible = false;
+                LastDayRebateType_label.Text = "%";
             }
-            else if(LastDayRebate_sw.IsToggled == false)
+            else if (LastDayRebate_sw.IsToggled == false)
             {
                 LastDayRebateType_label.Text = "Kr";
             }
         }
 
+        /// <summary>
+        /// Changes the View to display either % or kr when the switch is toggeled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void FourDayToggle(object sender, ToggledEventArgs e)
         {
             if (FourDayRebate_sw.IsToggled == true)
@@ -60,6 +59,12 @@ namespace Databar.Views
                 FourDayRebateType_label.Text = "Kr";
             }
         }
+
+        /// <summary>
+        /// Changes the View to display either % or kr when the switch is toggeled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void ThreeDayToggle(object sender, ToggledEventArgs e)
         {
             if (ThreeDayRebate_sw.IsToggled == true)
@@ -71,6 +76,12 @@ namespace Databar.Views
                 ThreeDayRebateType_label.Text = "Kr";
             }
         }
+
+        /// <summary>
+        /// Changes the View to display either % or kr when the switch is toggeled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void TwoDayToggle(object sender, ToggledEventArgs e)
         {
             if (TwoDayRebate_sw.IsToggled == true)
@@ -82,6 +93,12 @@ namespace Databar.Views
                 TwoDayRebateType_label.Text = "Kr";
             }
         }
+
+        /// <summary>
+        /// Changes the View to display either % or kr when the switch is toggeled
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void OneDayToggle(object sender, ToggledEventArgs e)
         {
             if (OneDayRebate_sw.IsToggled == true)
@@ -93,28 +110,37 @@ namespace Databar.Views
                 OneDayRebateType_label.Text = "Kr";
             }
         }
-        
-        // Shows a confirmation window if the user clickes the delete button
+
+        /// <summary>
+        /// Shows a confirmation window if the user clicks the delete button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void ShowDeleteDialog(object sender, EventArgs e)
         {
             var answer = await DisplayAlert("Advarsel!", "Vil du slette det valgte produktet?", "Ja", "Nei");
-			Debug.WriteLine("Answer:" + answer.ToString());
-			if (answer.Equals(true))
-			{
-				Debug.WriteLine("sender til delete");
-				editViewModel.DeleteProduct();
-			}
+
+            if (answer.Equals(true))
+            {
+                editViewModel.DeleteProduct();
+            }
         }
 
-		private void CheckDates()
-		{
+        /// <summary>
+        /// Checks if the ExpirationDatePicker should be visible or not
+        /// </summary>
+        private void CheckDates()
+        {
+            if (ExpD_picker.Date.ToString().Equals("ExpD_picker.Date.ToString()"))
+                ExpD_picker.IsVisible = false;
+            OnPropertyChanged();
+        }
 
-			if (ExpD_picker.Date.ToString().Equals("ExpD_picker.Date.ToString()"))
-				ExpD_picker.IsVisible = false;
-			OnPropertyChanged();
-		}
-
-
+        /// <summary>
+        /// Calls the InformationPage to display an infoPage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         async void OnInfoButtonPressed(object sender, EventArgs e)
         {
             var infoPage = new InformationPage(Page);
@@ -122,12 +148,15 @@ namespace Databar.Views
             await Navigation.PushModalAsync(infoPage, true);
         }
 
-		async void OnSavedButton(object sender, EventArgs e)
-		{
-			editViewModel.SaveProduct();
-			await DisplayAlert("Save", "Klikket save!", "OK");
-		}
+        /// <summary>
+        /// Displays an alert and saves the product to the EditViewModel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        async void OnSavedButton(object sender, EventArgs e)
+        {
+            editViewModel.SaveProduct();
+            await DisplayAlert("Save", "Klikket save!", "OK");
+        }
     }
-
-
 }

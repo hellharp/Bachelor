@@ -10,7 +10,9 @@ using System.Diagnostics;
 
 namespace Databar.ViewModels
 {
-    //denne må inheret INotifyPropertyChanged
+    /// <summary>
+    /// The EditProductPageViewModel controls the dataflow between the EditProductPage and the backend database
+    /// </summary>
     public class EditProductPageViewModel : INotifyPropertyChanged
     {
         private Product _product;

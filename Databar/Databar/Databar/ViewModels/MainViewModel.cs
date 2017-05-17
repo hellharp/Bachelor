@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Xamarin.Forms;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -9,16 +8,15 @@ namespace Databar.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-
         ICommand tapCommand;
 
         public MainViewModel()
         {
-            tapCommand = new Command (OnTapped);
+            tapCommand = new Command(OnTapped);
         }
 
         /// <summary>
-        /// Expose the TapCommand via a property so tat Xaml can bind to it
+        /// Expose the TapCommand via a property so that Xaml can bind to it
         /// </summary>
         public ICommand TapCommand
         {

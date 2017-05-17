@@ -1,24 +1,24 @@
 ﻿using Databar.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace Databar.Views
 {
 	public partial class LoginModal : ContentPage
 	{
+        /// <summary>
+        /// Constructor for the LoginModal
+        /// </summary>
 		public LoginModal()
 		{
 			InitializeComponent();
-            //NavigationPage.SetTitleIcon(this, "gs1_shopping_cart.png");
-            //this.Icon = "gs1_shopping_cart.png";
 		}
 
-		// Handle password entry for admin access
+        /// <summary>
+        /// Handles password entry for admin access
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		async void Password_Completed(object sender, EventArgs e)
 		{
             var usr = usrEntry.Text;
@@ -47,7 +47,11 @@ namespace Databar.Views
             }
         }
 
-		// Handle Enter-button-press event on login-page
+        /// <summary>
+        /// Handle Enter-button-press event on login-page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
 		async void Enter_Button_Pressed(object sender, EventArgs e)
 		{
             var usr = usrEntry.Text;
@@ -74,10 +78,14 @@ namespace Databar.Views
                 //App.DBManager.SetDBRestManager(new RestService());
                 await DisplayAlert("Feil", "Kontakt sysadmin, feil: " + ex.Message, "OK");
             }
-
         }
 
-        async void CloseWindow(object sender, EventArgs e)
+        /// <summary>
+        /// Closes the window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void CloseWindow(object sender, EventArgs e)
         {
             Application.Current.MainPage = new NavigationPage(new MainPage());
         }

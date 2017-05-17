@@ -2,98 +2,119 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Databar.Views.LoginModal">
-    <Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+
+    <Label HorizontalOptions="Center" 
+           Text="{Binding MainText}" 
+           VerticalOptions="Center" 
+           />
 
     <StackLayout>
         <StackLayout
+            HorizontalOptions="FillAndExpand"
             VerticalOptions="CenterAndExpand"
-			HorizontalOptions="FillAndExpand"
 			Orientation="Vertical"
 			Spacing="20">
-            <Image
-						  HorizontalOptions="Center"
-						  VerticalOptions="Center"
-						  x:Name="imageView"
-						  Source="gs1_logo.png"
-						  BackgroundColor="Transparent"
-						  IsVisible="true">
+            <Image x:Name="imageView"
+                   BackgroundColor="Transparent"
+				   HorizontalOptions="Center"
+				   IsVisible="true"	  
+				   Source="gs1_logo.png"						  
+                   VerticalOptions="Center">
 
                 <OnPlatform x:TypeArguments="ImageSource"
-									iOS="gs1_logo.png"
-									Android="gs1_logo.png" />
+                            Android="gs1_logo.png"
+							iOS="gs1_logo.png"
+							/>
 
             </Image>
             <Label Text="Tast inn brukernavn med administratorrettigheter"
-					VerticalOptions="Center"
-					HorizontalOptions="Center" />
+                   HorizontalOptions="Center"
+				   VerticalOptions="Center"
+				   />
             <!--Entry field for admin-password-->
-            <Entry x:Name="usrEntry" Placeholder="admin" Text="admin"
-		   VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Entry x:Name="usrEntry" 
+                   HorizontalOptions="Center"
+                   Placeholder="admin" 
+                   Text="admin"
+		           VerticalOptions="Center" 
+                   />
             
             <Label Text="Tast inn administrasjonspassord"
-					VerticalOptions="Center"
-					HorizontalOptions="Center" />
+                   HorizontalOptions="Center"
+				   VerticalOptions="Center"
+				   />
             <!--Entry field for admin-password-->
-            <Entry x:Name="pwEntry" IsPassword="True" Completed="Password_Completed" Placeholder="Passord" 
-		   VerticalOptions="Center" HorizontalOptions="Center"/>
+            <Entry x:Name="pwEntry" 
+                   Completed="Password_Completed"
+                   HorizontalOptions="Center"
+                   IsPassword="True" 
+                   Placeholder="Passord" 
+		           VerticalOptions="Center" 
+                   />
 
-            <Button Text="Enter" Clicked="Enter_Button_Pressed" 
-			VerticalOptions="Center" HorizontalOptions="Center" />
+            <Button Clicked="Enter_Button_Pressed" 
+                    HorizontalOptions="Center"
+                    Text="Enter" 
+			        VerticalOptions="Center"
+                    />
         </StackLayout>
         <!-- Makes a horizontal line between the text and the buttons at the bottom -->
-        <BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
+        <BoxView BackgroundColor="#F26334"
+                 HeightRequest="3" 
+                 WidthRequest="1" 
+                 />
 
-        <StackLayout
-						VerticalOptions="End"
-						Spacing="40"
-						Orientation="Horizontal"
-						HorizontalOptions="Center"
-                        Padding="0, 10, 0, 10">
+        <StackLayout HorizontalOptions="Center"
+					 Orientation="Horizontal"
+                     Padding="0, 10, 0, 10"
+					 Spacing="40"
+                     VerticalOptions="End">
 
             <!-- Invis button -->
             <Button x:Name="cartButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-                            Margin="30,0,15,0"
-                    IsVisible="False">
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+                    IsVisible="False"
+                    Margin="30,0,15,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_shopping_cart_grey.png"
-	                				iOS="GS1_Symbol_Shopping_Cart_Grey.png"/>
+	                			Android="gs1_shopping_cart_grey.png"
+	                			iOS="GS1_Symbol_Shopping_Cart_Grey.png"
+                                />
                 </Button.Image>
-
 
             </Button>
 
             <Button x:Name="closeButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-						IsVisible="true"
-						Clicked="CloseWindow"
-                            Margin="15,0,15,0">
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+                    Clicked="CloseWindow"
+					IsVisible="true"
+					Margin="15,0,15,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-							Android="gs1_remove_circle.png"
-							iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"/>
+							    Android="gs1_remove_circle.png"
+							    iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"
+                                />
                 </Button.Image>
 
             </Button>
 
             <!-- Made button gray because of no use on this page -->
             <Button x:Name="trashButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-                        Margin="15,0,30,0"
-                    IsVisible="False">
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+                    IsVisible="False"
+                    Margin="15,0,30,0">
 
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="gs1_trash_grey.png"
-	                			iOS="GS1_Symbol_Trashcan_Grey.png"/>
+	                			iOS="GS1_Symbol_Trashcan_Grey.png"
+                                />
                 </Button.Image>
-
             </Button>
         </StackLayout>
     </StackLayout>

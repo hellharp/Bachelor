@@ -64,9 +64,6 @@
     <Compile Include="Views\Admin\AdminMenu.xaml.cs">
       <DependentUpon>AdminMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BasisUI.xaml.cs">
-      <DependentUpon>BasisUI.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Services\DB_Service.cs" />
     <Compile Include="Services\IDB_Service.cs" />
     <Compile Include="IFileHelper.cs" />
@@ -178,12 +175,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\BasisUI.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\EditProductPage.xaml">

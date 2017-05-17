@@ -1,15 +1,20 @@
 ﻿using System;
 using Databar.ViewModels;
 using Xamarin.Forms;
-using Databar.Services;
 
 namespace Databar.Views
 {
+    /// <summary>
+    /// The View for the PayConfirmationPage
+    /// </summary>
     public partial class PayConfirmationPage : ContentPage
 	{
 		private PayConfirmationViewModel payConfirmationViewModel;
         private CartViewModel cartViewModel;
 
+        /// <summary>
+        /// Initializes the PayConfirmationViewModel and calculates the total discounted price
+        /// </summary>
         public PayConfirmationPage()
 		{
 			InitializeComponent();
@@ -18,19 +23,24 @@ namespace Databar.Views
 			payConfirmationViewModel =  new PayConfirmationViewModel();
 
 			CalculateDiscountPrice();
-
 		}
 
-		//Calculate total discount
-		private void CalculateDiscountPrice()
+        /// <summary>
+        /// Calculate total discount
+        /// </summary>
+        private void CalculateDiscountPrice()
 		{
 			decimal discountnumber = payConfirmationViewModel.TotalDiscount();
 			DiscountAmountLabel.Text = discountnumber.ToString() + ",-";
 		}
 
-		async void CloseWindow(object sender, EventArgs e)
+        /// <summary>
+        /// Closes View and clears the cart
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+		void CloseWindow(object sender, EventArgs e)
 		{
-            //await Navigation.PushAsync(new Views.MainPage());
             cartViewModel = Application.Current.Properties["CartViewModel"] as CartViewModel;
             cartViewModel.ResetCartlist();
             Application.Current.MainPage = new NavigationPage(new MainPage());

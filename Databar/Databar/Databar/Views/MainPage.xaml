@@ -5,87 +5,89 @@
              xmlns:control="clr-namespace:Databar.CustomControls;assembly=Databar"
              x:Class="Databar.Views.MainPage">
 
-	<Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" />
+    <Label HorizontalOptions="Center"
+           Text="{Binding MainText}" 
+           VerticalOptions="Center" 
+           />
     <ContentPage.Padding>
         <!--Added padding to the top on the iOS platform to lower it beneath the phone's status bar-->
         <OnPlatform x:TypeArguments="Thickness"
-					iOS="0,20,0,0"/>
+					iOS="0,20,0,0"
+                    />
     </ContentPage.Padding>
 
     <StackLayout>
         <StackLayout Padding="0,30,0,0">
-            <Image Source="gs1_logo.png"
-                   HorizontalOptions="Center"/>
-        </StackLayout>
-        <StackLayout VerticalOptions="CenterAndExpand"
-                         HorizontalOptions="FillAndExpand"
-                         Orientation="Vertical"
-                         Spacing="20">
-
-               
-            <Label x:Name="currentDate"
-                       Text="Curr_Date here"
-                       IsVisible="False"/>
-         
-           
             <Image HorizontalOptions="Center"
+                   Source="gs1_logo.png"                   
+                   />
+        </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     Orientation="Vertical"
+                     Spacing="20"
+                     VerticalOptions="CenterAndExpand">
+
+            <Label x:Name="currentDate"
+                   IsVisible="False"
+                   Text="Curr_Date here"
+                   />
+
+            <Image HorizontalOptions="Center"
+                   Scale="1.25"
                    Source="frontpage_photo.png"
-                   Scale="1.25"/>
-
-
+                   />
 
         </StackLayout>
-            <!--Bottom button navigation row-->
-            <BoxView HeightRequest="3" WidthRequest="1" Color="#F26334" />
-            <StackLayout VerticalOptions="End"
-                     Spacing="40"
+        <!--Bottom button navigation row-->
+        <BoxView Color="#F26334" 
+                 HeightRequest="3" 
+                 WidthRequest="1" 
+                 />
+        <StackLayout HorizontalOptions="Center"
                      Orientation="Horizontal"
-                     HorizontalOptions="Center"
-                     Padding="0, 10, 0, 10">
+                     Padding="0, 10, 0, 10"
+                     Spacing="40"
+                     VerticalOptions="End">
 
-                <Button x:Name="barcodeButton"
+            <Button x:Name="barcodeButton"
                     BackgroundColor="Transparent"
 					BorderColor="Transparent"
 					Clicked="ToCart"
                     Margin="30,0,15,0">
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+	                		    Android="gs1_shopping_cart.png"
+	                			iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"
+                                />
+                </Button.Image>
 
-                    <Button.Image>
-                        <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_shopping_cart.png"
-	                				iOS="GS1_Symbol_Shopping_Cart_RGB_20150416.png"/>
-                    </Button.Image>
+            </Button>
 
-
-                </Button>
-
-                <Button x:Name="loginButton"
+            <Button x:Name="loginButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
 					Clicked="ToAdminLogin"
                     Margin="15,0,15,0">
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+						        Android="gs1_menu.png"
+						        iOS="GS1_Symbol_Menu_RGB_20150416.png"
+                                />
+                </Button.Image>
+            </Button>
 
-                    <Button.Image>
-                        <OnPlatform x:TypeArguments="FileImageSource"
-						Android="gs1_menu.png"
-						iOS="GS1_Symbol_Menu_RGB_20150416.png"/>
-                    </Button.Image>
-                </Button>
-
-                <Button x:Name="helpButton"
+            <Button x:Name="helpButton"
 					BackgroundColor="Transparent"
 					BorderColor="Transparent"
 					Clicked="OnInfoButtonPressed"
                     Margin="15,0,30,0">
-
-                    <Button.Image>
-                        <OnPlatform x:TypeArguments="FileImageSource"
-                			Android="gs1_help.png"
-                			iOS="GS1_Symbol_Help_RGB_2015-04-16.png"/>
-                    </Button.Image>
-                </Button>
-
-            </StackLayout>
+                <Button.Image>
+                    <OnPlatform x:TypeArguments="FileImageSource"
+                			    Android="gs1_help.png"
+                			    iOS="GS1_Symbol_Help_RGB_2015-04-16.png"
+                                />
+                </Button.Image>
+            </Button>
         </StackLayout>
-
-
+    </StackLayout>
 </ContentPage>

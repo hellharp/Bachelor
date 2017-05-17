@@ -2,45 +2,84 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Databar.Views.ShoppingCart"
-             
              xmlns:ViewModels="clr-namespace:Databar.ViewModels">
 
-    
-      
     <ContentPage.Padding>
         <!--iOS må starte 20dp lenger ned fra toppen. Ellers havner det øverst i statuslinjen (aka klokken)-->
         <OnPlatform x:TypeArguments="Thickness"
 					iOS="0,20,0,0"/>
     </ContentPage.Padding>
 
-
     <StackLayout>
+        <StackLayout VerticalOptions="StartAndExpand">
 
-        <StackLayout
-                VerticalOptions="StartAndExpand">
-
-            
             <!--List that shows the Shopping Cart. ItemSource is set to CartViewModel.CartList -->
-            <ListView x:Name="listView" ItemSelected="OnItemSelected" ItemsSource="{Binding CartList}">
+            <ListView x:Name="listView" 
+                      ItemSelected="OnItemSelected" 
+                      ItemsSource="{Binding CartList}">
                 <ListView.Header>
                     <Grid Padding="0,5,0,0">
-                        <Label Text="Produkt" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Medium" Grid.Column="0" Grid.ColumnSpan="2" Margin="5,0,0,0"/>
-                        <Label Text="Rabatt" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Center" FontSize="Medium" Grid.Column="2" Grid.ColumnSpan="2"/>
-                        <Label Text="Pris(kr)" TextColor="#002c6c" FontAttributes="Bold" HorizontalOptions="Start" FontSize="Medium" Grid.Column="4"/>
+                        <Label FontAttributes="Bold" 
+                               FontSize="Medium"
+                               Grid.Column="0" 
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Start"
+                               Text="Produkt" 
+                               TextColor="#002c6c" 
+                               Margin="5,0,0,0"
+                               />
+                        <Label FontAttributes="Bold"
+                               FontSize="Medium" 
+                               Grid.Column="2" 
+                               Grid.ColumnSpan="2"
+                               HorizontalOptions="Center" 
+                               Text="Rabatt" 
+                               TextColor="#002c6c"
+                               />
+                        <Label Text="Pris(kr)" 
+                               TextColor="#002c6c" 
+                               FontAttributes="Bold" 
+                               FontSize="Medium" 
+                               Grid.Column="4"
+                               HorizontalOptions="Start" 
+                               />
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.ContextActions>
-                                <MenuItem Text="Fjern" CommandParameter="{Binding .}" Clicked="OnRemoved"/>
+                                <MenuItem Clicked="OnRemoved"
+                                          CommandParameter="{Binding .}"
+                                          Text="Fjern" 
+                                          />
                             </ViewCell.ContextActions>
                             <StackLayout Padding="5">
                                 <Grid>
-                                    <Label Text="{Binding ProductNameAndPrice}" HorizontalOptions="Start" FontSize="Small" Grid.Column="0" Grid.ColumnSpan="2" />
-                                    <Label Text="{Binding CurrentRebate}" HorizontalOptions="End" TextColor="Green" FontSize="Small" Grid.Column="2"/>
-                                    <Label Text="{Binding CurrentRebateType}" HorizontalOptions="Start" TextColor="Green" FontSize="Small" Grid.Column="3"/>
-                                    <Label Text="{Binding RebatedPrice, StringFormat='{0:0.00}'}" HorizontalOptions="End" TextColor="Green" FontSize="Small" Grid.Column="4"/>
+                                    <Label FontSize="Small" 
+                                           Grid.Column="0" 
+                                           Grid.ColumnSpan="2" 
+                                           HorizontalOptions="Start"
+                                           Text="{Binding ProductNameAndPrice}"                                            
+                                           />
+                                    <Label FontSize="Small" 
+                                           Grid.Column="2"
+                                           HorizontalOptions="End" 
+                                           Text="{Binding CurrentRebate}" 
+                                           TextColor="Green" 
+                                           />
+                                    <Label FontSize="Small" 
+                                           Grid.Column="3"
+                                           HorizontalOptions="Start" 
+                                           Text="{Binding CurrentRebateType}" 
+                                           TextColor="Green" 
+                                           />
+                                    <Label FontSize="Small" 
+                                           Grid.Column="4"
+                                           HorizontalOptions="End"
+                                           Text="{Binding RebatedPrice, StringFormat='{0:0.00}'}" 
+                                           TextColor="Green" 
+                                           />
                                 </Grid>
                             </StackLayout>
                         </ViewCell>
@@ -49,64 +88,68 @@
             </ListView>
 
             <!--Shows the sum of all the items-->
-            <StackLayout Orientation="Horizontal" Padding="5">
-                <Label HorizontalOptions="StartAndExpand" Text="Sum" FontSize="Large"/>
-                <Label HorizontalOptions="End" x:Name="SumLabel" Text="{Binding SumString}" FontSize="Large" TextColor="Red"/>
+            <StackLayout Orientation="Horizontal" 
+                         Padding="5">
+                <Label FontSize="Large"
+                       HorizontalOptions="StartAndExpand" 
+                       Text="Sum"
+                       />
+                <Label x:Name="SumLabel"
+                       FontSize="Large" 
+                       HorizontalOptions="End" 
+                       Text="{Binding SumString}" 
+                       TextColor="Red"
+                       />
             </StackLayout>
-
-
         </StackLayout>
-        <BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
-        <StackLayout VerticalOptions="End" 
-                     Spacing="40"
+        <BoxView BackgroundColor="#F26334"
+                 HeightRequest="3" 
+                 WidthRequest="1"  
+                 />
+        <StackLayout HorizontalOptions="Center"
                      Orientation="Horizontal"
-                     HorizontalOptions="Center"
-                     Padding="0, 10, 0, 10">
+                     Padding="0, 10, 0, 10"
+                     Spacing="40"
+                     VerticalOptions="End">
 
             <Button x:Name="barcodeButton"
                     BackgroundColor="Transparent"
 					BorderColor="Transparent"
                     Clicked="StartZXing"
                     Margin="30,0,15,0">
-
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_barcode.png"
-	                				iOS="GS1_Symbol_Barcode_RGB_20150416.png"/>
+	                			Android="gs1_barcode.png"
+	                			iOS="GS1_Symbol_Barcode_RGB_20150416.png"
+                                />
                 </Button.Image>
-
-
             </Button>
 
             <Button x:Name="creditButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-				Clicked="ToPayPage"
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+				    Clicked="ToPayPage"
                     Margin="15,0,15,0">
-
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="gs1_credit_card.png"
-	                			iOS="GS1_Symbol_Credit_Card_RGB_20150416.png"/>
+	                			iOS="GS1_Symbol_Credit_Card_RGB_20150416.png"
+                                />
                 </Button.Image>
-
             </Button>
 
             <Button x:Name="trashButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-				Clicked="OnRemoveIcon"
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+				    Clicked="OnRemoveIcon"
                     Margin="15,0,30,0">
-
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="gs1_trash.png"
-	                			iOS="GS1_Symbol_Trashcan_RGB_20150416.png"/>
+	                			iOS="GS1_Symbol_Trashcan_RGB_20150416.png"
+                                />
                 </Button.Image>
-
             </Button>
-
-
         </StackLayout>
     </StackLayout>
 </ContentPage>

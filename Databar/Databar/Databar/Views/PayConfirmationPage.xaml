@@ -7,133 +7,122 @@
     <ContentPage.Padding>
         <!--Added padding to the top on the iOS platform to lower it beneath the phone's status bar-->
         <OnPlatform x:TypeArguments="Thickness"
-					iOS="0,20,0,0"/>
+					iOS="0,20,0,0"
+                    />
     </ContentPage.Padding>
 
     <StackLayout>
         <StackLayout>
             <ScrollView>
                 <StackLayout>
-
                     <StackLayout Padding="0,15,0,5">
-                        <Image Source="gs1_logo.png"
-                   HorizontalOptions="Center"/>
+                        <Image HorizontalOptions="Center"
+                               Source="gs1_logo.png"
+                               />
                     </StackLayout>
 
-                    <StackLayout
-					HorizontalOptions="FillAndExpand"
-					VerticalOptions="Start"
-					Spacing="20"
-					Margin="0,0,0,200"
-                    Padding="0,10,0,125">
+                    <StackLayout HorizontalOptions="FillAndExpand"
+                                 Margin="0,0,0,200"
+                                 Spacing="20"
+                                 Padding="0,10,0,125"
+					             VerticalOptions="Start">
 
-                        <Label Text=
-						"Gratulerer"
-						FontSize="Large"
-						TextColor="#002C6C"
-						FontAttributes="Bold"
-						VerticalTextAlignment="Center"
-						HorizontalTextAlignment="Center"/>
+                        <Label FontAttributes="Bold"
+                               FontSize="Large"
+                               HorizontalTextAlignment="Center"
+                               Text="Gratulerer"
+                               TextColor="#002C6C"
+                               VerticalTextAlignment="Center"
+					           />
 
-                        <Label
-						Text=
-						"&#x0a;Du sparte kr."
-						FontSize="Medium"
-						TextColor="#002C6C"
-						LineBreakMode="CharacterWrap"
-						VerticalTextAlignment="Start"
-						HorizontalTextAlignment="Center"/>
+                        <Label FontSize="Medium"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="CharacterWrap"
+                               Text="&#x0a;Du sparte kr."
+                               TextColor="#002C6C"
+						       VerticalTextAlignment="Start"
+						       />
 
                         <!--Shows the discountsum of all the items-->
-                        <Label 
-						VerticalTextAlignment="Start"
-						HorizontalTextAlignment="Center"
-						x:Name="DiscountAmountLabel" 
-						FontSize="Medium" 
-						FontAttributes="Bold"
-						TextColor="#002C6C"/>
+                        <Label x:Name="DiscountAmountLabel"
+                               FontAttributes="Bold"
+                               FontSize="Medium" 
+                               HorizontalTextAlignment="Center"
+						       VerticalTextAlignment="Start"
+                               TextColor="#002C6C"
+                               />
 
+                        <Label FontSize="Medium"
+                               Text=" på å handle &quot;Smart&quot;.&#x0a;&#x0a; Samtidig bidro du til at&#x0a; mindre mat blir kastet.&#x0a;"
+						       HorizontalTextAlignment="Center"
+                               LineBreakMode="CharacterWrap"
+						       TextColor="#002C6C"
+						       VerticalTextAlignment="Start"
+						       />
 
-                        <Label
-						Text=
-						" på å handle &quot;Smart&quot;.&#x0a;&#x0a; Samtidig bidro du til at&#x0a; mindre mat blir kastet.&#x0a;"
-						FontSize="Medium"
-						TextColor="#002C6C"
-						LineBreakMode="CharacterWrap"
-						VerticalTextAlignment="Start"
-						HorizontalTextAlignment="Center"/>
-
-                        <Label
-						Text=
-						"Velkommen igjen!&#x0a;"
-						FontSize="Medium"
-						TextColor="#002C6C"
-						LineBreakMode="CharacterWrap"
-						VerticalTextAlignment="Start"
-						HorizontalTextAlignment="Center"/>
-
+                        <Label FontSize="Medium"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="CharacterWrap"
+						       Text="Velkommen igjen!&#x0a;"
+						       TextColor="#002C6C"
+						       VerticalTextAlignment="Start"
+						       />
                     </StackLayout>
                 </StackLayout>
             </ScrollView>
         </StackLayout>
         <!-- Makes a horizontal line between the text and the buttons at the bottom -->
-        <BoxView HeightRequest="3" WidthRequest="1" BackgroundColor="#F26334"/>
+        <BoxView BackgroundColor="#F26334"
+                 HeightRequest="3" 
+                 WidthRequest="1" 
+                 />
 
-        <StackLayout
-						VerticalOptions="End"
-						Spacing="40"
-						Orientation="Horizontal"
-						HorizontalOptions="Center"
-                        Padding="0, 10, 0, 10">
+        <StackLayout HorizontalOptions="Center"
+                     Orientation="Horizontal"
+                     Padding="0, 10, 0, 10"
+                     Spacing="40"
+					 VerticalOptions="End">
 
             <!-- Made button invisible because of no use on this page -->
             <Button x:Name="cartButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-                            Margin="30,0,15,0"
-							Opacity="0">
-
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+                    Margin="30,0,15,0"
+					Opacity="0">
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-	                				Android="gs1_shopping_cart_grey.png"
-	                				iOS="GS1_Symbol_Shopping_Cart_Grey.png"/>
+	                			Android="gs1_shopping_cart_grey.png"
+	                			iOS="GS1_Symbol_Shopping_Cart_Grey.png"
+                                />
                 </Button.Image>
-
-
             </Button>
 
             <Button x:Name="closeButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-						IsVisible="true"
-						Clicked="CloseWindow"
-                            Margin="15,0,15,0">
-
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+                    Clicked="CloseWindow"
+				    IsVisible="true"
+					Margin="15,0,15,0">
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
-							Android="gs1_remove_circle.png"
-							iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"/>
+							    Android="gs1_remove_circle.png"
+							    iOS="GS1_Symbol_Remove_Circle_RGB_20150416.png"
+                                />
                 </Button.Image>
-
             </Button>
 
             <Button x:Name="trashButton"
-						BackgroundColor="Transparent"
-						BorderColor="Transparent"
-                        Margin="15,0,30,0"
-						Opacity="0">
-
+					BackgroundColor="Transparent"
+					BorderColor="Transparent"
+                    Margin="15,0,30,0"
+					Opacity="0">
                 <Button.Image>
                     <OnPlatform x:TypeArguments="FileImageSource"
 	                			Android="gs1_trash_grey.png"
-	                			iOS="GS1_Symbol_Trashcan_Grey.png"/>
+	                			iOS="GS1_Symbol_Trashcan_Grey.png"
+                                />
                 </Button.Image>
-
             </Button>
-
         </StackLayout>
-
     </StackLayout>
-
-
 </ContentPage>
