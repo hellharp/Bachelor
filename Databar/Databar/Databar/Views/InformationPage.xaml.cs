@@ -11,7 +11,6 @@ namespace Databar.Views
     public partial class InformationPage : ContentPage
     {
         private InformationPageViewModel InfoViewModel;
-        private string location;
 
         /// <summary>
         /// Calls the InfoViewModel to set it as a BindingContext
