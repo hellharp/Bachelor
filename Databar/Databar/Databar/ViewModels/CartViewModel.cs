@@ -247,8 +247,6 @@ namespace Databar.ViewModels
         /// <param name="barcode">Input whole barcode</param>
         private void DecodeBarcode(string barcode)
         {
-            int nr = 1;
-
             //Finds the AI number
             String pattern = @"(?<=\().+?(?=\))";
             Match match = Regex.Match(barcode, pattern);

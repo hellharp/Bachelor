@@ -36,7 +36,7 @@ namespace Databar.Views.Admin
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        async void Logout(object sender, EventArgs e)
+        void Logout(object sender, EventArgs e)
         {
             Application.Current.Properties["IsLoggedIn"] = false;
 
