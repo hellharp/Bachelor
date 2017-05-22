@@ -27,7 +27,7 @@ namespace Databar.Services
         }
 
         /// <summary>
-        /// Constructor that instantiates DBRestManager with a given IRestService.
+        /// Authenticates user with administrator privileges.
         /// </summary>
         /// <returns>
         /// Boolean

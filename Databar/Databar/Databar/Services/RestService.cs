@@ -66,6 +66,10 @@ namespace Databar.Services
 
         }
 
+        /// <summary>
+        /// Authenticates username and password against restSQL admin-restricted URL.
+        /// </summary>
+        /// <returns></returns>
         public async Task<Boolean> AuthenticateAdmin()
         {
             try
