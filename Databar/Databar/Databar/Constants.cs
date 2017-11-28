@@ -16,7 +16,7 @@ namespace Databar
         /// URL of restSQL resource.
         /// {0}, {1} and {2} are replaced in RestService methods with string.Format.
         /// </summary>
-        public static string RestUrl = "https://188.226.133.140:8443/restsql/res/databar_db.{0}/{1}{2}";
+        public static string RestUrl = "https://67.205.184.148:8443/restsql/res/databar_db.{0}/{1}{2}";
         
         /// <summary>
         /// Append to resturl {2] to get JSON-output.
@@ -40,6 +40,6 @@ namespace Databar
         /// <summary>
         /// URL of admin authentication.
         /// </summary>
-        public static string AdminAuthUrl = "https://188.226.133.140:8443/restsql/conf/security";
+        public static string AdminAuthUrl = "https://67.205.184.148:8443/restsql/conf/security";
     }
 }
